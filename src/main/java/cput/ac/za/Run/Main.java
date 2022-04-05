@@ -1,4 +1,4 @@
-package cput.ac.za;
+package cput.ac.za.Run;
 
 /**
  * Hello world!
