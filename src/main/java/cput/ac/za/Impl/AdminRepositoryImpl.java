@@ -1,7 +1,7 @@
-package cput.ac.za.Domain.Impl;
+package cput.ac.za.Impl;
 
 import cput.ac.za.Domain.Entity.Admin;
-import cput.ac.za.Domain.Repository.IRepository;
+import cput.ac.za.Repository.IRepository;
 
 public class AdminRepositoryImpl implements IRepository<Admin> {
     @Override

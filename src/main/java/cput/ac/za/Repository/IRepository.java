@@ -1,6 +1,6 @@
-package cput.ac.za.Domain.Repository;
+package cput.ac.za.Repository;
 
-public interface IRepository<T> {
+public interface IRepository<T>{
     public void create();
     public T read();
     public void update();

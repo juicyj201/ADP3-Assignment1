@@ -12,7 +12,7 @@ public class Admin {
     private String adminFirstName;
     private String adminSurname;
 
-    public Admin(){
+    public Admin(AdminBuilder adminBuilder){
         this.adminID = adminID;
         this.adminType = adminType;
         this.adminFirstName = adminFirstName;
@@ -54,5 +54,32 @@ public class Admin {
         admin.setAdminType(null);
         admin.setAdminFullName(null, null);
         admin = null;
+    }
+
+    public static class AdminBuilder{
+        private String adminID;
+        private String adminType;
+        private String adminFirstName;
+        private String adminSurname;
+
+        public AdminBuilder(String adminFirstName, String adminSurname){
+            this.adminFirstName = adminFirstName;
+            this.adminSurname = adminSurname;
+        }
+
+        public AdminBuilder createAdminID(String adminID){
+            this.adminID = adminID;
+            return this;
+        }
+
+        public AdminBuilder createAdminType(String adminType){
+            this.adminType = adminType;
+            return this;
+        }
+
+        public Admin build(){
+            Admin admin = new Admin(this);
+            return admin;
+        }
     }
 }

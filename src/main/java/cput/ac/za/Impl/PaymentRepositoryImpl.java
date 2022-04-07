@@ -1,7 +1,7 @@
-package cput.ac.za.Domain.Impl;
+package cput.ac.za.Impl;
 
 import cput.ac.za.Domain.Entity.Payment;
-import cput.ac.za.Domain.Repository.IRepository;
+import cput.ac.za.Repository.IRepository;
 
 public class PaymentRepositoryImpl implements IRepository<Payment> {
     @Override
