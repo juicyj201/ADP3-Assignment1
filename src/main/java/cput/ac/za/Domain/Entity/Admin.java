@@ -44,7 +44,14 @@ public class Admin {
         return adminFirstName + " " + adminSurname;
     }
 
-    @Override
+    public String getAdminFirstName(){
+        return adminFirstName;
+    }
+
+    public String getAdminSurname(){
+        return adminSurname;
+    }
+        @Override
     public String toString(){
         return this.adminID + ", " + this.adminFirstName + ", " + this.adminSurname + ", " + this.adminType;
     }
@@ -55,6 +62,8 @@ public class Admin {
         admin.setAdminFullName(null, null);
         admin = null;
     }
+
+
 
     public static class AdminBuilder{
         private String adminID;
@@ -76,6 +85,8 @@ public class Admin {
             this.adminType = adminType;
             return this;
         }
+
+
 
         public Admin build(){
             Admin admin = new Admin(this);
