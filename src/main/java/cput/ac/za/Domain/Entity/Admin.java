@@ -7,61 +7,52 @@ package cput.ac.za.Domain.Entity;
  */
 
 public class Admin {
-    public String adminID;
-    public String adminType;
-    public String adminFirstName;
-    public String adminSurname;
+    private String adminID;
+    private String adminType;
+    private String adminFirstName;
+    private String adminSurname;
 
-    public Admin(AdminBuilder adminBuilder){
+    public Admin(){
         this.adminID = adminID;
         this.adminType = adminType;
         this.adminFirstName = adminFirstName;
         this.adminSurname = adminSurname;
     }
 
-    public String getAdminID(String adminID){
+    public void setAdminID(String adminID){
+        this.adminID = adminID;
+    }
+
+    public void setAdminType(String adminType){
+        this.adminType = adminType;
+    }
+
+    public void setAdminFullName(String adminFirstName, String adminSurname){
+        this.adminFirstName = adminFirstName;
+        this.adminSurname = adminSurname;
+    }
+
+    public String getAdminID(){
         return adminID;
     }
 
-    public String getAdminType(String adminType){
+    public String getAdminType(){
         return adminType;
     }
 
-    public String getAdminFullName(String adminFirstName, String adminSurname){
-        return adminFirstName + adminSurname;
+    public String getAdminFullName(){
+        return adminFirstName + " " + adminSurname;
     }
 
-    public static class AdminBuilder{
-        public String adminID;
-        public String adminType;
-        public String adminFirstName;
-        public String adminSurname;
+    @Override
+    public String toString(){
+        return this.adminID + ", " + this.adminFirstName + ", " + this.adminSurname + ", " + this.adminType;
+    }
 
-        public AdminBuilder(String adminID, String adminFirstName, String adminSurname){
-            this.adminID = adminID;
-            this.adminFirstName = adminFirstName;
-            this.adminSurname = adminSurname;
-        }
-
-        public AdminBuilder setAdminID(String adminID){
-            this.adminID = adminID;
-            return this;
-        }
-
-        public AdminBuilder setAdminType(String adminType){
-            this.adminType = adminType;
-            return this;
-        }
-
-        public AdminBuilder setAdminFullName(String adminFirstName, String adminSurname){
-            this.adminFirstName = adminFirstName;
-            this.adminSurname = adminSurname;
-            return this;
-        }
-
-        public Admin buildAdmin(){
-            Admin admin = new Admin(this);
-            return admin;
-        }
+    public void destroyAdmin(Admin admin){
+        admin.setAdminID(null);
+        admin.setAdminType(null);
+        admin.setAdminFullName(null, null);
+        admin = null;
     }
 }
