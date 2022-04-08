@@ -12,17 +12,34 @@ package za.ac.cput.Impl;
 import za.ac.cput.Domain.Entity.Student;
 import za.ac.cput.Repository.IRepository;
 
-public class StudentRepositoryImpl implements IRepository<Student> {
+import java.util.HashSet;
+import java.util.Set;
 
+public class StudentRepositoryImpl implements IRepository<Student> {
+private static StudentRepositoryImpl repository = null;
+private Set<Student> studentDB = null;
+
+public StudentRepositoryImpl(){
+studentDB = new HashSet<Student>();
+}
+
+public static StudentRepositoryImpl getRepository(){
+    if (repository == null){
+        repository = new StudentRepositoryImpl();
+    }
+    return repository;
+}
 
 
     @Override
-    public Student create(String id, Student object) {
+    public Student create(String id, Student object)
+    {
         return null;
     }
 
     @Override
-    public Student read(String id) {
+    public Student read(String id)
+    {
         return null;
     }
 
