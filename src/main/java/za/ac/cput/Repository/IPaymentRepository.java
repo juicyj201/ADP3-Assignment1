@@ -5,6 +5,12 @@ import za.ac.cput.Domain.Entity.Payment;
 
 import java.util.Map;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment repository interface
+ */
+
 public interface IPaymentRepository extends IRepository<Payment>{
     public Map<String, Payment> getAll();
 
@@ -18,5 +24,5 @@ public interface IPaymentRepository extends IRepository<Payment>{
     public void update(String id, Payment object);
 
     @Override
-    public void delete(String id, Payment object);
+    public void delete(String id);
 }

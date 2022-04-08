@@ -51,6 +51,16 @@ public class Payment {
         return paymentAmount;
     }
 
+    @Override
+    public String toString(){
+        return this.paymentID + ", " + this.studentAccountID + ", " + this.paymentDate + ", " + this.paymentAmount;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return this.clone();
+    }
+
     public static class PaymentBuilder{
         public String paymentID;
         public String studentAccountID;
