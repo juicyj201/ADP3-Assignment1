@@ -17,7 +17,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository
     private Map<String, Employee> employeeDB = null;
     boolean result = false;
 
-    private EmployeeRepositoryImpl(){
+    public EmployeeRepositoryImpl(){
         employeeDB = new HashMap<String, Employee>();
     }
 

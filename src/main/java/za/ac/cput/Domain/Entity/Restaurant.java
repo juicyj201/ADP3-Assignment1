@@ -64,7 +64,6 @@ public class Restaurant
         private String restaurantName;
         private String restaurantAddr;
 
-
         public RestaurantBuilder setRestaurantID(String restaurantID) {
             this.restaurantID = restaurantID;
             return this;

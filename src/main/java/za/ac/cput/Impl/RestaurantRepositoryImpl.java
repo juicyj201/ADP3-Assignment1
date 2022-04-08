@@ -18,7 +18,7 @@ public class RestaurantRepositoryImpl implements IRestaurantRepository
     private Map<String, Restaurant> restaurantDB = null;
     boolean result = false;
 
-    private RestaurantRepositoryImpl(){
+    public RestaurantRepositoryImpl(){
         restaurantDB = new HashMap<String, Restaurant>();
     }
 
