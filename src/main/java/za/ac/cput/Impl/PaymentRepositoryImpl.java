@@ -8,12 +8,17 @@ import za.ac.cput.Repository.IRepository;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment repository implmentation
+ */
+
 public class PaymentRepositoryImpl implements IPaymentRepository {
     private static PaymentRepositoryImpl repo = null;
     private Map<String, Payment> paymentDB = null;
-    boolean result = false;
 
-    private PaymentRepositoryImpl(){
+    public PaymentRepositoryImpl(){
         paymentDB = new HashMap<String, Payment>();
     }
 
@@ -30,11 +35,10 @@ public class PaymentRepositoryImpl implements IPaymentRepository {
     public Payment create(String id, Payment object) {
         //where id = paymentID & object = payment
         paymentDB.put(id, object);
-        if(!paymentDB.containsKey(id)){
-            return null;
-        }else{
+        if(paymentDB.containsKey(id)){
             return object;
         }
+        return null;
     }
 
     @Override

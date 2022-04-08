@@ -1,6 +1,12 @@
-package za.ac.cput.Factory;
+package za.ac.cput.Domain.Factory;
 
 import za.ac.cput.Domain.Entity.Payment;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment factory
+ */
 
 public class PaymentFactory {
     public Payment getPayment(String choice){

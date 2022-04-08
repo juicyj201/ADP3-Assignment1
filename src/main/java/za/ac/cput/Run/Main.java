@@ -1,8 +1,5 @@
 package za.ac.cput.Run;
 
-import za.ac.cput.Domain.Entity.Admin;
-import za.ac.cput.Factory.AdminFactory;
-
 /**
  * Hello world!
  *

@@ -8,12 +8,18 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The admin repository implementation
+ */
+
 public class AdminRepositoryImpl implements IAdminRepository {
     private static AdminRepositoryImpl repo = null;
+    private Set<Admin> adminDBSet = null;
     private Map<String, Admin> adminDB = null;
-    boolean result = false;
 
-    private AdminRepositoryImpl(){
+    public AdminRepositoryImpl(){
         adminDB = new HashMap<String, Admin>();
     }
 
@@ -21,20 +27,18 @@ public class AdminRepositoryImpl implements IAdminRepository {
         if(repo == null){
             repo = new AdminRepositoryImpl();
             return repo;
-        }else{
-            return null;
         }
+        return null;
     }
 
     @Override
     public Admin create(String id, Admin object) {
         //where id = adminID & object = admin
         adminDB.put(id, object);
-        if(!adminDB.containsKey(id)){
-            return null;
-        }else{
+        if(adminDB.containsKey(id)){
             return object;
         }
+        return null;
     }
 
     @Override
@@ -51,9 +55,6 @@ public class AdminRepositoryImpl implements IAdminRepository {
     public void update(String id, Admin object) {
         for(Admin a : adminDB.values()){
             if(a.getAdminID().equals(id)){
-                //a.setAdminID(object.getAdminID());
-                //a.setAdminType(object.getAdminType());
-                //a.setAdminFullName(object.getAdminFirstName(), object.getAdminSurname());
                 adminDB.replace(id, a, object);
             }
         }

@@ -1,6 +1,12 @@
-package za.ac.cput.Factory;
+package za.ac.cput.Domain.Factory;
 
 import za.ac.cput.Domain.Entity.Admin;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The admin factory
+ */
 
 public class AdminFactory {
     public Admin getAdmin(String choice){

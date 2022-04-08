@@ -51,19 +51,16 @@ public class Admin {
     public String getAdminSurname(){
         return adminSurname;
     }
-        @Override
+
+    @Override
     public String toString(){
         return this.adminID + ", " + this.adminFirstName + ", " + this.adminSurname + ", " + this.adminType;
     }
 
-    public void destroyAdmin(Admin admin){
-        admin.setAdminID(null);
-        admin.setAdminType(null);
-        admin.setAdminFullName(null, null);
-        admin = null;
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return this.clone();
     }
-
-
 
     public static class AdminBuilder{
         private String adminID;

@@ -1,0 +1,38 @@
+package za.ac.cput.Domain.Impl;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.testng.annotations.TestInstance;
+import za.ac.cput.Domain.Entity.Admin;
+import za.ac.cput.Impl.AdminRepositoryImpl;
+import za.ac.cput.Repository.IAdminRepository;
+
+import java.util.Map;
+
+public class IAdminRepositoryImplTest {
+    private AdminRepositoryImpl repo = new AdminRepositoryImpl();
+    private AdminRepositoryImpl repo2 = null;
+    private Admin admin;// = new Admin.AdminBuilder("Max", "Flight").build();
+    private AdminRepositoryImpl repo3 = new AdminRepositoryImpl();
+
+    @BeforeAll
+    public void setUp(){
+        admin = new Admin.AdminBuilder("Max", "Flight").build();
+        //repo = AdminRepositoryImpl.getRepo();
+        repo3.create("adMaxOwn", admin);
+    }
+
+    @Test
+    public void getRepo(){
+        Assert.assertNotNull(repo);
+    }
+
+    @Test
+    public void create(){
+        Assert.assertEquals(repo3.create("adMaxOwn", admin), repo2);
+    }
+
+}

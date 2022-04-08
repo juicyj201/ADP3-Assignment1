@@ -5,6 +5,12 @@ import za.ac.cput.Domain.Entity.Payment;
 
 import java.util.Map;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment repository interface
+ */
+
 public interface IPaymentRepository extends IRepository<Payment>{
     public Map<String, Payment> getAll();
 
