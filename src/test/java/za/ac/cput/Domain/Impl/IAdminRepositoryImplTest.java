@@ -2,15 +2,17 @@ package za.ac.cput.Domain.Impl;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.annotations.TestInstance;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Impl.AdminRepositoryImpl;
-import za.ac.cput.Repository.IAdminRepository;
 
 import java.util.Map;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The admin repository test fixture
+ */
 
 public class IAdminRepositoryImplTest {
     private AdminRepositoryImpl repo = new AdminRepositoryImpl();
