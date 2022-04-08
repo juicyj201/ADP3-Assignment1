@@ -3,10 +3,14 @@ package za.ac.cput.Domain.Impl;
 import org.junit.jupiter.api.BeforeAll;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.Payment;
-import za.ac.cput.Impl.AdminRepositoryImpl;
 import za.ac.cput.Impl.PaymentRepositoryImpl;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment repository test fixture
+ */
 
 public class IPaymentRepositoryImplTest {
     private PaymentRepositoryImpl repo = new PaymentRepositoryImpl();

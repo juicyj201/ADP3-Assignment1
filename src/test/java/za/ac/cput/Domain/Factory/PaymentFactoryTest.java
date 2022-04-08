@@ -5,6 +5,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import za.ac.cput.Domain.Entity.Payment;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment factory test fixture
+ */
+
 public class PaymentFactoryTest {
     private PaymentFactory factory = new PaymentFactory();
     private PaymentFactory factory2;

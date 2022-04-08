@@ -4,7 +4,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 import za.ac.cput.Domain.Entity.Admin;
-import za.ac.cput.Repository.IAdminRepository;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The admin factory test fixture
+ */
 
 public class AdminFactoryTest {
 
