@@ -44,7 +44,7 @@ public class PaymentRepositoryImpl implements IPaymentRepository {
     @Override
     public Payment read(String id) {
         for(Payment p : paymentDB.values()){
-            if(p.getPaymentID().equals(id)){
+            if(p.getPaymentID().equalsIgnoreCase(id)){
                 return p;
             }
         }
@@ -61,10 +61,10 @@ public class PaymentRepositoryImpl implements IPaymentRepository {
     }
 
     @Override
-    public void delete(String id, Payment object) {
+    public void delete(String id) {
         for(Payment p : paymentDB.values()){
             if(p.getPaymentID().equals(id)){
-                paymentDB.remove(id, object);
+                paymentDB.remove(id);
             }
         }
     }

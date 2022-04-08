@@ -28,7 +28,7 @@ public class StudentAccountRepositoryImpl implements IRepository<StudentAccount>
     }
 
     @Override
-    public void delete(String id, StudentAccount object) {
+    public void delete(String id) {
 
     }
 }

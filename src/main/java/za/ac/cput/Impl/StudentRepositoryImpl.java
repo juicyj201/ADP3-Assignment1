@@ -32,7 +32,7 @@ public class StudentRepositoryImpl implements IRepository<Student> {
     }
 
     @Override
-    public void delete(String id, Student object) {
+    public void delete(String id) {
 
     }
 }

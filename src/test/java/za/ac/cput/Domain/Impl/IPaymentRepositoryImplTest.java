@@ -20,6 +20,7 @@ public class IPaymentRepositoryImplTest {
         payment = new Payment.PaymentBuilder("P02", 2500).build();
         //repo = AdminRepositoryImpl.getRepo();
         repo2.create("P02", payment);
+        repo3.create("P02", payment);
     }
 
     @Test
@@ -31,4 +32,5 @@ public class IPaymentRepositoryImplTest {
     public void create(){
         Assert.assertEquals(repo3.create("P02", payment), repo2);
     }
+
 }

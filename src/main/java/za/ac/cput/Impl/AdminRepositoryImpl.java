@@ -44,7 +44,7 @@ public class AdminRepositoryImpl implements IAdminRepository {
     @Override
     public Admin read(String id) {
         for(Admin a : adminDB.values()){
-            if(a.getAdminID().equals(id)){
+            if(a.getAdminID().equalsIgnoreCase(id)){
                 return a;
             }
         }
@@ -61,10 +61,10 @@ public class AdminRepositoryImpl implements IAdminRepository {
     }
 
     @Override
-    public void delete(String id, Admin object) {
+    public void delete(String id) {
         for(Admin a : adminDB.values()){
             if(a.getAdminID().equals(id)){
-                adminDB.remove(id, object);
+                adminDB.remove(id);
             }
         }
     }

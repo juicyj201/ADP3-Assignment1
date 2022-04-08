@@ -24,5 +24,5 @@ public interface IPaymentRepository extends IRepository<Payment>{
     public void update(String id, Payment object);
 
     @Override
-    public void delete(String id, Payment object);
+    public void delete(String id);
 }

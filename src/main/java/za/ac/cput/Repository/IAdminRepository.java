@@ -24,5 +24,5 @@ public interface IAdminRepository extends IRepository<Admin>{
     public void update(String id, Admin object);
 
     @Override
-    public void delete(String id, Admin object);
+    public void delete(String id);
 }
