@@ -12,7 +12,7 @@ public class Payment {
     public String paymentDate;
     public int paymentAmount;
 
-    public Payment(){
+    public Payment(PaymentBuilder paymentBuilder){
         this.paymentID = paymentID;
         this.studentAccountID = studentAccountID;
         this.paymentDate = paymentDate;
@@ -49,6 +49,33 @@ public class Payment {
 
     public int getPaymentAmount(){
         return paymentAmount;
+    }
+
+    public static class PaymentBuilder{
+        public String paymentID;
+        public String studentAccountID;
+        public String paymentDate;
+        public int paymentAmount;
+
+        public PaymentBuilder(String paymentID, int paymentAmount){
+            this.paymentID = paymentID;
+            this.paymentAmount = paymentAmount;
+        }
+
+        public PaymentBuilder createStudentAccountID(String studentAccountID){
+            this.studentAccountID = studentAccountID;
+            return this;
+        }
+
+        public PaymentBuilder createPaymentDate(String paymentDate){
+            this.paymentDate = paymentDate;
+            return this;
+        }
+
+        public Payment build(){
+            Payment payment = new Payment(this);
+            return payment;
+        }
     }
 
 }

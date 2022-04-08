@@ -11,10 +11,10 @@ public class AdminTest {
 
     @BeforeEach
     public void setUp(){
-        admin = new Admin();
+        admin = new Admin.AdminBuilder("Name", "Surname").build();
         admin.setAdminID("adJacobOwn");
         admin.setAdminType("Business Owner");
-        admin.setAdminFullName("Jacob", "Lattimus");
+        //admin.setAdminFullName("Jacob", "Lattimus");
     }
     
     @Test
