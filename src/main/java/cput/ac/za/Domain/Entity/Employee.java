@@ -1,11 +1,17 @@
 package cput.ac.za.Domain.Entity;
 
+/**
+ * Matthew Jones
+ * 220077681
+ * The Employee Entity
+ */
+
 public class Employee
 {
-    public final String employeeNum;
-    public final String empFirstName;
-    public final String empLastName;
-    public final String studentAccountID;
+    public String employeeNum;
+    public String empFirstName;
+    public String empLastName;
+    public String studentAccountID;
 
     private Employee(EmployeeBuilder builder)
     {
@@ -15,24 +21,36 @@ public class Employee
         this.studentAccountID = builder.studentAccountID;
     }
 
-    public String getEmployeeNum()
-    {
+    public String getEmployeeNum() {
         return employeeNum;
     }
 
-    public String getEmpFirstName()
-    {
+    public void setEmployeeNum(String employeeNum) {
+        this.employeeNum = employeeNum;
+    }
+
+    public String getEmpFirstName() {
         return empFirstName;
     }
 
-    public String getEmpLastName()
-    {
+    public void setEmpFirstName(String empFirstName) {
+        this.empFirstName = empFirstName;
+    }
+
+    public String getEmpLastName() {
         return empLastName;
     }
 
-    public String getStudentAccountID()
-    {
+    public void setEmpLastName(String empLastName) {
+        this.empLastName = empLastName;
+    }
+
+    public String getStudentAccountID() {
         return studentAccountID;
+    }
+
+    public void setStudentAccountID(String studentAccountID) {
+        this.studentAccountID = studentAccountID;
     }
 
     @Override
@@ -47,27 +65,34 @@ public class Employee
 
     public static class EmployeeBuilder
     {
-        public final String employeeNum;
-        public final String empFirstName;
-        public final String empLastName;
-        public final String studentAccountID;
+        public String employeeNum;
+        public String empFirstName;
+        public String empLastName;
+        public String studentAccountID;
 
-        public EmployeeBuilder(String employeeNum, String empFirstName, String empLastName, String studentAccountID)
-        {
+        public EmployeeBuilder setEmployeeNum(String employeeNum) {
             this.employeeNum = employeeNum;
+            return this;
+        }
+
+        public EmployeeBuilder setEmpFirstName(String empFirstName) {
             this.empFirstName = empFirstName;
+            return this;
+        }
+
+        public EmployeeBuilder setEmpLastName(String empLastName) {
             this.empLastName = empLastName;
+            return this;
+        }
+
+        public EmployeeBuilder setStudentAccountID(String studentAccountID) {
             this.studentAccountID = studentAccountID;
+            return this;
         }
 
-        public Employee build() {
-            Employee emp = new Employee(this);
-            validateEmployeeObject(emp);
-            return emp;
-        }
-
-        private void validateEmployeeObject(Employee emp) {
-            //Code
+        public Employee build()
+        {
+            return new Employee(this);
         }
     }
 }

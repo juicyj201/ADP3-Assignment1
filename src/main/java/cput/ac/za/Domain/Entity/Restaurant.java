@@ -1,16 +1,37 @@
 package cput.ac.za.Domain.Entity;
 
+/**
+ * Matthew Jones
+ * 220077681
+ * The Restaurant Entity
+ */
+
 public class Restaurant
 {
-    private final String restaurantID;
-    private final String restaurantName;
-    private final String restaurantAddr;
+    private String restaurantID;
+    private String restaurantName;
+    private String restaurantAddr;
 
     private Restaurant(RestaurantBuilder builder)
     {
         this.restaurantID = builder.restaurantID;
         this.restaurantName = builder.restaurantName;
         this.restaurantAddr = builder.restaurantAddr;
+    }
+
+    public void setRestaurantID(String restaurantID)
+    {
+        this.restaurantID = restaurantID;
+    }
+
+    public void setRestaurantName(String restaurantName)
+    {
+        this.restaurantName = restaurantName;
+    }
+
+    public void setRestaurantAddr(String restaurantAddr)
+    {
+        this.restaurantAddr = restaurantAddr;
     }
 
     public String getRestaurantID()
@@ -29,8 +50,7 @@ public class Restaurant
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Restaurant{" +
                 "restaurantID='" + restaurantID + '\'' +
                 ", restaurantName='" + restaurantName + '\'' +
@@ -40,27 +60,37 @@ public class Restaurant
 
     public static class RestaurantBuilder
     {
+        private String restaurantID;
+        private String restaurantName;
+        private String restaurantAddr;
 
-        private final String restaurantID;
-        private final String restaurantName;
-        private final String restaurantAddr;
 
-        public RestaurantBuilder(String restaurantID, String restaurantName, String restaurantAddr)
-        {
+        public RestaurantBuilder setRestaurantID(String restaurantID) {
             this.restaurantID = restaurantID;
+            return this;
+        }
+
+        public RestaurantBuilder setRestaurantName(String restaurantName) {
             this.restaurantName = restaurantName;
+            return this;
+        }
+
+        public RestaurantBuilder setRestaurantAddr(String restaurantAddr) {
             this.restaurantAddr = restaurantAddr;
+            return this;
         }
 
-        public Restaurant build() {
-            Restaurant res = new Restaurant(this);
-            validateRestaurantObject(res);
-            return res;
+        public RestaurantBuilder copy(Restaurant restaurant)
+        {
+            this.restaurantID = restaurant.restaurantID;
+            this.restaurantName = restaurant.restaurantName;
+            this.restaurantAddr = restaurant.restaurantAddr;
+            return this;
         }
 
-        private void validateRestaurantObject(Restaurant res) {
-            //Code
+        public Restaurant build()
+        {
+            return new Restaurant(this);
         }
-
     }
 }
