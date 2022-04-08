@@ -80,14 +80,6 @@ public class Restaurant
             return this;
         }
 
-        public RestaurantBuilder copy(Restaurant restaurant)
-        {
-            this.restaurantID = restaurant.restaurantID;
-            this.restaurantName = restaurant.restaurantName;
-            this.restaurantAddr = restaurant.restaurantAddr;
-            return this;
-        }
-
         public Restaurant build()
         {
             return new Restaurant(this);

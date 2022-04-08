@@ -12,6 +12,9 @@ public class RestaurantFactory
 {
     public static Restaurant createRestaurant(String restaurantID, String restaurantName, String restaurantAddr)
     {
+        if(restaurantID == null)
+            return null;
+
         return new Restaurant.RestaurantBuilder().setRestaurantID(restaurantID)
                     .setRestaurantName(restaurantName)
                     .setRestaurantAddr(restaurantAddr)
