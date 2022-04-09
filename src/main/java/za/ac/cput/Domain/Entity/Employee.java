@@ -90,6 +90,15 @@ public class Employee
             return this;
         }
 
+        public EmployeeBuilder copy(Employee employee)
+        {
+            this.employeeNum = employee.employeeNum;
+            this.empFirstName = employee.empFirstName;
+            this.empLastName = employee.empLastName;
+            this.studentAccountID = employee.studentAccountID;
+            return this;
+        }
+
         public Employee build()
         {
             return new Employee(this);
