@@ -1,37 +1,51 @@
 package za.ac.cput.Impl;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
+import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Restaurant;
-
+import za.ac.cput.Domain.Factory.RestaurantFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantRepositoryImplTest
 {
-    private RestaurantRepositoryImpl resRepo = new RestaurantRepositoryImpl();
-    private RestaurantRepositoryImpl resRepo2;
-    private Restaurant restaurant;
-    private Restaurant newRes;
-    private RestaurantRepositoryImpl resRepo3 = new RestaurantRepositoryImpl();
+    private static RestaurantRepositoryImpl resRepo = RestaurantRepositoryImpl.getRepo();
+    private static Restaurant restaurant = RestaurantFactory.createRestaurant("101","Jackies","25 No Name Street");
 
-    @BeforeAll
-    public void setUp(){
-        restaurant = new Restaurant.RestaurantBuilder().build();
-        newRes = new Restaurant.RestaurantBuilder().build();
-        resRepo2 = new RestaurantRepositoryImpl();
-        resRepo2.create("007", restaurant);
-        resRepo3.create("007", restaurant);
+    @Test
+    void create()
+    {
+        Restaurant toCreate = resRepo.create("101",restaurant);
+        assertEquals(restaurant.getRestaurantID(), toCreate.getRestaurantID());
+        System.out.println("Create: "+toCreate);
     }
 
     @Test
-    public void getRepo(){
-        Assert.assertNotNull(resRepo);
+    void read()
+    {
+        Restaurant toRead = resRepo.read(restaurant.getRestaurantID());
+        assertNotNull(toRead);
+        System.out.println("Read: "+ toRead);
     }
 
     @Test
-    public void create(){
-        Assert.assertEquals(resRepo3.create("007", restaurant), resRepo2);
+    void update()
+    {
+        Restaurant toUpdate = new Restaurant.RestaurantBuilder().copy(restaurant).setRestaurantID("200")
+                .setRestaurantName("Johnny")
+                .setRestaurantAddr("35 Name Street")
+                .build();
+        assertNotNull(toUpdate);
+        System.out.println("Updated :"+toUpdate);
+    }
+
+    @Test
+    void delete()
+    {
+    }
+
+    @Test
+    void getAll()
+    {
+        System.out.println("Show all:");
+        System.out.println(resRepo.getAll());
     }
 }
