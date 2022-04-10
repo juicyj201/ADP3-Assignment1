@@ -40,6 +40,8 @@ class RestaurantRepositoryImplTest
     @Test
     void delete()
     {
+        //Restaurant toDelete = resRepo.delete(restaurant.getRestaurantID());
+
     }
 
     @Test

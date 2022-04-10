@@ -57,6 +57,30 @@ public class Student
         return allergies;
     }
 
+    public String getStudentID() {
+        return StudentID;
+    }
+
+    public String getStudFirstName() {
+        return StudFirstName;
+    }
+
+    public String getStudSurname() {
+        return StudSurname;
+    }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public String getAge() {
+        return Age;
+    }
+
+    public String getAllergies() {
+        return Allergies;
+    }
+
     @Override
     public String toString() {
         return "Student{" + "StudentID='" + StudentID + '\'' + ", StudFirstName='" + StudFirstName + '\'' + ", StudSurname='" + StudSurname + '\'' + ", Gender='" + Gender + '\'' + ", Age=" + Age + ", Allergies='" + Allergies + '\'' + '}';
@@ -102,9 +126,21 @@ public class Student
             return this;
         }
 
-        public Student builder(){
+        public Student copy(Student student)
+        {
+
+            this.StudentID = student.StudentID;
+            this.StudFirstName = student.StudFirstName;
+            this.Gender = student.Gender;
+            this.Age = student.Age;
+            this.Allergies = student.Allergies;
+            return student;
+        }
+
+        public Student builder() {
             return new Student(this);
         }
+
 
     }
 }
