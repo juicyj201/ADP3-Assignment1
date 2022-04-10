@@ -18,6 +18,6 @@ public interface IStudentRepository extends IRepository<Student>{
     public void update(String id, Student object);
 
     @Override
-    public void delete(String id);
+    public boolean delete(String id);
 }
 
