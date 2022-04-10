@@ -67,11 +67,11 @@ public class StudentRepositoryImpl implements IRepository<Student> {
 
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         Student removeStudent = read(id);
         studentMapDB.remove(removeStudent);
 
-
+return false;
 
 
     }
