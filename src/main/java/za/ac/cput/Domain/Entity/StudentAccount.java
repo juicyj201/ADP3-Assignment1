@@ -28,10 +28,8 @@ public class StudentAccount {
         return studAccountNumber;
     }
 
-    public String setStudentID(String studentID) {
+    public void setStudentID(String studentID) {
         StudentID = studentID;
-        return studentID;
-
     }
 
     public String setAmountDue(String amountDue) {
@@ -42,6 +40,22 @@ public class StudentAccount {
     public String setAmountPaid(String amountPaid) {
         AmountPaid = amountPaid;
         return amountPaid;
+    }
+
+    public String getStudAccountNumber() {
+        return StudAccountNumber;
+    }
+
+    public String getStudentID() {
+        return StudentID;
+    }
+
+    public String getAmountDue() {
+        return AmountDue;
+    }
+
+    public String getAmountPaid() {
+        return AmountPaid;
     }
 
     @Override
@@ -75,10 +89,19 @@ public class StudentAccount {
             AmountPaid = amountPaid;
             return this;
         }
+
+    public StudentAccount copy(StudentAccount studentAccount)
+    {
+        this.StudAccountNumber = studentAccount.StudAccountNumber;
+        this.StudentID = studentAccount.StudentID;
+        this.AmountDue = studentAccount.AmountDue;
+        this.AmountPaid = studentAccount.AmountPaid;
+        return studentAccount;
+    }
+
         public StudentAccount builder() {
             return new StudentAccount(this);
         }
-    }
-
 
 }
+ }
