@@ -66,11 +66,11 @@ public class StudentAccountRepositoryImpl implements IRepository<StudentAccount>
     }
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         final StudentAccount removeStudentAccount = read(id);
         if(removeStudentAccount == null){
             studentAccountMapDB.remove(id);}
-
+        return false;
 
     }
 

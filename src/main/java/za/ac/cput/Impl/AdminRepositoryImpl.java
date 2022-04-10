@@ -61,12 +61,13 @@ public class AdminRepositoryImpl implements IAdminRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         for(Admin a : adminDB.values()){
             if(a.getAdminID().equals(id)){
                 adminDB.remove(id);
             }
         }
+        return false;
     }
 
     @Override

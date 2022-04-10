@@ -61,12 +61,13 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository
     }
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         for(Employee e : employeeDB.values()){
             if(e.getEmployeeNum().equals(id)){
                 employeeDB.remove(id);
             }
         }
+        return false;
     }
 
     @Override
