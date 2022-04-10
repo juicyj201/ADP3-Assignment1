@@ -1,8 +1,8 @@
 package za.ac.cput.Domain.Entity;
 
 import org.junit.jupiter.api.Test;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 
 /**
  * Joshua Julies
@@ -14,14 +14,14 @@ public class AdminTest {
     private Admin admin = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
     private Admin admin2;
 
-    @BeforeClass
+    @BeforeAll
     public void setUp(){
         //admin = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
     }
 
     @Test
     public void test(){
-        Assert.assertEquals(admin2 = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build(), admin);
+        Assertions.assertEquals(admin2 = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build(), admin);
     }
 
 }
