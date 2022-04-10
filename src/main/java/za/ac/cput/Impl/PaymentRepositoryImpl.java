@@ -61,12 +61,13 @@ public class PaymentRepositoryImpl implements IPaymentRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         for(Payment p : paymentDB.values()){
             if(p.getPaymentID().equals(id)){
                 paymentDB.remove(id);
             }
         }
+        return false;
     }
 
     @Override

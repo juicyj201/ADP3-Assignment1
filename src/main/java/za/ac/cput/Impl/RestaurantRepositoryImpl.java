@@ -62,12 +62,13 @@ public class RestaurantRepositoryImpl implements IRestaurantRepository
     }
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         for(Restaurant r : restaurantDB.values()){
             if(r.getRestaurantID().equals(id)){
                 restaurantDB.remove(id);
             }
         }
+        return false;
     }
 
     @Override
