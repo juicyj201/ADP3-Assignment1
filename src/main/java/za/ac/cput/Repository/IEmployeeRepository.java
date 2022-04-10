@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Matthew Jones
  * 220077681
- * The Employee Entity
+ * The Employee Repository
  */
 
 public interface IEmployeeRepository extends IRepository<Employee>
