@@ -1,8 +1,8 @@
 package za.ac.cput.Impl;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 import za.ac.cput.Domain.Entity.Employee;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,11 +26,11 @@ class EmployeeRepositoryImplTest
 
     @Test
     public void getRepo(){
-        Assert.assertNotNull(empRepo);
+        Assertions.assertNotNull(empRepo);
     }
 
     @Test
     public void create(){
-        Assert.assertEquals(empRepo3.create("120", employee), empRepo2);
+        Assertions.assertEquals(empRepo3.create("120", employee), empRepo2);
     }
 }
