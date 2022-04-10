@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Matthew Jones
  * 220077681
- * The Restaurant Repository
+ * The Employee Entity
  */
 
 public interface IRestaurantRepository extends IRepository<Restaurant>
@@ -24,5 +24,5 @@ public interface IRestaurantRepository extends IRepository<Restaurant>
     public void update(String id, Restaurant object);
 
     @Override
-    public void delete(String id);
+    public boolean delete(String id);
 }

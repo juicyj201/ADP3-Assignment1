@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Matthew Jones
  * 220077681
- * The Restaurant Repository Implementation 
+ * The Employee Entity
  */
 
 public class RestaurantRepositoryImpl implements IRestaurantRepository

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Matthew Jones
  * 220077681
- * The Employee Repository Implementation
+ * The Employee Entity
  */
 
 public class EmployeeRepositoryImpl implements IEmployeeRepository
