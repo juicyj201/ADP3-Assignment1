@@ -17,5 +17,5 @@ public interface IStudentAccountRepository extends IRepository<StudentAccount> {
     public void update(String id, StudentAccount object);
 
     @Override
-    public void delete(String id);
+    public boolean delete(String id);
 }

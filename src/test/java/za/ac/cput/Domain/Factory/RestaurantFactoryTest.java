@@ -3,7 +3,7 @@ package za.ac.cput.Domain.Factory;
 /**
  * Matthew Jones
  * 220077681
- * The Restaurant Factory Test
+ * The Restaurant Entity
  */
 
 import za.ac.cput.Domain.Entity.Restaurant;

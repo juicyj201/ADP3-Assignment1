@@ -1,5 +1,7 @@
 package za.ac.cput.Repository;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 /**
  * Joshua Julies
  * 220102473
@@ -10,5 +12,5 @@ public interface IRepository<T>{
     public T create(String id, T object);
     public T read(String id);
     public void update(String id, T object);
-    public void delete(String id);
+    public boolean delete(String id);
 }
