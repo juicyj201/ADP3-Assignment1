@@ -1,13 +1,20 @@
 package za.ac.cput.Domain.Entity;
 
-public class Order {
 
-    private final String orderId;
-    private final String studentAccountId;
-    private final String studentMealChoice;
-    private final String orderNum;
-    private final String OrderDesc;
-    private final String orderReceipt;
+/**
+ * Delron Chad Claassen
+ * 219360561
+ * The Order Entity
+ */
+
+public class Order
+{
+    private String orderId;
+    private String studentAccountId;
+    private String studentMealChoice;
+    private String orderNum;
+    private String OrderDesc;
+    private String orderReceipt;
 
     private Order(OrderBuilder builder) {
         this.orderId = builder.orderId;
@@ -22,24 +29,48 @@ public class Order {
         return orderId;
     }
 
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
     public String getStudentAccountId() {
         return studentAccountId;
+    }
+
+    public void setStudentAccountId(String studentAccountId) {
+        this.studentAccountId = studentAccountId;
     }
 
     public String getStudentMealChoice() {
         return studentMealChoice;
     }
 
+    public void setStudentMealChoice(String studentMealChoice) {
+        this.studentMealChoice = studentMealChoice;
+    }
+
     public String getOrderNum() {
         return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
     }
 
     public String getOrderDesc() {
         return OrderDesc;
     }
 
+    public void setOrderDesc(String orderDesc) {
+        OrderDesc = orderDesc;
+    }
+
     public String getOrderReceipt() {
         return orderReceipt;
+    }
+
+    public void setOrderReceipt(String orderReceipt) {
+        this.orderReceipt = orderReceipt;
     }
 
     @Override
@@ -54,49 +85,47 @@ public class Order {
                 '}';
     }
 
-    public static class OrderBuilder {
-
-        private final String orderId;
-        private final String studentAccountId;
+    public static class OrderBuilder
+    {
+        private String orderId;
+        private String studentAccountId;
         private String studentMealChoice;
         private String orderNum;
         private String OrderDesc;
         private String orderReceipt;
 
-        public OrderBuilder(String orderId, String studentAccountId) {
+        public OrderBuilder setOrderId(String orderId) {
             this.orderId = orderId;
-            this.studentAccountId = studentAccountId;
+            return this;
         }
 
-        public OrderBuilder studentMealChoice(String studentMealChoice) {
+        public OrderBuilder setStudentAccountId(String studentAccountId){
+            this.studentAccountId = studentAccountId;
+            return this;
+        }
+
+        public OrderBuilder setStudentMealChoice(String studentMealChoice) {
             this.studentMealChoice = studentMealChoice;
             return this;
         }
 
-        public OrderBuilder orderNum(String orderNum) {
+        public OrderBuilder setOrderNum(String orderNum) {
             this.orderNum = orderNum;
             return this;
         }
 
-        public OrderBuilder orderDesc(String orderDesc) {
+        public OrderBuilder setOrderDesc(String orderDesc) {
             this.OrderDesc = OrderDesc;
             return this;
         }
 
-        public OrderBuilder orderReceipt(String orderReceipt) {
+        public OrderBuilder setOrderReceipt(String orderReceipt) {
             this.orderReceipt = orderReceipt;
             return this;
         }
 
         public Order build() {
-            Order order = new Order(this);
-            validateOrderObject(order);
-            return order;
+            return new Order(this);
         }
-
-        private void validateOrderObject(Order order) {
-            //Code
-        }
-
     }
 }

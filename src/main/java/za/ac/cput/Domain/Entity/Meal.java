@@ -1,12 +1,17 @@
 package za.ac.cput.Domain.Entity;
 
-public class Meal {
+/**
+ * Delron Chad Claassen
+ * 219360561
+ * The Meal Entity
+ */
 
-    private final String orderId;
-    private final String studentMealChoice;
-    private final String drink;
-    private final String allergens;
-
+public class Meal
+{
+    private String orderId;
+    private String studentMealChoice;
+    private String drink;
+    private String allergens;
 
     private Meal(MealBuilder builder) {
         this.orderId = builder.orderId;
@@ -15,21 +20,36 @@ public class Meal {
         this.allergens = builder.allergens;
     }
 
-
     public String getOrderId() {
         return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public String getStudentMealChoice() {
         return studentMealChoice;
     }
 
+    public void setStudentMealChoice(String studentMealChoice) {
+        this.studentMealChoice = studentMealChoice;
+    }
+
     public String getDrink() {
         return drink;
     }
 
+    public void setDrink(String drink) {
+        this.drink = drink;
+    }
+
     public String getAllergens() {
         return allergens;
+    }
+
+    public void setAllergens(String allergens) {
+        this.allergens = allergens;
     }
 
     @Override
@@ -42,36 +62,35 @@ public class Meal {
                 '}';
     }
 
-    public static class MealBuilder {
-
-        private final String orderId;
-        private final String studentMealChoice;
+    public static class MealBuilder
+    {
+        private String orderId;
+        private String studentMealChoice;
         private String drink;
         private String allergens;
 
-        public MealBuilder(String orderId, String studentMealChoice) {
+        public MealBuilder setOrderId(String orderId) {
             this.orderId = orderId;
-            this.studentMealChoice = studentMealChoice;
+            return this;
         }
 
-        public MealBuilder drink(String drink) {
+        public MealBuilder setStudentMealChoice(String studentMealChoice) {
+            this.studentMealChoice = studentMealChoice;
+            return this;
+        }
+
+        public MealBuilder setDrink(String drink) {
             this.drink = drink;
             return this;
         }
 
-        public MealBuilder allergens(String allergens) {
+        public MealBuilder setAllergens(String allergens) {
             this.allergens = allergens;
             return this;
         }
 
         public Meal build() {
-            Meal meal = new Meal(this);
-            validateOrderObject(meal);
-            return meal;
-        }
-
-        private void validateOrderObject(Meal meal) {
-            //Code
+            return new Meal(this);
         }
 
     }
