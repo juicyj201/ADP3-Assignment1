@@ -8,6 +8,7 @@ package za.ac.cput.Domain.Factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Meal;
+import za.ac.cput.Factory.MealFactory;
 
 public class MealFactoryTest {
     @Test

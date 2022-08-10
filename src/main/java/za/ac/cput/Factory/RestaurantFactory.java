@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Factory;
+package za.ac.cput.Factory;
 
 /**
  * Matthew Jones

@@ -8,6 +8,7 @@ package za.ac.cput.Domain.Factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Order;
+import za.ac.cput.Factory.OrderFactory;
 
 public class OrderFactoryTest {
     @Test

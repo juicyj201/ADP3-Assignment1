@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import za.ac.cput.Domain.Entity.Admin;
+import za.ac.cput.Factory.AdminFactory;
 
 /**
  * Joshua Julies
