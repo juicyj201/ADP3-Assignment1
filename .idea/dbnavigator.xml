@@ -28,7 +28,7 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="01e5d352-30b4-459d-807d-8ab44a761689">
+    <connection id="da9eb6ef-c71f-46b7-8bd7-d1721fb104dd">
       <console name="RestaurantDatabase" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
@@ -36,7 +36,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="01e5d352-30b4-459d-807d-8ab44a761689" />
+    <connection id="da9eb6ef-c71f-46b7-8bd7-d1721fb104dd" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -70,26 +70,20 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="01e5d352-30b4-459d-807d-8ab44a761689" active="true" signed="true">
+      <connection id="da9eb6ef-c71f-46b7-8bd7-d1721fb104dd" active="true" signed="true">
         <database>
           <name value="RestaurantDatabase" />
-          <description value="The database for holding key information pertaining to the restaurant system" />
-          <database-type value="SQLITE" />
-          <config-type value="BASIC" />
-          <database-version value="3.34" />
-          <driver-source value="BUILTIN" />
+          <description value="The database for the restaurant management system" />
+          <database-type value="GENERIC" />
+          <config-type value="CUSTOM" />
+          <database-version value="9999.0" />
+          <driver-source value="EXTERNAL" />
           <driver-library value="" />
           <driver value="" />
-          <url-type value="FILE" />
-          <host value="" />
-          <port value="" />
-          <database value="" />
-          <files>
-            <file path="C:\Users\joshu\IdeaProjects\ADP3-Assignment1\Database\restaurantDB.db" schema="main" />
-          </files>
-          <type value="NONE" />
-          <user value="" />
-          <deprecated-pwd value="" />
+          <url value="jdbc:h2:jdbctype://localhost1234/RestaurantDB" />
+          <type value="USER_PASSWORD" />
+          <user value="admin" />
+          <deprecated-pwd value="cm9vdA==" />
         </database>
         <properties>
           <auto-commit value="false" />
