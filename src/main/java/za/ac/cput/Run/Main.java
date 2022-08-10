@@ -4,8 +4,9 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Hello world!
- *
+ * Joshua Julies
+ * 220102473
+ * The Spring Boot Application
  */
 
 @SpringBootConfiguration
