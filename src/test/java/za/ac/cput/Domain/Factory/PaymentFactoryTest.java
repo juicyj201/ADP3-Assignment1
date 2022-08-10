@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import za.ac.cput.Domain.Entity.Payment;
+import za.ac.cput.Factory.PaymentFactory;
 
 /**
  * Joshua Julies

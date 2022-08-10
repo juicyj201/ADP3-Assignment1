@@ -8,6 +8,7 @@ package za.ac.cput.Domain.Factory;
 
 import za.ac.cput.Domain.Entity.Restaurant;
 import org.junit.jupiter.api.Test;
+import za.ac.cput.Factory.RestaurantFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

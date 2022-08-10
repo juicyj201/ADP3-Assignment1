@@ -1,6 +1,7 @@
 package za.ac.cput.Repository;
 
 
+import java.util.Optional;
 
 /**
  * Joshua Julies
@@ -8,9 +9,8 @@ package za.ac.cput.Repository;
  * The repository interface
  */
 
-public interface IRepository<T>{
-    public T create(String id, T object);
-    public T read(String id);
-    public void update(String id, T object);
-    public boolean delete(String id);
+public interface IRepository<T, ID>{
+    public T save(T t);
+    public Optional<T> read(ID id);
+    public void delete(T t);
 }
