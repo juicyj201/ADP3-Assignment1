@@ -1,12 +1,19 @@
 package za.ac.cput.Domain.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Joshua Julies
  * 220102473
  * The admin entity
  */
 
+@Entity
+@Table(name = "admin")
 public class Admin {
+    @Id
     private String adminID;
     private String adminType;
     private String adminFirstName;
@@ -17,6 +24,10 @@ public class Admin {
         this.adminType = adminType;
         this.adminFirstName = adminFirstName;
         this.adminSurname = adminSurname;
+    }
+
+    public Admin(){
+
     }
 
     public void setAdminID(String adminID){
@@ -82,8 +93,6 @@ public class Admin {
             this.adminType = adminType;
             return this;
         }
-
-
 
         public Admin build(){
             Admin admin = new Admin(this);

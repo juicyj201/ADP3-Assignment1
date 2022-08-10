@@ -1,12 +1,19 @@
 package za.ac.cput.Domain.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Joshua Julies
  * 220102473
  * The Payment entity
  */
 
+@Entity
+@Table (name = "payment")
 public class Payment {
+    @Id
     public String paymentID;
     public String studentAccountID;
     public String paymentDate;
@@ -17,6 +24,10 @@ public class Payment {
         this.studentAccountID = studentAccountID;
         this.paymentDate = paymentDate;
         this.paymentAmount = paymentAmount;
+    }
+
+    public Payment(){
+
     }
 
     public void setPaymentID(String paymentID){

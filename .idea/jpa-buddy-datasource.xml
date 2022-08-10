@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JpbDataSourceConfig">
     <data-sources>
-      <data-source id="31c08db4-61b4-473c-bbc5-e49a531f7acd" name="RestaurantDB" url="jdbc:h2:file:~/h2/RestaurantDB" driverClass="org.h2.Driver" />
+      <data-source id="31c08db4-61b4-473c-bbc5-e49a531f7acd" name="RestaurantDB" url="jdbc:h2:file:~/RestaurantDB" driverClass="org.h2.Driver" />
     </data-sources>
   </component>
 </project>
