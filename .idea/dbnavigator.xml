@@ -46,7 +46,6 @@
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
     <mapping file-url="file://$PROJECT_DIR$" connection-id="01e5d352-30b4-459d-807d-8ab44a761689" session-id="MAIN" current-schema="" />
-    <mapping file-url="file://$PROJECT_DIR$/src/main/java/za/ac/cput/Impl" connection-id="da9eb6ef-c71f-46b7-8bd7-d1721fb104dd" session-id="MAIN" current-schema="" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -81,7 +80,7 @@
           <driver-source value="EXTERNAL" />
           <driver-library value="C:\Program Files (x86)\H2\bin\h2-2.1.214.jar" />
           <driver value="org.h2.Driver" />
-          <url value="jdbc:h2:file~/h2/ADP3-Assignment1" />
+          <url value="jdbc:h2:mem:ADP3-Assignment1" />
           <type value="USER_PASSWORD" />
           <user value="admin" />
           <deprecated-pwd value="cm9vdA==" />
