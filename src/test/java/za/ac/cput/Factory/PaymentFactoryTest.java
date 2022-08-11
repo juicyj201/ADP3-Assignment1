@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Factory;
+package za.ac.cput.Factory;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -14,7 +14,7 @@ import za.ac.cput.Factory.PaymentFactory;
 
 public class PaymentFactoryTest {
     private PaymentFactory factory = new PaymentFactory();
-    private Payment payment = factory.getPayment("P01");
+    private Payment payment = factory.buildPayment("01","31","01/01/2022", 200);
 
     @BeforeAll
     public void setUp(){

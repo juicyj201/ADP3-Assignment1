@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
  */
 
 public class PaymentTest {
-    private Payment payment = new Payment.PaymentBuilder("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build();
+    private Payment payment = new Payment.PaymentBuilder().createID("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build();
     private Payment payment2;
 
     @BeforeAll
@@ -21,6 +21,6 @@ public class PaymentTest {
 
     @Test
     public void test(){
-        Assertions.assertEquals(new Payment.PaymentBuilder("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build(), payment);
+        Assertions.assertEquals(new Payment.PaymentBuilder().createID("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build(), payment);
     }
 }

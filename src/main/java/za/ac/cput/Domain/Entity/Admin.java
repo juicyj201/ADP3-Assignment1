@@ -79,9 +79,17 @@ public class Admin {
         private String adminFirstName;
         private String adminSurname;
 
-        public AdminBuilder(String adminFirstName, String adminSurname){
+        public AdminBuilder(){
+            this.adminID = adminID;
+            this.adminType = adminType;
             this.adminFirstName = adminFirstName;
             this.adminSurname = adminSurname;
+        }
+
+        public AdminBuilder createAdminName(String adminFirstName, String adminSurname){
+            this.adminFirstName = adminFirstName;
+            this.adminSurname = adminSurname;
+            return this;
         }
 
         public AdminBuilder createAdminID(String adminID){
@@ -93,8 +101,6 @@ public class Admin {
             this.adminType = adminType;
             return this;
         }
-
-
 
         public Admin build(){
             Admin admin = new Admin(this);
