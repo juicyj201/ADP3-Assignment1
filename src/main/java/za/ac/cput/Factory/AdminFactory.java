@@ -9,14 +9,13 @@ import za.ac.cput.Domain.Entity.Admin;
  */
 
 public class AdminFactory {
-    public Admin getAdmin(String choice){
-        if(choice.equalsIgnoreCase("adminJohn")){
-            Admin admin;
-            admin = new Admin.AdminBuilder("Johnathan", "Kawaski").build();
+    public Admin buildAdmin(String adminID, String adminType, String adminFirstName, String adminSurname) {
+        Admin admin = new Admin.AdminBuilder()
+                .createAdminID(adminID)
+                .createAdminType(adminType)
+                .createAdminName(adminFirstName, adminSurname)
+                .build();
 
-            return admin;
-        }else {
-            return null;
-        }
+        return admin;
     }
 }

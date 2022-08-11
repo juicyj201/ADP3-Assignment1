@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
  */
 
 public class AdminTest {
-    private Admin admin = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
+    private Admin admin = new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
     private Admin admin2;
 
     @BeforeAll
@@ -21,7 +21,7 @@ public class AdminTest {
 
     @Test
     public void test(){
-        Assertions.assertEquals(admin2 = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build(), admin);
+        Assertions.assertEquals(admin2 = new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build(), admin);
     }
 
 }

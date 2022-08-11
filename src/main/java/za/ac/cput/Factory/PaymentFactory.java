@@ -1,5 +1,6 @@
 package za.ac.cput.Factory;
 
+import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.Payment;
 
 /**
@@ -9,15 +10,13 @@ import za.ac.cput.Domain.Entity.Payment;
  */
 
 public class PaymentFactory {
-    public Payment getPayment(String choice){
-        if(choice.equalsIgnoreCase("P01")){
-            Payment payment;
-            payment = new Payment.PaymentBuilder("P01", 2300).build();
+    public Payment buildPayment(String paymentID, String studentAccountID, String paymentDate, int paymentAmount) {
+        Payment payment = new Payment.PaymentBuilder()
+                .createID(paymentID, paymentAmount)
+                .createStudentAccountID(studentAccountID)
+                .createPaymentDate(paymentDate)
+                .build();
 
-            return payment;
-        }
-        else{
-            return null;
-        }
+        return payment;
     }
 }

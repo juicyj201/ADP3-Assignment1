@@ -78,9 +78,17 @@ public class Payment {
         public String paymentDate;
         public int paymentAmount;
 
-        public PaymentBuilder(String paymentID, int paymentAmount){
+        public PaymentBuilder(){
+            this.paymentID = paymentID;
+            this.studentAccountID = studentAccountID;
+            this.paymentDate = paymentDate;
+            this.paymentAmount = paymentAmount;
+        }
+
+        public PaymentBuilder createID(String paymentID, int paymentAmount){
             this.paymentID = paymentID;
             this.paymentAmount = paymentAmount;
+            return this;
         }
 
         public PaymentBuilder createStudentAccountID(String studentAccountID){
