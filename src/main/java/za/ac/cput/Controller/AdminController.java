@@ -18,10 +18,12 @@ public class AdminController {
         this.service = adminService;
     }
 
+    /**
     @PostMapping
     private Admin saveAdmin(@RequestBody Admin admin){
         return service.save(admin);
     }
+     **/
 
     @GetMapping
     public List<Admin> getAllAdmin() {
