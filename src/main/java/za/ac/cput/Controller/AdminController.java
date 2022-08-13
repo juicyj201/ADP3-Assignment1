@@ -1,30 +1,31 @@
 package za.ac.cput.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Domain.Entity.Admin;
-import za.ac.cput.Repository.AdminRepository;
-import za.ac.cput.Service.AdminService;
+import za.ac.cput.Service.Impl.AdminService;
+import za.ac.cput.Service.Impl.AdminServiceImpl;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/admin")
 public class AdminController {
+    private AdminService service;
+
     @Autowired
-    private AdminRepository repo;
-
-    @PostMapping("/admin")
-    private ResponseEntity<Admin> saveAdmin(@RequestBody Admin admin){
-        Admin adminToSave = repo.save(admin);
-        return ResponseEntity.ok(adminToSave);
+    public AdminController(AdminServiceImpl adminService){
+        this.service = adminService;
     }
 
-    @GetMapping("/admin")
+    @PostMapping
+    private Admin saveAdmin(@RequestBody Admin admin){
+        return service.save(admin);
+    }
+
+    @GetMapping
     public List<Admin> getAllAdmin() {
-        return repo.findAll();
+        return service.readAll();
     }
+
 }
