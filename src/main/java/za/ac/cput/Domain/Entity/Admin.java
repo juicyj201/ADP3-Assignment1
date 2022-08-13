@@ -1,8 +1,6 @@
 package za.ac.cput.Domain.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Joshua Julies
@@ -14,9 +12,13 @@ import javax.persistence.Table;
 @Table(name = "admin")
 public class Admin {
     @Id
+    @GeneratedValue
     private String adminID;
+    @Column(name = "adminType")
     private String adminType;
+    @Column(name = "adminFirstName")
     private String adminFirstName;
+    @Column(name = "adminSurname")
     private String adminSurname;
 
     public Admin(AdminBuilder adminBuilder){

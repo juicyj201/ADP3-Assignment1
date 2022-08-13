@@ -1,8 +1,6 @@
 package za.ac.cput.Domain.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Joshua Julies
@@ -14,9 +12,13 @@ import javax.persistence.Table;
 @Table(name = "payment")
 public class Payment {
     @Id
+    @GeneratedValue
     public String paymentID;
+    @Column(name = "studentAccountID")
     public String studentAccountID;
+    @Column(name = "paymentDate")
     public String paymentDate;
+    @Column(name = "paymentAmount")
     public int paymentAmount;
 
     public Payment(PaymentBuilder paymentBuilder){
@@ -27,7 +29,7 @@ public class Payment {
     }
 
     public Payment(){
-
+        //empty constructor
     }
 
     public void setPaymentID(String paymentID){
