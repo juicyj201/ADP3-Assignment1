@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Repository.AdminRepository;
-import za.ac.cput.Service.AdminService;
 
 import java.util.Collections;
 import java.util.List;

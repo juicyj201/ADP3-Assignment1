@@ -2,7 +2,6 @@ package za.ac.cput.Service.Impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Payment;
-import za.ac.cput.Service.PaymentService;
 
 import java.util.List;
 import java.util.Optional;
