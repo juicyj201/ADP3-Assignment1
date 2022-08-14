@@ -13,18 +13,19 @@ import za.ac.cput.Factory.AdminFactory;
  */
 
 public class AdminFactoryTest {
-
     private AdminFactory factory = new AdminFactory();
     private Admin admin = factory.buildAdmin("21", "Manager", "John", "Banks");
 
-    @BeforeAll
-    public void setUp(){
-        //factory = new AdminFactory();
-    }
-
     @Test
-    public void test(){
-        //Assertions.assertEquals(factory.getAdmin("adminJohn"), admin);
-        Assertions.assertNotNull(factory);
+    public void testBuildAdmin(){
+        try {
+            Assertions.assertTrue(factory.buildAdmin("21", "Manager", "John", "Banks") == admin);
+            Assertions.assertNotNull(factory);
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
     }
 }

@@ -16,14 +16,16 @@ public class PaymentFactoryTest {
     private PaymentFactory factory = new PaymentFactory();
     private Payment payment = factory.buildPayment("01","31","01/01/2022", 200);
 
-    @BeforeAll
-    public void setUp(){
-        //factory = new PaymentFactory();
-    }
-
     @Test
-    public void test(){
-        //Assertions.assertEquals(factory.getPayment("P01"), payment);
-        Assertions.assertNotNull(factory);
+    public void testBuildPayment(){
+        try {
+            Assertions.assertTrue(factory.buildPayment("01", "31", "01/01/2022", 200) == payment);
+            Assertions.assertNotNull(factory);
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
     }
 }

@@ -29,7 +29,7 @@ public class Admin {
     }
 
     public Admin(){
-
+        //empty constructor
     }
 
     public void setAdminID(String adminID){
@@ -63,6 +63,16 @@ public class Admin {
 
     public String getAdminSurname(){
         return adminSurname;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override

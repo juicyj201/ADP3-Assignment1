@@ -6,9 +6,16 @@ import za.ac.cput.Service.IService;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment service interface
+ */
+
 public interface PaymentService extends IService<Payment, String> {
     public Payment save(Payment payment);
     public Optional<Payment> read(Payment payment);
-    public void delete(Payment payment);
     public List<Payment> readAll();
+    public Payment update(Payment payment);
+    public void delete(Payment payment);
 }
