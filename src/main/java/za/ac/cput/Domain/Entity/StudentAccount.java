@@ -1,101 +1,100 @@
 package za.ac.cput.Domain.Entity;
 
+import javax.persistence.*;
+
 /**
  *
  * Keziah Robinson
  * 219113149
  * StudentAccount Entity
- * 05 April 2021
+ *
  *
  */
-
+@Entity
+@Table(name = "StudentAccount")
 public class StudentAccount {
 
-    private String StudAccountNumber;
-    private String StudentID;
-    private String AmountDue;
-    private String AmountPaid;
+    @Id
+    @Column(name = "studAccountNumber")
+    private String studAccountNumber;
+    @Column(name = "studentID")
+    private String studentID;
+    @Column(name = "amountDue")
+    private String amountDue;
+    @Column(name = "amountPaid")
+    private String amountPaid;
 
     private StudentAccount(StudentAccountBuilder builder){
-        this.StudAccountNumber = builder.StudAccountNumber;
-        this.StudentID = builder.StudentID;
-        this.AmountDue = builder.AmountDue;
-        this.AmountPaid = builder.AmountPaid;
+        this.studAccountNumber = builder.studAccountNumber;
+        this.studentID = builder.studentID;
+        this.amountDue = builder.amountDue;
+        this.amountPaid = builder.amountPaid;
     }
 
-    public String setStudAccountNumber(String studAccountNumber) {
-        StudAccountNumber = studAccountNumber;
-        return studAccountNumber;
-    }
-
-    public void setStudentID(String studentID) {
-        StudentID = studentID;
-    }
-
-    public String setAmountDue(String amountDue) {
-        AmountDue = amountDue;
-        return amountDue;
-    }
-
-    public String setAmountPaid(String amountPaid) {
-        AmountPaid = amountPaid;
-        return amountPaid;
+    public StudentAccount() {
     }
 
     public String getStudAccountNumber() {
-        return StudAccountNumber;
+        return studAccountNumber;
     }
 
     public String getStudentID() {
-        return StudentID;
+        return studentID;
     }
 
     public String getAmountDue() {
-        return AmountDue;
+        return amountDue;
     }
 
     public String getAmountPaid() {
-        return AmountPaid;
+        return amountPaid;
     }
 
     @Override
     public String toString() {
-        return "StudentAccount{" + "StudAccountNumber='" + StudAccountNumber + '\'' + ", StudentID='" + StudentID + '\'' + ", AmountDue=" + AmountDue + ", AmountPaid=" + AmountPaid + '}';
+        return "StudentAccount{" + "StudAccountNumber='" + studAccountNumber + '\'' + ", StudentID='" + studentID + '\'' + ", AmountDue=" + amountDue + ", AmountPaid=" + amountPaid + '}';
     }
 
     public static class StudentAccountBuilder{
-        private String StudAccountNumber;
-        private String StudentID;
-        private String AmountDue;
-        private String AmountPaid;
+        private String studAccountNumber;
+        private String studentID;
+        private String amountDue;
+        private String amountPaid;
+
+        public StudentAccountBuilder() {
+            this.studAccountNumber = studAccountNumber;
+            this.studentID = studentID;
+            this.amountDue = amountDue;
+            this.amountPaid = amountPaid;
+        }
 
 
-        public StudentAccountBuilder setStudAccountNumber(String studAccountNumber) {
-            StudAccountNumber = studAccountNumber;
+        public StudentAccountBuilder createStudAccountNumber(String studAccountNumber) {
+            this.studAccountNumber = studAccountNumber;
             return this;
         }
 
-        public StudentAccountBuilder setStudentID(String studentID) {
-            StudentID = studentID;
+        public StudentAccountBuilder getStudentID(String studentID) {
+            this.studentID = studentID;
             return this;
         }
 
-        public StudentAccountBuilder setAmountDue(String amountDue) {
-            AmountDue = amountDue;
+        public StudentAccountBuilder createAmountDue(String amountDue) {
+            this.amountDue = amountDue;
             return this;
         }
 
-        public StudentAccountBuilder setAmountPaid(String amountPaid) {
-            AmountPaid = amountPaid;
+        public StudentAccountBuilder createAmountPaid(String amountPaid) {
+            this.amountPaid = amountPaid;
             return this;
         }
 
     public StudentAccount copy(StudentAccount studentAccount)
     {
-        this.StudAccountNumber = studentAccount.StudAccountNumber;
-        this.StudentID = studentAccount.StudentID;
-        this.AmountDue = studentAccount.AmountDue;
-        this.AmountPaid = studentAccount.AmountPaid;
+        this.studAccountNumber = studentAccount.studAccountNumber;
+        this.studentID = studentAccount.studentID;
+        this.amountDue = studentAccount.amountDue;
+        this.amountPaid = studentAccount.amountPaid;
         return studentAccount;
     }
 

@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Domain.Entity.Admin;
-import za.ac.cput.Service.Impl.AdminService;
+import za.ac.cput.Service.AdminService;
 import za.ac.cput.Service.Impl.AdminServiceImpl;
 
 import java.util.List;

@@ -12,16 +12,16 @@ package za.ac.cput.Factory;
 import za.ac.cput.Domain.Entity.StudentAccount;
 
 public class StudentAccountFactory {
-    public static StudentAccount createStudentAccount(String StudAccountNumber, String StudentID, String AmountDue, String AmountPaid){
+    public static StudentAccount createStudentAccount(String studAccountNumber, String studentID, String amountDue, String amountPaid){
 
-        if(AmountDue == null || AmountPaid == null)
+        if(amountDue == null || amountPaid == null)
             return null;
 
         return new StudentAccount.StudentAccountBuilder()
-                .setStudAccountNumber(StudAccountNumber)
-                .setStudentID(StudentID)
-                .setAmountDue(AmountDue)
-                .setAmountPaid(AmountPaid)
+                .createStudAccountNumber(studAccountNumber)
+                .getStudentID(studentID)
+                .createAmountDue(amountDue)
+                .createAmountPaid(amountPaid)
                 .builder();
     }
 }

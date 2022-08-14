@@ -1,4 +1,7 @@
 package za.ac.cput.Domain.Entity;
+
+import javax.persistence.*;
+
 /**
  *
  * Keziah Robinson
@@ -8,136 +11,130 @@ package za.ac.cput.Domain.Entity;
  *
  */
 
+@Entity
+@Table(name = "Student")
 public class Student
 {
-    private String StudentID;
-    private String StudFirstName;
-    private String StudSurname;
-    private String Gender;
-    private String Age;
-    private String Allergies;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "studentID")
+    private String studentID;
+    @Column(name = "studFirstName")
+    private String studFirstName;
+    @Column(name = "studSurname")
+    private String studSurname;
+    @Column(name = "gender")
+    private String gender;
+    @Column(name = "age")
+    private String age;
+    @Column(name = "allergies")
+    private String allergies;
 
 
     private Student(StudentBuilder builder){
-        this.StudentID = builder.StudentID;
-        this.StudFirstName = builder.StudFirstName;
-        this.StudSurname = builder.StudSurname;
-        this.Gender = builder.Gender;
-        this.Age = builder.Age;
-        this.Allergies = builder.Allergies;
+        this.studentID = builder.studentID;
+        this.studFirstName = builder.studFirstName;
+        this.studSurname = builder.studSurname;
+        this.gender = builder.gender;
+        this.age = builder.age;
+        this.allergies = builder.allergies;
     }
 
-    public String setStudentID(String studentID) {
-        this.StudentID = studentID;
-        return studentID;
-    }
-
-    public String setStudFirstName(String studFirstName) {
-        this.StudFirstName = studFirstName;
-        return studFirstName;
-    }
-
-    public String setStudSurname(String studSurname) {
-        this.StudSurname = studSurname;
-        return studSurname;
-    }
-
-    public String setGender(String gender) {
-        this.Gender = gender;
-        return gender;
-    }
-
-    public String setAge(String age) {
-        this.Age = age;
-        return age;
-    }
-
-    public String setAllergies(String allergies) {
-        this.Allergies = allergies;
-        return allergies;
+    public Student() {
     }
 
     public String getStudentID() {
-        return StudentID;
+        return studentID;
     }
 
     public String getStudFirstName() {
-        return StudFirstName;
+        return studFirstName;
     }
 
     public String getStudSurname() {
-        return StudSurname;
+        return studSurname;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public String getAge() {
-        return Age;
+        return age;
     }
 
     public String getAllergies() {
-        return Allergies;
+        return allergies;
     }
+
 
     @Override
     public String toString() {
-        return "Student{" + "StudentID='" + StudentID + '\'' + ", StudFirstName='" + StudFirstName + '\'' + ", StudSurname='" + StudSurname + '\'' + ", Gender='" + Gender + '\'' + ", Age=" + Age + ", Allergies='" + Allergies + '\'' + '}';
+        return "Student{" + "StudentID='" + studentID + '\'' + ", StudFirstName='" + studFirstName + '\'' + ", StudSurname='" + studSurname + '\'' + ", Gender='" + gender + '\'' + ", Age=" + age + ", Allergies='" + allergies + '\'' + '}';
     }
-
 
     public static class StudentBuilder{
 
-        private String StudentID;
-        private String StudFirstName;
-        private String StudSurname;
-        private String Gender;
-        private String Age;
-        private String Allergies;
+        private String studentID;
+        private String studFirstName;
+        private String studSurname;
+        private String gender;
+        private String age;
+        private String allergies;
 
-        public StudentBuilder setStudentID(String studentID) {
-            StudentID = studentID;
+        public StudentBuilder() {
+            this.studentID = studentID;
+            this.studFirstName = studFirstName;
+            this.studSurname = studSurname;
+            this.gender = gender;
+            this.age = age;
+            this.allergies = allergies;
+        }
+
+        public StudentBuilder createStudentID(String studentID) {
+            this.studentID = studentID;
             return this;
         }
 
-        public StudentBuilder setStudFirstName(String studFirstName) {
-            StudFirstName = studFirstName;
+        public StudentBuilder createStudFirstName(String studFirstName) {
+            this.studFirstName = studFirstName;
             return this;
         }
 
-        public StudentBuilder setStudSurname(String studSurname) {
-            StudSurname = studSurname;
+        public StudentBuilder createStudSurname(String studSurname) {
+            this.studSurname = studSurname;
             return this;
         }
 
-        public StudentBuilder setGender(String gender) {
-            Gender = gender;
+        public StudentBuilder createGender(String gender) {
+            this.gender = gender;
             return this;
         }
 
-        public StudentBuilder setAge(String age) {
-            Age = age;
+        public StudentBuilder createAge(String age) {
+            this.age = age;
             return this;
         }
 
-        public StudentBuilder setAllergies(String allergies) {
-            Allergies = allergies;
+        public StudentBuilder createAllergies(String allergies) {
+            this.allergies = allergies;
             return this;
         }
 
         public Student copy(Student student)
         {
-
-            this.StudentID = student.StudentID;
-            this.StudFirstName = student.StudFirstName;
-            this.Gender = student.Gender;
-            this.Age = student.Age;
-            this.Allergies = student.Allergies;
+            this.studentID = student.studentID;
+            this.studFirstName = student.studFirstName;
+            this.gender = student.gender;
+            this.age = student.age;
+            this.allergies = student.allergies;
             return student;
         }
 
         public Student builder() {
+            if (studentID.equals(null)) {
+                throw new IllegalArgumentException("Student ID cannot be null");
+            }
             return new Student(this);
         }
 

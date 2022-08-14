@@ -13,18 +13,18 @@ import za.ac.cput.Domain.Entity.Student;
 public class StudentFactory {
 
     public static Student createStudent
-            (String StudentID, String StudFirstName, String StudSurname, String Gender, String Age, String Allergies) {
+            (String studentID, String studFirstName, String studSurname, String gender, String age, String allergies) {
 
-        if(Allergies == null)
+        if(allergies == null)
             return null;
 
         return new Student.StudentBuilder()
-                .setStudentID(StudentID)
-                .setStudFirstName(StudFirstName)
-                .setStudSurname(StudSurname)
-                .setGender(Gender)
-                .setAge(Age)
-                .setAllergies(Allergies)
+                .createStudentID(studentID)
+                .createStudFirstName(studFirstName)
+                .createStudSurname(studSurname)
+                .createGender(gender)
+                .createAge(age)
+                .createAllergies(allergies)
                 .builder();
     }
 }

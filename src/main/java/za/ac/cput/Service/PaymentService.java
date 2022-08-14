@@ -1,4 +1,4 @@
-package za.ac.cput.Service.Impl;
+package za.ac.cput.Service;
 
 import za.ac.cput.Domain.Entity.Payment;
 import za.ac.cput.Service.IService;

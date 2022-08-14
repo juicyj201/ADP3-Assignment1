@@ -23,12 +23,12 @@ class StudentTest {
     @Test
     public void test() {
         Student student = new Student.StudentBuilder()
-                .setStudentID("219113149")
-                .setStudFirstName("Keziah")
-                .setStudSurname("Robinson")
-                .setGender("Female")
-                .setAge("21")
-                .setAllergies("None")
+                .createStudentID("219113149")
+                .createStudFirstName("Keziah")
+                .createStudSurname("Robinson")
+                .createGender("Female")
+                .createAge("21")
+                .createAllergies("None")
                 .builder();
         System.out.println(student);
     }
