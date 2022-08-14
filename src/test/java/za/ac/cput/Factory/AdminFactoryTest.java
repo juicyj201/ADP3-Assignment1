@@ -1,10 +1,8 @@
 package za.ac.cput.Factory;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Admin;
-import za.ac.cput.Factory.AdminFactory;
 
 /**
  * Joshua Julies
@@ -28,4 +26,13 @@ public class AdminFactoryTest {
             e.getMessage();
         }
     }
+
+    /**
+    //Failing test for an empty admin object created by the factory
+    @Test
+    public void failingTest() {
+        Assertions.assertNotNull(new AdminFactory().buildAdmin(null,null,null,null));
+        Assertions.fail("This test has failed, so objects/attributes of objects of the admin factory cannot be null when using factory.");
+    }
+    **/
 }

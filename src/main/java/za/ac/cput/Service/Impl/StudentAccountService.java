@@ -1,4 +1,4 @@
-package za.ac.cput.Service;
+package za.ac.cput.Service.Impl;
 
 /**
  *
@@ -10,10 +10,12 @@ package za.ac.cput.Service;
  */
 
 import za.ac.cput.Domain.Entity.StudentAccount;
+import za.ac.cput.Service.IService;
+
 import java.util.List;
 import java.util.Optional;
 
-public interface StudentAccountService extends IService<StudentAccount, String>{
+public interface StudentAccountService extends IService<StudentAccount, String> {
     public StudentAccount save(StudentAccount student);
     public Optional<StudentAccount> read(StudentAccount studentAccount);
     public void delete(StudentAccount studentAccount);

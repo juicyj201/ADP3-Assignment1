@@ -1,6 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Joshua Julies
@@ -65,13 +66,16 @@ public class Payment {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Payment payment = (Payment) o;
+        return paymentAmount == payment.paymentAmount && paymentID.equals(payment.paymentID) && studentAccountID.equals(payment.studentAccountID) && paymentDate.equals(payment.paymentDate);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(paymentID, studentAccountID, paymentDate, paymentAmount);
     }
 
     @Override
@@ -81,7 +85,7 @@ public class Payment {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return this.clone();
+        return super.clone();
     }
 
     public static class PaymentBuilder{
