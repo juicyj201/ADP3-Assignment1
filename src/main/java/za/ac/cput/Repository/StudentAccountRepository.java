@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface StudentAccountRepository extends JpaRepository<StudentAccount, String> {
-    StudentAccount save(StudentAccount student);
-    Optional<StudentAccount> read(String id);
-    List<StudentAccount> readAll();
+    public StudentAccount save(StudentAccount student);
+    public Optional<StudentAccount> read(String id);
+    public List<StudentAccount> readAll();
     public StudentAccount update(Student student);
-    void delete(String id);
+    public void delete(String id);
 }

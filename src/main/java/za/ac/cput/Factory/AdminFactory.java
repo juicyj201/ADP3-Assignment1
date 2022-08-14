@@ -1,6 +1,7 @@
 package za.ac.cput.Factory;
 
 import za.ac.cput.Domain.Entity.Admin;
+import za.ac.cput.Domain.Entity.Util.Validation;
 
 /**
  * Joshua Julies
@@ -16,6 +17,12 @@ public class AdminFactory {
                 .createAdminName(adminFirstName, adminSurname)
                 .build();
 
-        return admin;
+        if (Validation.checkAdminNull(admin)) {
+            throw new NullPointerException("This admin object is null");
+        } else if (Validation.checkStringNullOrEmpty(admin.getAdminID().toString(), admin.getAdminType().toString(), adminFirstName.toString(), adminSurname.toString())){
+            throw new NullPointerException("The attribute(s) of this admin object are null");
+        }else{
+            return admin;
+        }
     }
 }

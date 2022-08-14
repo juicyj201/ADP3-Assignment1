@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Domain.Entity.Payment;
 import za.ac.cput.Service.Impl.PaymentServiceImpl;
-import za.ac.cput.Service.PaymentService;
+import za.ac.cput.Service.Impl.PaymentService;
 import java.util.List;
 import java.util.Optional;
 

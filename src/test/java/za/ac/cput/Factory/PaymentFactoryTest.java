@@ -1,10 +1,8 @@
 package za.ac.cput.Factory;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Payment;
-import za.ac.cput.Factory.PaymentFactory;
 
 /**
  * Joshua Julies
@@ -28,4 +26,13 @@ public class PaymentFactoryTest {
             e.getMessage();
         }
     }
+
+    /**
+     //Failing test for an empty payment object created by the factory
+     @Test
+     public void failingTest() {
+     Assertions.assertNotNull(new PaymentFactory().buildPayment(null,null,null, 0));
+     Assertions.fail("This test has failed, so objects/attributes of objects of the payment factory cannot be null when using factory.");
+     }
+     **/
 }

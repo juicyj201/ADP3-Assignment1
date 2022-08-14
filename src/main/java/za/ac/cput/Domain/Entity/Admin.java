@@ -1,6 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Joshua Julies
@@ -66,13 +67,16 @@ public class Admin {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Admin admin = (Admin) o;
+        return adminID.equals(admin.adminID) && adminType.equals(admin.adminType) && adminFirstName.equals(admin.adminFirstName) && adminSurname.equals(admin.adminSurname);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(adminID, adminType, adminFirstName, adminSurname);
     }
 
     @Override
@@ -82,7 +86,7 @@ public class Admin {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return this.clone();
+        return super.clone();
     }
 
     public static class AdminBuilder{

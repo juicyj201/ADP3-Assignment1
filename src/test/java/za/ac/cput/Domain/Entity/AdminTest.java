@@ -1,8 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 /**
  * Joshua Julies
@@ -14,14 +13,27 @@ public class AdminTest {
     private Admin admin = new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
     private Admin admin2;
 
-    @BeforeAll
-    public void setUp(){
-        //admin = new Admin.AdminBuilder("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
+    @Test
+    public void testEquals() {
+        try{
+            Assertions.assertTrue(admin.equals(new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build()));
+        }catch(NullPointerException npe){
+            npe.getStackTrace();
+            npe.getMessage();
+        }catch(Exception e){
+            e.getMessage();
+        }
     }
 
     @Test
-    public void test(){
-        Assertions.assertEquals(admin2 = new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build(), admin);
+    public void testBuild(){
+        try{
+            Assertions.assertNotNull(new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build());
+        }catch(NullPointerException npe){
+            npe.getStackTrace();
+            npe.getMessage();
+        }catch(Exception e){
+            e.getMessage();
+        }
     }
-
 }

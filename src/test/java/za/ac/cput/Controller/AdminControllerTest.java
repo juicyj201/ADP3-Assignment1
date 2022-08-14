@@ -4,7 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Factory.AdminFactory;
-import za.ac.cput.Service.Impl.AdminServiceImpl;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The admin controller test
+ */
 
 public class AdminControllerTest {
     private AdminController controller;

@@ -1,7 +1,7 @@
 package za.ac.cput.Factory;
 
-import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.Payment;
+import za.ac.cput.Domain.Entity.Util.Validation;
 
 /**
  * Joshua Julies
@@ -17,6 +17,12 @@ public class PaymentFactory {
                 .createPaymentDate(paymentDate)
                 .build();
 
-        return payment;
+        if(Validation.checkPaymentNull(payment)) {
+            throw new NullPointerException("This payment object is null");
+        }else if (Validation.checkStringNullOrEmpty(payment.getPaymentID(), payment.studentAccountID, payment.paymentDate) || Validation.checkAttributeEmpty(payment.getPaymentAmount())) {
+            throw new NullPointerException("The attribute(s) of this payment object are null");
+        }else {
+            return payment;
+        }
     }
 }
