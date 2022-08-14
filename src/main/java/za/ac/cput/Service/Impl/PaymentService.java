@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface PaymentService extends IService<Payment, String> {
     public Payment save(Payment payment);
     public Optional<Payment> read(Payment payment);
+    public Payment update(Payment payment);
     public void delete(Payment payment);
-    public List<Payment> readAll();
 }

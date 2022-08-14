@@ -34,7 +34,28 @@ public class AdminServiceImpl implements AdminService {
     public Optional<Admin> read(Admin admin) {
         if(!admin.equals(null)) {
             System.out.println("Admin found: ");
-            return repo.findById(admin.getAdminID());
+            Optional<Admin> readAdmin = repo.findById(admin.getAdminID());
+            return readAdmin;
+        }else{
+            System.out.println("Error: Admin not found.");
+            return null;
+        }
+    }
+
+    @Override
+    public Admin update(Admin admin) {
+        if(Collections.emptyList() != repo) {
+            List<Admin> aList = repo.findAll();
+            Admin adminUpdate = aList.stream().findAny().get();
+            if(adminUpdate.getAdminID() == admin.getAdminID()){
+                adminUpdate.setAdminFullName(admin.getAdminFirstName(), admin.getAdminSurname());
+                adminUpdate.setAdminType(admin.getAdminType());
+                repo.save(adminUpdate);
+                System.out.println("Admin updated.");
+                //side note - not necessary to delete the original value in the db,
+                //since using put will update the value automatically
+            }
+            return adminUpdate;
         }else{
             System.out.println("Error: Admin not found.");
             return null;
@@ -45,18 +66,11 @@ public class AdminServiceImpl implements AdminService {
     public void delete(Admin admin) {
         if(!admin.equals(null)) {
             repo.delete(admin);
+            System.out.println("Admin deleted.");
         }else{
             System.out.println("Error: Admin not found.");
         }
     }
 
-    @Override
-    public List<Admin> readAll() {
-        if(Collections.emptyList() != repo) {
-            return repo.findAll();
-        }else{
-            System.out.println("Error: Admin not found.");
-            return null;
-        }
-    }
+
 }
