@@ -43,6 +43,18 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public List<Admin> readAll() {
+        if(repo.count() != 0) {
+            List<Admin> aList = repo.findAll();
+            System.out.println("Admin list is found");
+            return aList;
+        }else{
+            System.out.println("Admin list not found");
+            return null;
+        }
+    }
+
+    @Override
     public Admin update(Admin admin) {
         if(Collections.emptyList() != repo) {
             List<Admin> aList = repo.findAll();

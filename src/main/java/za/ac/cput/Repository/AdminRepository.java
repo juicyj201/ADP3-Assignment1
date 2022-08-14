@@ -8,5 +8,11 @@ import za.ac.cput.Domain.Entity.Admin;
 
 import java.util.List;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The admin repository interface
+ */
+
 public interface AdminRepository extends JpaRepository<Admin, String> {
 }

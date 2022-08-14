@@ -2,14 +2,18 @@ package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.Payment;
-import za.ac.cput.Repository.AdminRepository;
 import za.ac.cput.Repository.PaymentRepository;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Joshua Julies
+ * 220102473
+ * The payment service implementation
+ */
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -45,6 +49,18 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
+    public List<Payment> readAll() {
+        if(repo.count() != 0) {
+            List<Payment> pList = repo.findAll();
+            System.out.println("Payment list is found");
+            return pList;
+        }else{
+            System.out.println("Payment list not found");
+            return null;
+        }
+    }
+
+    @Override
     public Payment update(Payment payment) {
         if(Collections.emptyList() != repo) {
             List<Payment> pList = repo.findAll();
@@ -73,6 +89,5 @@ public class PaymentServiceImpl implements PaymentService {
         }else{
             System.out.println("Error: Payment not found.");
         }
-
     }
 }

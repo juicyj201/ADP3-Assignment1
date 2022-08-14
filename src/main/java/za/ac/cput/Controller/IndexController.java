@@ -4,11 +4,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Joshua Julies
+ * 220102473
+ * The home/index controller
+ */
+
 @RestController
-@RequestMapping("/home")
-public class HomeController {
+@RequestMapping("/")
+public class IndexController {
     @GetMapping
-    public String home(){
-        return "home";
+    public String index(){
+        return "Index";
     }
 }

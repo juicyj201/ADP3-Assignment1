@@ -3,24 +3,19 @@ package za.ac.cput.Service.Impl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Entity.Admin;
+import za.ac.cput.Domain.Entity.Payment;
 import za.ac.cput.Factory.AdminFactory;
 import za.ac.cput.Factory.PaymentFactory;
 
-/**
- * Joshua Julies
- * 220102473
- * The admin entity
- */
+public class PaymentServiceImplTest {
+    private PaymentServiceImpl service;
 
-public class AdminServiceImplTest {
-    private AdminServiceImpl service;
-
-    private Admin admin = new AdminFactory().buildAdmin("01", "Accountant", "Jax", "Blade");
+    private Payment payment = new PaymentFactory().buildPayment("01", "01", "01/01/1999", 220);
 
     @Test
     public void testSave(){
         try {
-            Assertions.assertTrue(service.save(new AdminFactory().buildAdmin("01", "Accountant", "Jax", "Blade")) != null);
+            Assertions.assertTrue(service.save(new PaymentFactory().buildPayment("01", "01", "01/01/1999", 220)) != null);
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();
