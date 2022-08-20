@@ -1,5 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
+import za.ac.cput.Service.Impl.StudentService;
+
 import javax.persistence.*;
 
 /**
@@ -72,6 +74,7 @@ public class Student
     public String toString() {
         return "Student{" + "StudentID='" + studentID + '\'' + ", StudFirstName='" + studFirstName + '\'' + ", StudSurname='" + studSurname + '\'' + ", Gender='" + gender + '\'' + ", Age=" + age + ", Allergies='" + allergies + '\'' + '}';
     }
+
 
     public static class StudentBuilder{
 

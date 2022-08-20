@@ -5,22 +5,38 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Factory.StudentFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class StudentFactoryTest {
+/**
+ *
+ * Keziah Robinson
+ * 219113149
+ * Student Factory Test
+ *
+ */
 
+class StudentFactoryTest {
 
     @BeforeEach
     void setUp() {
     }
+    @Test
+    public void StudentTest() {
+        Student student = new Student.StudentBuilder()
+                .createStudentID("219113149")
+                .createStudFirstName("Keziah")
+                .createStudSurname("Robinson")
+                .createGender("Female")
+                .createAge("21")
+                .createAllergies("Bees")
+                .builder();
+        System.out.println(student);
+    }
 
     @Test
-    public void test(){
-
-        Student student = StudentFactory.createStudent("219113149", "Keziah", "Robinson", "Female", "21", "Null");
-        assertNotNull(student);
+    public void StudentFactoryTest() {
+        Student student1 = StudentFactory.createStudent("219113148", "Kessia", "Robertson", "Female", "22", "Peanuts");
+        assertNotNull(student1);
     }
 
     @AfterEach

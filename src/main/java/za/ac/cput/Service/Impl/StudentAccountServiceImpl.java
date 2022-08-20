@@ -10,14 +10,11 @@ package za.ac.cput.Service.Impl;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.StudentAccount;
 import za.ac.cput.Repository.StudentAccountRepository;
-import za.ac.cput.Repository.StudentRepository;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class StudentAccountServiceImpl implements StudentAccountService {
-    private static StudentRepository studentRepository;
     private static StudentAccountRepository studentAccountRepository;
     private List<StudentAccount> studentAccountList;
     private static StudentAccountService studentAccountService;
@@ -70,6 +67,6 @@ public StudentAccountServiceImpl(){
 
     @Override
     public List<StudentAccount> readAll() {
-        return null;
+        return this.studentAccountRepository.readAll();
     }
 }

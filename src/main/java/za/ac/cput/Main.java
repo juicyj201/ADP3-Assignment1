@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class Main
 {
     public static void main( String[] args )
