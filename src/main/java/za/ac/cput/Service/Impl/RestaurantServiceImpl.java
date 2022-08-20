@@ -40,6 +40,11 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
+    public Restaurant update(Restaurant entity) {
+        return null;
+    }
+
+    @Override
     public void delete(Restaurant restaurant) {
         if(!restaurant.equals(null)) {
             repo.delete(restaurant);
