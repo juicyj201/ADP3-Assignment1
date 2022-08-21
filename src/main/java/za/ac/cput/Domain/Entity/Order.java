@@ -1,19 +1,31 @@
 package za.ac.cput.Domain.Entity;
 
 
+import javax.persistence.*;
+
 /**
  * Delron Chad Claassen
  * 219360561
  * The Order Entity
  */
 
-public class Order
-{
+@Entity
+@Table(name="Orders")
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ORDER_ID")
     private String orderId;
+    @Column(name = "STUDENT_ACCOUNT_ID")
     private String studentAccountId;
+    @Column(name = "STUDENT_MEAL_CHOICE")
     private String studentMealChoice;
+    @Column(name = "ORDER_NUM")
     private String orderNum;
+    @Column(name = "ORDER_DESC")
     private String OrderDesc;
+    @Column(name = "ORDER_RECEIPT")
     private String orderReceipt;
 
     private Order(OrderBuilder builder) {
@@ -23,6 +35,10 @@ public class Order
         this.orderNum = builder.orderNum;
         this.OrderDesc = builder.OrderDesc;
         this.orderReceipt = builder.orderReceipt;
+    }
+
+    public Order() {
+
     }
 
     public String getOrderId() {

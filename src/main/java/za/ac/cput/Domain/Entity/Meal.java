@@ -1,16 +1,26 @@
 package za.ac.cput.Domain.Entity;
 
+import javax.persistence.*;
+
 /**
  * Delron Chad Claassen
  * 219360561
  * The Meal Entity
  */
 
-public class Meal
-{
+@Entity
+@Table(name="Meal")
+public class Meal {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ORDER_ID")
     private String orderId;
+    @Column(name = "STUDENT_MEAL_CHOICE")
     private String studentMealChoice;
+    @Column(name = "DRINK")
     private String drink;
+    @Column(name = "ALLERGENS")
     private String allergens;
 
     private Meal(MealBuilder builder) {
@@ -18,6 +28,10 @@ public class Meal
         this.studentMealChoice = builder.studentMealChoice;
         this.drink = builder.drink;
         this.allergens = builder.allergens;
+    }
+
+    public Meal() {
+
     }
 
     public String getOrderId() {
@@ -29,7 +43,7 @@ public class Meal
     }
 
     public String getStudentMealChoice() {
-        return studentMealChoice;
+        return this.studentMealChoice;
     }
 
     public void setStudentMealChoice(String studentMealChoice) {
