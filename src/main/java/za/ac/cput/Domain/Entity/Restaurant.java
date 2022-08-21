@@ -1,8 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Matthew Jones
@@ -15,8 +14,11 @@ import javax.persistence.Table;
 public class Restaurant
 {
     @Id
+    @GeneratedValue
     private String restaurantID;
+    @Column(name = "resName")
     private String restaurantName;
+    @Column(name = "resAddr")
     private String restaurantAddr;
 
     private Restaurant(RestaurantBuilder builder)
@@ -59,6 +61,20 @@ public class Restaurant
     {
         return restaurantAddr;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant restaurant = (Restaurant) o;
+        return restaurantID.equals(restaurant.restaurantID) &  restaurantName.equals(restaurant.restaurantName) && restaurantAddr.equals(restaurant.restaurantAddr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(restaurantID, restaurantName, restaurantAddr);
+    }
+
 
     @Override
     public String toString() {
