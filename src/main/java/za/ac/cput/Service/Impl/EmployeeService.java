@@ -16,6 +16,5 @@ public interface EmployeeService extends IService<Employee, String > {
     @Override
     void delete(Employee employee);
 
-//    @Override
-//    List<Employee> readAll();
+    List<Employee> readAll();
 }

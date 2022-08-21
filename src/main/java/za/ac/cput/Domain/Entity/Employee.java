@@ -1,8 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Matthew Jones
@@ -14,8 +13,11 @@ import javax.persistence.Table;
 public class Employee
 {
     @Id
+    @GeneratedValue
     public String employeeNum;
+    @Column(name = "empFirstName")
     public String empFirstName;
+    @Column(name = "empLastName")
     public String empLastName;
     public String studentAccountID;
 
@@ -62,6 +64,20 @@ public class Employee
     public void setStudentAccountID(String studentAccountID) {
         this.studentAccountID = studentAccountID;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return employeeNum.equals(employee.employeeNum) && empFirstName.equals(employee.empFirstName) && empLastName.equals(employee.empLastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeNum, empFirstName, empLastName);
+    }
+
 
     @Override
     public String toString() {
