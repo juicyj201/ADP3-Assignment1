@@ -19,14 +19,14 @@ public class StudentAccountServiceImpl implements StudentAccountService {
     private List<StudentAccount> studentAccountList;
     private static StudentAccountService studentAccountService;
 
-public StudentAccountServiceImpl(){
-    this.studentAccountRepository = StudentAccountServiceImpl.studentAccountRepository;
+public StudentAccountServiceImpl(StudentAccountRepository studentAccountRepository){
+    this.studentAccountRepository = studentAccountRepository;
 }
-    public static StudentAccountService getService(){
-        if(studentAccountService == null){
-            studentAccountService = new StudentAccountServiceImpl();}
-        return studentAccountService;
-    }
+//    public static StudentAccountService getService(){
+//        if(studentAccountService == null){
+//            studentAccountService = new StudentAccountServiceImpl();}
+//        return studentAccountService;
+//    }
 
     @Override
     public StudentAccount save(StudentAccount studentAccount) {
@@ -64,9 +64,9 @@ public StudentAccountServiceImpl(){
         }
         return studentAccount;
     }
-
-    @Override
-    public List<StudentAccount> readAll() {
-        return this.studentAccountRepository.readAll();
-    }
+//
+//    @Override
+//    public List<StudentAccount> readAll() {
+//        return this.studentAccountRepository.readAll();
+//    }
 }
