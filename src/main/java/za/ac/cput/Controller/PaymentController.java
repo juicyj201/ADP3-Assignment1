@@ -43,11 +43,11 @@ public class PaymentController {
         return service.read(payment);
     }
 
-    @GetMapping
-    public List<Payment> getAllPayment() {
-        logger.info("Service has begun reading the payment list requested...");
-        return service.readAll();
-    }
+//    @GetMapping
+//    public List<Payment> getAllPayment() {
+//        logger.info("Service has begun reading the payment list requested...");
+//        return service.readAll();
+//    }
 
     @PutMapping
     public Payment updatePayment(Payment payment){

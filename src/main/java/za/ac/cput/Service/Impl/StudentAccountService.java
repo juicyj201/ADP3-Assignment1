@@ -20,5 +20,5 @@ public interface StudentAccountService extends IService<StudentAccount, String> 
     public Optional<StudentAccount> read(StudentAccount studentAccount);
     public void delete(StudentAccount studentAccount);
     public StudentAccount update(StudentAccount studentAccount);
-    public List<StudentAccount> readAll();
+//    public List<StudentAccount> readAll();
 }

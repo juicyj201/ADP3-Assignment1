@@ -44,11 +44,11 @@ public class AdminController {
         return service.read(admin);
     }
 
-    @GetMapping
-    public List<Admin> getAllAdmin() {
-        logger.info("Service has begun reading the admin list requested...");
-        return service.readAll();
-    }
+//    @GetMapping
+//    public List<Admin> getAllAdmin() {
+//        logger.info("Service has begun reading the admin list requested...");
+//        return service.readAll();
+//    }
 
     @PutMapping
     public Admin updateAdmin(Admin admin){

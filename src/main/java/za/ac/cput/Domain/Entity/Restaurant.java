@@ -1,13 +1,20 @@
 package za.ac.cput.Domain.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Matthew Jones
  * 220077681
  * The Restaurant Entity
  */
 
+@Entity
+@Table(name = "Restaurant")
 public class Restaurant
 {
+    @Id
     private String restaurantID;
     private String restaurantName;
     private String restaurantAddr;
@@ -17,6 +24,10 @@ public class Restaurant
         this.restaurantID = builder.restaurantID;
         this.restaurantName = builder.restaurantName;
         this.restaurantAddr = builder.restaurantAddr;
+    }
+
+    public Restaurant() {
+
     }
 
     public void setRestaurantID(String restaurantID)
