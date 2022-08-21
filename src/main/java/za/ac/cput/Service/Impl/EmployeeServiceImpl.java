@@ -40,6 +40,11 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
+    public Employee update(Employee entity) {
+        return null;
+    }
+
+    @Override
     public void delete(Employee employee) {
         if(!employee.equals(null)) {
             repo.delete(employee);
