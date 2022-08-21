@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="ORDER")
+@Table(name="Orders")
 public class Order {
 
     @Id
