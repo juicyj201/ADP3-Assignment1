@@ -9,28 +9,29 @@ package za.ac.cput.Service.Impl;
  */
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Student;
-import za.ac.cput.Repository.StudentAccountRepository;
 import za.ac.cput.Repository.StudentRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-private static StudentRepository studentRepository;
-private static StudentAccountRepository studentAccountRepository;
-private List<Student> studentList;
+private final StudentRepository studentRepository;
+private List<Student> studentList = new ArrayList<>();
 private static StudentService studentService;
 
-public StudentServiceImpl(){
-    this.studentRepository = StudentServiceImpl.studentRepository;
+
+
+public StudentServiceImpl(StudentRepository studentRepository){
+    this.studentRepository = studentRepository;
 }
-    public static StudentService getService(){
-        if(studentService == null){
-            studentService = new StudentServiceImpl();
-        }
-        return studentService;
-    }
+//    public static StudentService getService(){
+//        if(studentService == null){
+//            studentService = new StudentServiceImpl(studentRepository);
+//        }
+//        return studentService;
+//    }
 
     @Override
     public Student save(Student student) {
@@ -48,7 +49,7 @@ public StudentServiceImpl(){
     public Optional<Student> read(Student student) {
         return this.studentList
                 .stream()
-                .filter(a -> a.getStudentID().equals(student))
+                .filter(a -> a.getStudentID().equals(student.getStudentID()))
                 .findFirst();
     }
 
@@ -68,10 +69,10 @@ public StudentServiceImpl(){
         }else{
             System.out.println("Student does not exist ");
         }
-    }
+    }}
 
-    @Override
-    public List<Student> readAll() {
-        return this.studentRepository.readAll();
-    }
-}
+//    @Override
+//    public List<Student> readAll() {
+//        return this.studentRepository.readAll();
+//    }
+//}

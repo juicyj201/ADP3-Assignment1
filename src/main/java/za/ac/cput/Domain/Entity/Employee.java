@@ -1,13 +1,19 @@
 package za.ac.cput.Domain.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Matthew Jones
  * 220077681
  * The Employee Entity
  */
-
+@Entity
+@Table(name = "Employee")
 public class Employee
 {
+    @Id
     public String employeeNum;
     public String empFirstName;
     public String empLastName;
@@ -19,6 +25,10 @@ public class Employee
         this.empFirstName = builder.empFirstName;
         this.empLastName = builder.empLastName;
         this.studentAccountID = builder.studentAccountID;
+    }
+
+    public Employee() {
+
     }
 
     public String getEmployeeNum() {

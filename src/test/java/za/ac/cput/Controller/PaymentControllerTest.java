@@ -39,17 +39,17 @@ public class PaymentControllerTest {
         }
     }
 
-    @Test
-    public void testReadAllPayment(){
-        try {
-            Assertions.assertNotNull(controller.getAllPayment());
-        }catch(NullPointerException npe){
-            npe.getMessage();
-            npe.getStackTrace();
-        }catch(Exception e){
-            e.getMessage();
-        }
-    }
+//    @Test
+//    public void testReadAllPayment(){
+//        try {
+//            Assertions.assertNotNull(controller.getAllPayment());
+//        }catch(NullPointerException npe){
+//            npe.getMessage();
+//            npe.getStackTrace();
+//        }catch(Exception e){
+//            e.getMessage();
+//        }
+//    }
 
     @Test
     public void testUpdateAdmin(){

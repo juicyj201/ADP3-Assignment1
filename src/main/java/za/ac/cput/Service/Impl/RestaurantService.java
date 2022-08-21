@@ -16,6 +16,6 @@ public interface RestaurantService extends IService<Restaurant, String> {
     @Override
     void delete(Restaurant entity);
 
-    @Override
-    List<Restaurant> readAll();
+//    @Override
+//    List<Restaurant> readAll();
 }

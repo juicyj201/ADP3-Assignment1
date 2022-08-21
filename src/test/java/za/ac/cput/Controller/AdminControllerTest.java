@@ -39,17 +39,17 @@ public class AdminControllerTest {
         }
     }
 
-    @Test
-    public void testReadAllAdmin(){
-        try {
-            Assertions.assertNotNull(controller.getAllAdmin());
-        }catch(NullPointerException npe){
-            npe.getMessage();
-            npe.getStackTrace();
-        }catch(Exception e){
-            e.getMessage();
-        }
-    }
+//    @Test
+//    public void testReadAllAdmin(){
+//        try {
+//            Assertions.assertNotNull(controller.getAllAdmin());
+//        }catch(NullPointerException npe){
+//            npe.getMessage();
+//            npe.getStackTrace();
+//        }catch(Exception e){
+//            e.getMessage();
+//        }
+//    }
 
     @Test
     public void testUpdateAdmin(){

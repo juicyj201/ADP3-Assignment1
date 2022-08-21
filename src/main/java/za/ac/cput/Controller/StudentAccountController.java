@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.StudentAccount;
 import za.ac.cput.Service.Impl.StudentAccountService;
+import za.ac.cput.Service.Impl.StudentAccountServiceImpl;
 
 import java.util.List;
 
@@ -28,40 +29,39 @@ public class StudentAccountController {
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
-    public StudentAccountController(StudentAccountService studentAccountService){
+    public StudentAccountController(StudentAccountServiceImpl studentAccountService){
         this.studentAccountService = studentAccountService;
     }
 
-    @PostMapping("save")
-    public ResponseEntity<StudentAccount> save(StudentAccount studentAccount) {
+    @PostMapping
+    public StudentAccount save(StudentAccount studentAccount) {
         StudentAccount studentAccounts = studentAccountService.save(studentAccount);
-        return ResponseEntity.ok(studentAccounts);
+        return studentAccounts;
     }
 
-    @GetMapping("read")
-    public ResponseEntity<StudentAccount> read(StudentAccount studentAccount){
+    @GetMapping
+    public StudentAccount read(StudentAccount studentAccount){
         StudentAccount studentAccounts  = studentAccountService.read(studentAccount).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(studentAccounts);
+        return studentAccounts;
     }
 
-    @DeleteMapping("delete")
-    public ResponseEntity<Void> delete(StudentAccount studentAccount){
+    @DeleteMapping
+    public void delete(StudentAccount studentAccount){
         log.info("Delete student: {}", studentAccount);
         this.delete(studentAccount);
-        return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("update")
-    public ResponseEntity<StudentAccount> update(StudentAccount studentAccount){
+    @PutMapping
+    public StudentAccount update(StudentAccount studentAccount){
         StudentAccount studentAccounts = studentAccountService.update(studentAccount);
-        return ResponseEntity.ok(studentAccounts);
+        return studentAccounts;
     }
-
-    @GetMapping("readAll")
-    public ResponseEntity<List<StudentAccount>> readAll(){
-        List<StudentAccount>studentAccounts = this.studentAccountService.readAll();
-        return ResponseEntity.ok(studentAccounts);
-    }
+//
+//    @GetMapping("readAll")
+//    public ResponseEntity<List<StudentAccount>> readAll(){
+//        List<StudentAccount>studentAccounts = this.studentAccountService.readAll();
+//        return ResponseEntity.ok(studentAccounts);
+//    }
 
 
 

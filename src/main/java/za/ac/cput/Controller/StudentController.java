@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.Student;
 import za.ac.cput.Service.Impl.StudentService;
+import za.ac.cput.Service.Impl.StudentServiceImpl;
+
 import java.util.List;
 
 /**
@@ -27,38 +29,37 @@ public class StudentController {
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
-    public StudentController(StudentService studentService){
+    public StudentController(StudentServiceImpl studentService){
         this.studentService = studentService;
     }
 
-    @PostMapping("save")
-    public ResponseEntity<Student> save(Student student) {
+    @PostMapping
+    public Student save(@RequestBody Student student) {
         Student students = studentService.save(student);
-        return ResponseEntity.ok(students);
+        return students;
     }
 
-    @GetMapping("read")
-    public ResponseEntity<Student> read(Student student){
+    @GetMapping
+    public Student read(Student student){
         Student students  = studentService.read(student).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(students);
+        return students;
     }
 
-    @DeleteMapping("delete")
-    public ResponseEntity<Void> delete(Student student){
+    @DeleteMapping
+    public void delete(Student student){
         log.info("Delete student: {}", student);
         this.delete(student);
-        return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("update")
-    public ResponseEntity<Student> update(Student student){
+    @PutMapping
+    public Student update(Student student){
         Student students = studentService.update(student);
-        return ResponseEntity.ok(students);
+        return students;
     }
 
-    @GetMapping("readAll")
-    public ResponseEntity<List<Student>> readAll(){
-        List<Student>students = this.studentService.readAll();
-        return ResponseEntity.ok(students);
-    }
+//    @GetMapping("readAll")
+//    public ResponseEntity<List<Student>> readAll(){
+//        List<Student>students = this.studentService.readAll();
+//        return ResponseEntity.ok(students);
+//    }
 }
