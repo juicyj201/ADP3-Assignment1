@@ -68,8 +68,6 @@ public StudentServiceImpl(){
         }else{
             System.out.println("Student does not exist ");
         }
-
-
     }
 
     @Override
