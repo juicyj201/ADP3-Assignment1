@@ -8,6 +8,12 @@ import za.ac.cput.Repository.MealRepository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Delron Chad Claassen
+ * 219360561
+ * Meal Service interface implementation
+ */
+
 @Service
 public class MealServiceImpl implements MealService {
 

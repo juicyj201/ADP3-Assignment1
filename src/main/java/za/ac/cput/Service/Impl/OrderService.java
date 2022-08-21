@@ -6,6 +6,11 @@ import za.ac.cput.Service.IService;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Delron Chad Claassen
+ * 219360561
+ * Order Service interface
+ */
 
 public interface OrderService extends IService<Order, String> {
     public Order save(Order order);

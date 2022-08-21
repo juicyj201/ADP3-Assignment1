@@ -10,6 +10,12 @@ import za.ac.cput.Service.Impl.MealService;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Delron Chad Claassen
+ * 219360561
+ * Meal Controller
+ */
+
 @RestController
 @RequestMapping("/meal")
 public class MealController {
