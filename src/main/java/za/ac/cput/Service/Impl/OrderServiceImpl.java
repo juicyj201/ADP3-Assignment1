@@ -1,5 +1,6 @@
 package za.ac.cput.Service.Impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Order;
@@ -14,19 +15,24 @@ import java.util.Optional;
  * Order Service interface implementation
  */
 
+@Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
     private OrderRepository orderRepo;
-    private static OrderService orderService;
+//    private static OrderService orderService;
 
-    public static OrderServiceImpl getOrderService() {
-        if(orderService==null) {
-            orderService = new OrderServiceImpl();
-        };
+//    public static OrderServiceImpl getOrderService() {
+//        if(orderService==null) {
+//            orderService = new OrderServiceImpl();
+//        };
+//
+//        return (OrderServiceImpl) orderService;
+//    }
 
-        return (OrderServiceImpl) orderService;
+
+    public OrderServiceImpl(OrderRepository orderRepo) {
+        this.orderRepo = orderRepo;
     }
 
     @Override
