@@ -10,7 +10,7 @@ import za.ac.cput.Domain.Entity.Meal;
 
 public class MealFactory
 {
-    public static Meal createMeal(String orderId, String studentMealChoice, String drink, String allergens)
+    public static Meal createMeal(Long orderId, String studentMealChoice, String drink, String allergens)
     {
         if(orderId == null)
             return null;
