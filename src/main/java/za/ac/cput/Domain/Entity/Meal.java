@@ -15,7 +15,7 @@ public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID")
-    private String orderId;
+    private Long orderId;
     @Column(name = "STUDENT_MEAL_CHOICE")
     private String studentMealChoice;
     @Column(name = "DRINK")
@@ -34,11 +34,11 @@ public class Meal {
 
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
@@ -78,12 +78,12 @@ public class Meal {
 
     public static class MealBuilder
     {
-        private String orderId;
+        private Long orderId;
         private String studentMealChoice;
         private String drink;
         private String allergens;
 
-        public MealBuilder setOrderId(String orderId) {
+        public MealBuilder setOrderId(Long orderId) {
             this.orderId = orderId;
             return this;
         }

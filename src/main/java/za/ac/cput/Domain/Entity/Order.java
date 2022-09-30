@@ -16,7 +16,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID")
-    private String orderId;
+    private Long orderId;
     @Column(name = "STUDENT_ACCOUNT_ID")
     private String studentAccountId;
     @Column(name = "STUDENT_MEAL_CHOICE")
@@ -41,11 +41,11 @@ public class Order {
 
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
@@ -103,14 +103,14 @@ public class Order {
 
     public static class OrderBuilder
     {
-        private String orderId;
+        private Long orderId;
         private String studentAccountId;
         private String studentMealChoice;
         private String orderNum;
         private String OrderDesc;
         private String orderReceipt;
 
-        public OrderBuilder setOrderId(String orderId) {
+        public OrderBuilder setOrderId(Long orderId) {
             this.orderId = orderId;
             return this;
         }
