@@ -8,10 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Joshua Julies
  * 220102473
  * The Spring Boot Application
- */
+ */ 
 
 @SpringBootApplication
-//@EnableAutoConfiguration
 public class Main
 {
     public static void main( String[] args )

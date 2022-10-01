@@ -42,11 +42,13 @@ public class MealController {
         return mealService.read(meal);
     }
 
+    /**
     @GetMapping
     public List<Meal> getMeals() {
         logger.info("Retrieving meal list...");
         return mealService.readAll();
     }
+     **/
 
     @PutMapping
     Meal updateMeal(@RequestBody Meal meal) {
