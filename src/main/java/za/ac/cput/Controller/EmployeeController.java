@@ -17,8 +17,8 @@ import java.util.logging.Logger;
  * The Employee Controller
  */
 
-@RestController
-@RequestMapping("/employee")
+//@RestController
+//@RequestMapping("/employee")
 public class EmployeeController {
     private EmployeeService service;
     protected final static Logger log = (Logger) LoggerFactory.getLogger(EmployeeController.class);

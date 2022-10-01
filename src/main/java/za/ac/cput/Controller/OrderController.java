@@ -42,11 +42,13 @@ public class OrderController {
         return orderService.read(order);
     }
 
+    /**
     @GetMapping
     public List<Order> getOrders() {
         logger.info("Retrieving orders list...");
         return orderService.readAll();
     }
+     **/
 
     @PutMapping
     Order updateOrder(@RequestBody Order order) {
