@@ -1,11 +1,15 @@
 package za.ac.cput.Controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.Order;
 import za.ac.cput.Service.Impl.OrderService;
+import za.ac.cput.Service.Impl.OrderServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,53 +21,50 @@ import java.util.Optional;
  */
 
 @RestController
+@Slf4j
 @RequestMapping("/order")
 public class OrderController {
 
-    private OrderService orderService;
-    protected final static Logger logger = LoggerFactory.getLogger(OrderController.class);
+    private final OrderService orderService;
 
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderServiceImpl orderService) {
         this.orderService = orderService;
     }
 
-    @PostMapping
+    @PostMapping("save")
     public Order addOrder(@RequestBody Order order) {
-        logger.info("Saving order...");
+        log.info("Creating order: {}", order.getOrderId());
         Order savedOrder = orderService.save(order);
-        logger.info("Order saved...");
+        log.info("Order ID: {} created successfully!", order.getOrderId());
         return savedOrder;
     }
 
-    @GetMapping
+    @GetMapping("read")
     Optional<Order> getOrder(@RequestBody Order order) {
-        logger.info("Order request has been initialized...");
-        return orderService.read(order);
+        log.info("Order request has been initialized...");
+        return Optional.ofNullable(orderService.read(order).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
-    /**
-    @GetMapping
+    @GetMapping("readAll")
     public List<Order> getOrders() {
-        logger.info("Retrieving orders list...");
+        log.info("Retrieving orders list...");
         return orderService.readAll();
     }
-     **/
 
-    @PutMapping
+    @PutMapping("update")
     Order updateOrder(@RequestBody Order order) {
-        logger.info("Request initiated: Updating order...");
+        log.info("Request initiated: Updating order...");
         Order updatedOrder = orderService.update(order);
-        logger.info("Request finalized: Order#" + updatedOrder.getOrderId() + "#, has been successfully updated!" );
+        log.info("Request finalized: Order#" + updatedOrder.getOrderId() + "#, has been successfully updated!" );
         return updatedOrder;
     }
 
-    @DeleteMapping
+    @DeleteMapping("delete")
     void deleteOrder(@RequestBody Order order) {
-        logger.info("Request initiated: Deleting order...");
+        log.info("Request initiated: Deleting order...");
         orderService.delete(order);
-        logger.info("Request finalized: Order#" + order.getOrderId() + "#, has been deleted!");
+        log.info("Request finalized: Order#" + order.getOrderId() + "#, has been deleted!");
     }
-
 }
 
