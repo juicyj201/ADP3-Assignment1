@@ -16,8 +16,8 @@ import java.util.logging.Logger;
  * The Restaurant Controller
  */
 
-@RestController
-@RequestMapping("/restaurant")
+//@RestController
+//@RequestMapping("/restaurant")
 public class RestaurantController {
     private RestaurantService service;
     protected final static Logger log = (Logger) LoggerFactory.getLogger(RestaurantController.class);
