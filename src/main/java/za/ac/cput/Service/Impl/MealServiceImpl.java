@@ -1,6 +1,6 @@
 package za.ac.cput.Service.Impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Meal;
 import za.ac.cput.Repository.MealRepository;
@@ -14,33 +14,30 @@ import java.util.Optional;
  * Meal Service interface implementation
  */
 
+@Slf4j
 @Service
 public class MealServiceImpl implements MealService {
 
-    @Autowired
     private MealRepository mealRepo;
-    private static MealService mealService;
 
-    public static MealServiceImpl getMealService() {
-        if(mealService == null){
-            mealService = new MealServiceImpl();
-        }
-
-        return (MealServiceImpl) mealService;
+    public MealServiceImpl(MealRepository mealRepo) {
+        this.mealRepo = mealRepo;
     }
 
+    @Override
     public Meal save(Meal meal) {
         return this.mealRepo.save(meal);
     }
 
+    @Override
     public Optional<Meal> read(Meal meal) {
-        return Optional.ofNullable(this.mealRepo.findById(meal.getOrderId()).orElse(null));
+        return this.mealRepo.findById(meal.getOrderId());
     }
 
     @Override
     public Meal update(Meal meal) {
         Meal oldMeal = null;
-        Optional<Meal> optionalMeal = mealRepo.findById(meal.getOrderId());
+        Optional<Meal> optionalMeal = this.mealRepo.findById(meal.getOrderId());
         if(optionalMeal.isPresent()) {
             oldMeal = optionalMeal.get();
             oldMeal.setStudentMealChoice(meal.getStudentMealChoice());
@@ -53,11 +50,17 @@ public class MealServiceImpl implements MealService {
         return oldMeal;
     }
 
+    @Override
     public List<Meal> readAll() {
         return this.mealRepo.findAll();
     }
 
+    @Override
     public void delete(Meal meal) {
-        this.mealRepo.deleteById(meal.getOrderId());
+        if (meal != null) {
+            this.mealRepo.deleteById(meal.getOrderId());
+        } else {
+            log.info("Failed. Meal doesn't exist.");
+        };
     }
 }

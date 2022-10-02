@@ -100,6 +100,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
+    <!--Used this dependency for application logging-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+    </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf -->
     <dependency>
@@ -126,7 +132,6 @@
       <artifactId>spring-security-web</artifactId>
       <version>5.7.3</version>
     </dependency>
-
 
   </dependencies>
 
