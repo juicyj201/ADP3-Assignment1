@@ -13,13 +13,14 @@ import java.util.Objects;
 public class Employee
 {
     @Id
-    @GeneratedValue
+    @Column(name = "employeeNum")
     public String employeeNum;
     @Column(name = "empFirstName")
     public String empFirstName;
     @Column(name = "empLastName")
     public String empLastName;
     public String studentAccountID;
+    protected String password;
 
     private Employee(EmployeeBuilder builder)
     {
@@ -63,6 +64,14 @@ public class Employee
 
     public void setStudentAccountID(String studentAccountID) {
         this.studentAccountID = studentAccountID;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

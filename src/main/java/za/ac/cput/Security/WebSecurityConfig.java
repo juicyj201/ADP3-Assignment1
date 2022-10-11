@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-public class WebSecurityConfig {
+public class WebSecurityConfig{
 //    @Autowired
 //    private AuthEntryPoint authEntryPoint;
 
@@ -29,18 +29,24 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((requests) -> requests
-                        .antMatchers("/").permitAll()
-//                        .antMatchers("/", "/index").permitAll()
-                        .anyRequest().authenticated()
-                );
+        http.authorizeHttpRequests((requests) -> {requests
+                .antMatchers("/").permitAll()
+                .antMatchers("/h2/**").permitAll()
+                .antMatchers("/login/**").permitAll()
+                .antMatchers("/main/**").permitAll()
+                .antMatchers("/admin/**").permitAll()
+                .antMatchers("/employee/**").permitAll()
+                .anyRequest().authenticated();
+        });
+
 //                .formLogin((form) -> form
 //                        .loginPage("/login")
 //                        .permitAll()
 //                )
 //                .logout((logout) -> logout.permitAll());
 
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
         return http.build();
     }
 }
