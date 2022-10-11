@@ -26,7 +26,7 @@ public class OrderTest {
     @Test
     public void test(){
         Order order = new Order.OrderBuilder()
-                .setOrderId("ORD001")
+                .setOrderId((long) 10000)
                 .setStudentAccountId("STAC001")
                 .setStudentMealChoice("Hamburger")
                 .setOrderNum("ORNUM001")

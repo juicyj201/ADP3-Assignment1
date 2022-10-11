@@ -13,7 +13,7 @@ import za.ac.cput.Factory.OrderFactory;
 public class OrderFactoryTest {
     @Test
     public void test(){
-        Order order = OrderFactory.createOrder("ORD001", "STAC001", "Hamburger", "ORNUM001", "Hamburger with large chips.", "####RECEIPT#######");
+        Order order = OrderFactory.createOrder((long) 10000, "STAC001", "Hamburger", "ORNUM001", "Hamburger with large chips.", "####RECEIPT#######");
         System.out.println(order.toString());
         Assertions.assertNotNull(order);
     }

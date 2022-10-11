@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Joshua Julies
@@ -16,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class IndexController {
-    @GetMapping({"/", "/index"})
-    public String index(@RequestParam(name = "appName", required = false,
-            defaultValue = "Restaurant School Management Web Application") String appName,  Model model){
-        model.addAttribute("appName", appName);
-        return "index";
+    @RequestMapping("/")
+    public ModelAndView index(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("index.html");
+        return model;
     }
 }
