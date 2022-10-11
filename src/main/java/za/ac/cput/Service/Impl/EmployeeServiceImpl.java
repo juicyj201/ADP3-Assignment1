@@ -1,6 +1,7 @@
 package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Employee;
 import za.ac.cput.Repository.EmployeeRepository;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
  * The Employee Service Impl
  */
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
     private final EmployeeRepository repo;
 

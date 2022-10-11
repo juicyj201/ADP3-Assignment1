@@ -18,19 +18,12 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/admin")
 public class AdminController {
+    @Autowired
     private AdminService service;
     protected final static Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-    @Autowired
-    public AdminController(AdminServiceImpl adminService){
-        this.service = adminService;
-        //side note - controller uses dependency injection for the service object,
-        //similarly in the service implementations for the repository objects.
-    }
-
-    @PostMapping
+    @PostMapping("/admin")
     public Admin saveAdmin(@RequestBody Admin admin){
         logger.info("Request has initiated...");
         Admin savedAdmin = service.save(admin);
@@ -38,27 +31,27 @@ public class AdminController {
         return savedAdmin;
     }
 
-    @GetMapping
-    public Optional<Admin> getAdminByID(Admin admin){
+    @GetMapping("/admin/{admin}")
+    public Optional<Admin> getAdminByID(@PathVariable Admin admin){
         logger.info("Service has begun reading admin requested...");
         return service.read(admin);
     }
 
-//    @GetMapping
-//    public List<Admin> getAllAdmin() {
-//        logger.info("Service has begun reading the admin list requested...");
-//        return service.readAll();
-//    }
+    @GetMapping("/admin")
+    public List<Admin> getAllAdmin() {
+        logger.info("Service has begun reading the admin list requested...");
+        return service.readAll();
+    }
 
-    @PutMapping
-    public Admin updateAdmin(Admin admin){
+    @PutMapping("/admin")
+    public Admin updateAdmin(@RequestBody Admin admin){
         logger.info("Service has begun updating the admin request...");
         Admin updatedAdmin = service.update(admin);
         logger.info("Admin "+updatedAdmin.getAdminFirstName()+", has been updated.");
         return updatedAdmin;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/admin")
     public void deleteAdmin(Admin admin){
         logger.info("Service has begun deletion of admin...");
         service.delete(admin);
