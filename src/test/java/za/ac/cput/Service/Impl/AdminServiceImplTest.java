@@ -43,7 +43,7 @@ public class AdminServiceImplTest {
     @Test
     public void testRead(){
         try {
-            Assertions.assertNotNull(service.read(admin));
+            Assertions.assertNotNull(service.read(admin.getAdminID()));
         } catch(NullPointerException npe) {
             npe.getStackTrace();
             npe.getMessage();
@@ -68,7 +68,7 @@ public class AdminServiceImplTest {
 
     @Test void testUpdate(){
         try {
-            Assertions.assertFalse(service.update(updatedAdmin).equals(service.read(admin)));
+            Assertions.assertFalse(service.update(updatedAdmin).equals(service.read(admin.getAdminID())));
         } catch (Exception e) {
             e.printStackTrace();
         }

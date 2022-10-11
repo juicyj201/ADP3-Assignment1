@@ -17,8 +17,8 @@ import java.util.Optional;
 
 public interface StudentAccountService extends IService<StudentAccount, String> {
     public StudentAccount save(StudentAccount student);
-    public Optional<StudentAccount> read(StudentAccount studentAccount);
+    public Optional<StudentAccount> read(String studAccountNumber);
     public void delete(StudentAccount studentAccount);
     public StudentAccount update(StudentAccount studentAccount);
-//    public List<StudentAccount> readAll();
+    public List<StudentAccount> readAll();
 }

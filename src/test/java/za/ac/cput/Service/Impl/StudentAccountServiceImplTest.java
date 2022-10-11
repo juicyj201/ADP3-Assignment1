@@ -38,7 +38,7 @@ public class StudentAccountServiceImplTest {
     @Test
     void read() {
         StudentAccount saved = this.studentAccountService.save(this.studentAccount);
-        Optional<StudentAccount> read = this.studentAccountService.read(this.studentAccount);
+        Optional<StudentAccount> read = this.studentAccountService.read(this.studentAccount.getStudAccountNumber());
         System.out.println(saved);
     }
 

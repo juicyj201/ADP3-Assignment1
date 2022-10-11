@@ -35,10 +35,10 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public Optional<Restaurant> read(Restaurant restaurant) {
-        if(!restaurant.equals(null)) {
+    public Optional<Restaurant> read(String restaurantID) {
+        if(!restaurantID.equals(null)) {
             System.out.println("Restaurant found: ");
-            return repo.findById(restaurant.getRestaurantID());
+            return repo.findById(restaurantID);
         }else{
             System.out.println("Error: Restaurant not found.");
             return null;

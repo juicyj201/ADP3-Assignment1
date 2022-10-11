@@ -11,7 +11,7 @@ public interface RestaurantService extends IService<Restaurant, String> {
     Restaurant save(Restaurant entity);
 
     @Override
-    Optional<Restaurant> read(Restaurant entity);
+    Optional<Restaurant> read(String restaurantID);
 
     @Override
     void delete(Restaurant entity);

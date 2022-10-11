@@ -21,7 +21,9 @@ public class MainController {
     @RequestMapping("/main")
     public ModelAndView login(@ModelAttribute Employee employee){
         ModelAndView model;
-        Optional<Employee> temp = service.read(employee);
+        Optional<Employee> temp = service.read(employee.getEmployeeNum());
+
+        System.out.println(temp.get().getEmpFirstName());
 
         //TODO - check that the employee password is working and that the username exists rather than just the employee password
 

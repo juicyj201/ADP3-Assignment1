@@ -13,12 +13,12 @@ import za.ac.cput.Factory.AdminFactory;
 
 public class AdminControllerTest {
     private AdminController controller;
-    private Admin admintestobject = new AdminFactory().buildAdmin("21", "Manager", "John", "Banks");
+    private final Admin admintestobject = new AdminFactory().buildAdmin("21", "Manager", "John", "Banks");
 
     @Test
     public void testSaveAdmin(){
         try {
-            Assertions.assertNotNull(controller.saveAdmin(new AdminFactory().buildAdmin("21", "Manager", "John", "Banks")));
+            Assertions.assertNotNull(controller.saveAdmin(admintestobject));
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();
@@ -30,7 +30,7 @@ public class AdminControllerTest {
     @Test
     public void testReadAdmin(){
         try {
-            Assertions.assertNotNull(controller.getAdminByID(admintestobject));
+            Assertions.assertNotNull(controller.getAdminByID(admintestobject.getAdminID()));
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();
@@ -39,22 +39,35 @@ public class AdminControllerTest {
         }
     }
 
-//    @Test
-//    public void testReadAllAdmin(){
-//        try {
-//            Assertions.assertNotNull(controller.getAllAdmin());
-//        }catch(NullPointerException npe){
-//            npe.getMessage();
-//            npe.getStackTrace();
-//        }catch(Exception e){
-//            e.getMessage();
-//        }
-//    }
+    @Test
+    public void testReadAllAdmin(){
+        try {
+            Assertions.assertNotNull(controller.getAllAdmin());
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
+    }
 
     @Test
     public void testUpdateAdmin(){
         try {
             Assertions.assertNotNull(controller.updateAdmin(admintestobject));
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
+    }
+
+    @Test
+    public void testDeleteAdmin(){
+        try {
+            controller.deleteAdmin(admintestobject);
+            Assertions.assertNull(controller.getAdminByID(admintestobject.getAdminID()));
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();

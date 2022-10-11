@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(name = "payment")
 public class Payment {
     @Id
-    @GeneratedValue
+    @Column(name = "paymentID")
     public String paymentID;
     @Column(name = "studentAccountID")
     public String studentAccountID;
@@ -23,10 +23,10 @@ public class Payment {
     public int paymentAmount;
 
     public Payment(PaymentBuilder paymentBuilder){
-        this.paymentID = paymentID;
-        this.studentAccountID = studentAccountID;
-        this.paymentDate = paymentDate;
-        this.paymentAmount = paymentAmount;
+        this.paymentID = paymentBuilder.paymentID;
+        this.studentAccountID = paymentBuilder.studentAccountID;
+        this.paymentDate = paymentBuilder.paymentDate;
+        this.paymentAmount = paymentBuilder.paymentAmount;
     }
 
     public Payment(){

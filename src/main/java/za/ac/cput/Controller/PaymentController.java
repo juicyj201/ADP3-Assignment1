@@ -29,7 +29,7 @@ public class PaymentController {
         //similarly in the service implementations for the repository objects.
     }
 
-    @PostMapping
+    @PostMapping("/payment")
     public Payment savePayment(@RequestBody Payment payment){
         logger.info("Request has initiated...");
         Payment savedPayment = service.save(payment);
@@ -37,19 +37,19 @@ public class PaymentController {
         return savedPayment;
     }
 
-    @GetMapping
-    public Optional<Payment> getPaymentByID(Payment payment){
+    @GetMapping("/payment/{paymentID}")
+    public Optional<Payment> getPaymentByID(@PathVariable String paymentID){
         logger.info("Service has begun reading payment requested...");
-        return service.read(payment);
+        return service.read(paymentID);
     }
 
-//    @GetMapping
-//    public List<Payment> getAllPayment() {
-//        logger.info("Service has begun reading the payment list requested...");
-//        return service.readAll();
-//    }
+    @GetMapping("/payment")
+    public List<Payment> getAllPayment() {
+        logger.info("Service has begun reading the payment list requested...");
+        return service.readAll();
+    }
 
-    @PutMapping
+    @PutMapping("/payment")
     public Payment updatePayment(Payment payment){
         logger.info("Service has begun updating the payment request...");
         Payment updatedPayment = service.update(payment);
@@ -57,7 +57,7 @@ public class PaymentController {
         return updatedPayment;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/payment")
     public void deletePayment(Payment payment){
         logger.info("Service has begun deletion of payment...");
         service.delete(payment);
