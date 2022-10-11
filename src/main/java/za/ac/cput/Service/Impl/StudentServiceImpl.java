@@ -46,10 +46,10 @@ public StudentServiceImpl(StudentRepository studentRepository){
 
 
     @Override
-    public Optional<Student> read(Student student) {
+    public Optional<Student> read(String studentID) {
         return this.studentList
                 .stream()
-                .filter(a -> a.getStudentID().equals(student.getStudentID()))
+                .filter(a -> a.getStudentID().equals(studentID))
                 .findFirst();
     }
 
@@ -69,10 +69,9 @@ public StudentServiceImpl(StudentRepository studentRepository){
         }else{
             System.out.println("Student does not exist ");
         }
-    }}
+    }
 
-//    @Override
-//    public List<Student> readAll() {
-//        return this.studentRepository.readAll();
-//    }
-//}
+    public List<Student> readAll() {
+        return (List<Student>) this.studentRepository.findAll();
+    }
+}

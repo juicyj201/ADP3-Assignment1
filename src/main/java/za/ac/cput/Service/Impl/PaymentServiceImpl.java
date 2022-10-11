@@ -31,10 +31,10 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Optional<Payment> read(Payment payment) {
-        if(!payment.equals(null)) {
+    public Optional<Payment> read(String paymentID) {
+        if(!paymentID.equals(null)) {
             System.out.println("Payment found: ");
-            Optional<Payment> readPayment = repo.findById(payment.getPaymentID());
+            Optional<Payment> readPayment = repo.findById(paymentID);
             return readPayment;
         }else{
             System.out.println("Error: Payment not found.");

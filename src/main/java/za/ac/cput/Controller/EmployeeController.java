@@ -38,9 +38,9 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{employee}")
-    public Optional<Employee> getEmployeeByID(@PathVariable Employee employee){
+    public Optional<Employee> getEmployeeByID(@PathVariable String employeeID){
         log.info("Service started reading employee requested");
-        return service.read(employee);
+        return service.read(employeeID);
     }
 
     @PutMapping("/employee")

@@ -22,49 +22,44 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/studentAccount")
+//@RequestMapping("/studentAccount")
 public class StudentAccountController {
-
-    private final StudentAccountService studentAccountService;
+    @Autowired
+    private StudentAccountService studentAccountService;
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
 
-    @Autowired
-    public StudentAccountController(StudentAccountServiceImpl studentAccountService){
-        this.studentAccountService = studentAccountService;
-    }
+//    @Autowired
+//    public StudentAccountController(StudentAccountServiceImpl studentAccountService){
+//        this.studentAccountService = studentAccountService;
+//    }
 
-    @PostMapping
+    @PostMapping("/studentAccount")
     public StudentAccount save(StudentAccount studentAccount) {
         StudentAccount studentAccounts = studentAccountService.save(studentAccount);
         return studentAccounts;
     }
 
-    @GetMapping
-    public StudentAccount read(StudentAccount studentAccount){
-        StudentAccount studentAccounts  = studentAccountService.read(studentAccount).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    @GetMapping("/studentAccount/{studAccountNumber}")
+    public StudentAccount read(@PathVariable String studAccountNumber){
+        StudentAccount studentAccounts  = studentAccountService.read(studAccountNumber).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return studentAccounts;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/studentAccount")
     public void delete(StudentAccount studentAccount){
         log.info("Delete student: {}", studentAccount);
         this.delete(studentAccount);
     }
 
-    @PutMapping
+    @PutMapping("/studentAccount")
     public StudentAccount update(StudentAccount studentAccount){
         StudentAccount studentAccounts = studentAccountService.update(studentAccount);
         return studentAccounts;
     }
-//
-//    @GetMapping("readAll")
-//    public ResponseEntity<List<StudentAccount>> readAll(){
-//        List<StudentAccount>studentAccounts = this.studentAccountService.readAll();
-//        return ResponseEntity.ok(studentAccounts);
-//    }
 
-
-
-
-
+    @GetMapping("/studentAccount")
+    public ResponseEntity<List<StudentAccount>> readAll(){
+        List<StudentAccount>studentAccounts = this.studentAccountService.readAll();
+        return ResponseEntity.ok(studentAccounts);
+    }
 }

@@ -19,7 +19,7 @@ public interface EmployeeService extends IService<Employee, String> {
     Employee save(Employee employee);
 
     @Override
-    Optional<Employee> read(Employee employee);
+    Optional<Employee> read(String employeeNum);
 
     @Override
     void delete(Employee employee);

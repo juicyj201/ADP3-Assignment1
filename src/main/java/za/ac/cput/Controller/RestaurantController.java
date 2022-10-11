@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * The Restaurant Controller
  */
 
-//@RestController
+@RestController
 //@RequestMapping("/restaurant")
 public class RestaurantController {
     private RestaurantService service;
@@ -27,7 +27,7 @@ public class RestaurantController {
         this.service = restaurantService;
     }
 
-    @PostMapping
+    @PostMapping("/restaurant")
     public Restaurant saveRestaurant(@RequestBody Restaurant restaurant){
         log.info("The request has started");
         Restaurant savedRestaurant = service.save(restaurant);
@@ -35,13 +35,13 @@ public class RestaurantController {
         return savedRestaurant;
     }
 
-    @GetMapping
-    public Optional<Restaurant> getRestaurantByID(Restaurant restaurant){
+    @GetMapping("/restaurant/{restaurantID}")
+    public Optional<Restaurant> getRestaurantByID(@PathVariable String restaurantID){
         log.info("Service started reading restaurant requested");
-        return service.read(restaurant);
+        return service.read(restaurantID);
     }
 
-    @PutMapping
+    @PutMapping("/restaurant")
     public Restaurant updateRestaurant(Restaurant restaurant){
         log.info("Service started updating the restaurant request");
         Restaurant updatedRestaurant = service.update(restaurant);
@@ -49,14 +49,14 @@ public class RestaurantController {
         return updatedRestaurant;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/restaurant")
     public void deleteEmployee(Restaurant restaurant){
         log.info("Service has started deletion of restaurant");
         service.delete(restaurant);
         log.info("Restaurant "+restaurant.getRestaurantName() +", has been deleted.");
     }
 
-    @GetMapping
+    @GetMapping("/restaurant")
     public List<Restaurant> getAllRestaurant(){
         return service.readAll();
     }
