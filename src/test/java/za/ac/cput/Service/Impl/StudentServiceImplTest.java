@@ -42,7 +42,7 @@ public class StudentServiceImplTest {
     @Test
     void read() {
         Student saved = this.studentService.save(this.student);
-        Optional<Student> read = this.studentService.read(this.student);
+        Optional<Student> read = this.studentService.read(this.student.getStudentID());
         System.out.println(saved);
     }
 

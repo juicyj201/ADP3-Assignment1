@@ -31,10 +31,10 @@ public class AdminController {
         return savedAdmin;
     }
 
-    @GetMapping("/admin/{admin}")
-    public Optional<Admin> getAdminByID(@PathVariable Admin admin){
+    @GetMapping("/admin/{adminID}")
+    public Optional<Admin> getAdminByID(@PathVariable String adminID){
         logger.info("Service has begun reading admin requested...");
-        return service.read(admin);
+        return service.read(adminID);
     }
 
     @GetMapping("/admin")

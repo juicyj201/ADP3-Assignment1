@@ -13,12 +13,12 @@ import za.ac.cput.Factory.PaymentFactory;
 
 public class PaymentControllerTest {
     private PaymentController controller;
-    private Payment paymenttestobject = new PaymentFactory().buildPayment("01","31","01/01/2022", 200);
+    private final Payment paymenttestobject = new PaymentFactory().buildPayment("01","31","01/01/2022", 200);
 
     @Test
     public void testSavePayment(){
         try {
-            Assertions.assertNotNull(controller.savePayment(new PaymentFactory().buildPayment("01","31","01/01/2022", 200)));
+            Assertions.assertNotNull(controller.savePayment(paymenttestobject));
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();
@@ -30,7 +30,7 @@ public class PaymentControllerTest {
     @Test
     public void testReadPayment(){
         try {
-            Assertions.assertNotNull(controller.getPaymentByID(paymenttestobject));
+            Assertions.assertNotNull(controller.getPaymentByID(paymenttestobject.getPaymentID()));
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();
@@ -39,22 +39,35 @@ public class PaymentControllerTest {
         }
     }
 
-//    @Test
-//    public void testReadAllPayment(){
-//        try {
-//            Assertions.assertNotNull(controller.getAllPayment());
-//        }catch(NullPointerException npe){
-//            npe.getMessage();
-//            npe.getStackTrace();
-//        }catch(Exception e){
-//            e.getMessage();
-//        }
-//    }
+    @Test
+    public void testReadAllPayment(){
+        try {
+            Assertions.assertNotNull(controller.getAllPayment());
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
+    }
 
     @Test
     public void testUpdateAdmin(){
         try {
             Assertions.assertNotNull(controller.updatePayment(paymenttestobject));
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
+    }
+
+    @Test
+    public void testDeletePayment(){
+        try {
+            controller.deletePayment(paymenttestobject);
+            Assertions.assertNull(controller.getPaymentByID(paymenttestobject.getPaymentID()));
         }catch(NullPointerException npe){
             npe.getMessage();
             npe.getStackTrace();

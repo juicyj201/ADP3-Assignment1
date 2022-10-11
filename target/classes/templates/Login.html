@@ -11,10 +11,9 @@
 </center>
 <center>
     <form th:action="@{/main}" th:object="${employee}" method="post">
-        Enter employee number: <input type="text" name="employeeNum" th:field="*{employeeNum}" />
-        <br/><br/>
-        Enter Password: <input type="password" name="password" th:field="*{password}" />
-        <br/><br/><br/>
+        <h3>Enter employee number: <input type="text" name="employeeNum" th:field="*{employeeNum}" /> </h3>
+        <h3>Enter Password: <input type="password" name="password" th:field="*{password}" /></h3>
+        <br/>
         <input type="submit" value="Login"/>
     </form>
 </center>

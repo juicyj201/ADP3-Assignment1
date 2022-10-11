@@ -22,44 +22,44 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/student")
+//@RequestMapping("/student")
 public class StudentController {
-
-    private final StudentService studentService;
+    @Autowired
+    private StudentServiceImpl studentService;
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
 
-    @Autowired
-    public StudentController(StudentServiceImpl studentService){
-        this.studentService = studentService;
-    }
+//    @Autowired
+//    public StudentController(StudentServiceImpl studentService){
+//        this.studentService = studentService;
+//    }
 
-    @PostMapping
+    @PostMapping("/student")
     public Student save(@RequestBody Student student) {
         Student students = studentService.save(student);
         return students;
     }
 
-    @GetMapping
-    public Student read(Student student){
-        Student students  = studentService.read(student).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    @GetMapping("/student/{studentID}")
+    public Student read(@PathVariable String studentID){
+        Student students  = studentService.read(studentID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return students;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/student")
     public void delete(Student student){
         log.info("Delete student: {}", student);
         this.delete(student);
     }
 
-    @PutMapping
+    @PutMapping("/student")
     public Student update(Student student){
         Student students = studentService.update(student);
         return students;
     }
 
-//    @GetMapping("readAll")
-//    public ResponseEntity<List<Student>> readAll(){
-//        List<Student>students = this.studentService.readAll();
-//        return ResponseEntity.ok(students);
-//    }
+    @GetMapping("/student")
+    public ResponseEntity<List<Student>> readAll(){
+        List<Student>students = this.studentService.readAll();
+        return ResponseEntity.ok(students);
+    }
 }
