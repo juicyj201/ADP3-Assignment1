@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+
+        <p align="left-top"><b> Project created by Group 22 </b></p>
+        <p align="left"><b> Thank you for using this webapp! 🙂 </b></p>
+
+    </head>
+    <body>
+    <center>
+        <h1> - Restaurant Management System Home - </h1>
+        <br/>
+    </center>
+
+
+    <br/>
+    <br/>
+    <form th:action="@{\login}">
+        <center>
+            <h1>Welcome to the Restaurant Management Web Application</h1>
+            <h2>Please click button belowe to log in and view app contents. </h2>
+            <input type="submit" value="goto login"/>
+        </center>
+    </form>
+    </body>
+</html>
