@@ -3,24 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <title>Home</title>
-
-        <p align="left-top"><b> This project was brought to you by Group 22 </b></p>
-        <p align="left"><b> Thank you for using this webapp! 🙂 </b></p>
-        <br/>
-
+        <link rel="stylesheet" type="text/css" href="/./css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="/./css/index-not-logged-in.css">
     </head>
     <body>
-    <center>
-        <h1> - Restaurant Management System Home - </h1>
-        <br/>
-    </center>
-
-    <form th:action="@{\login}">
-        <center>
-            <h2>Welcome to the Restaurant Management Web Application</h2>
-            <h3>Please click button below to log in and view app contents. </h3>
-            <input type="submit" value="goto login"/>
-        </center>
-    </form>
+        <header>
+            <div th:replace="fragments/navbar :: navbar_not_logged_in"></div>
+            <div th:replace="fragments/navbar :: navbar_student_logged_in"></div>
+            <div th:replace="fragments/navbar :: navbar_admin_logged_in"></div>
+        </header>
+        <main>
+            <article id="main-article" class="content">
+                <h1>Restaurant Management System Home</h1>
+                <h3>Welcome to the Restaurant Management Web Application</h3>
+                <form id="form" th:action="@{/login}">
+                    <label for="submit-index">Please click button below to log in and view app contents.</label>
+                    <input type="submit" id="submit-index" value="LOGIN"/>
+                </form>
+            </article>
+<!--        <footer>-->
+<!--            <p>-->
+<!--                This project was brought to you by Group 22. Thank you for using this webapp! 🙂-->
+<!--            </p>-->
+<!--        </footer>-->
+        </main>
     </body>
 </html>
