@@ -10,7 +10,7 @@ import za.ac.cput.Domain.Entity.Util.Validation;
  */
 
 public class AdminFactory {
-    public Admin buildAdmin(long adminID, String adminType, String adminFirstName, String adminSurname) {
+    public Admin buildAdmin(Long adminID, String adminType, String adminFirstName, String adminSurname) {
         Admin admin = new Admin.AdminBuilder()
                 .createAdminID(adminID)
                 .createAdminType(adminType)

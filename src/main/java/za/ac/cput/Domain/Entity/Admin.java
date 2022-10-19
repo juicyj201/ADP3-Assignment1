@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Admin {
     @Id
     @Column(name = "adminID")
-    private long adminID;
+    private Long adminID;
     @Column(name = "adminType")
     private String adminType;
     @Column(name = "adminFirstName")
@@ -35,7 +35,7 @@ public class Admin {
         //empty constructor
     }
 
-    public void setAdminID(long adminID){
+    public void setAdminID(Long adminID){
         this.adminID = adminID;
     }
 
@@ -52,7 +52,7 @@ public class Admin {
         this.password = password;
     }
 
-    public long getAdminID(){
+    public Long getAdminID(){
         return adminID;
     }
 
@@ -106,7 +106,7 @@ public class Admin {
     }
 
     public static class AdminBuilder{
-        private long adminID;
+        private Long adminID;
         private String adminType;
         private String adminFirstName;
         private String adminSurname;
@@ -124,7 +124,7 @@ public class Admin {
             return this;
         }
 
-        public AdminBuilder createAdminID(long adminID){
+        public AdminBuilder createAdminID(Long adminID){
             this.adminID = adminID;
             return this;
         }

@@ -13,8 +13,8 @@ import za.ac.cput.Factory.PaymentFactory;
 
 public class PaymentServiceImplTest {
     private PaymentService service;
-    private Payment payment = new PaymentFactory().buildPayment("01", "01", "01/01/1999", 220);
-    private Payment updatedPayment = new PaymentFactory().buildPayment("01", "01", "01/01/1999", 250);
+    private Payment payment = new PaymentFactory().buildPayment(01L, "01", "01/01/1999", 220);
+    private Payment updatedPayment = new PaymentFactory().buildPayment(01L, "01", "01/01/1999", 250);
 
     //side note - I used the testService method, trying to avoid the null pointer error for the service object --->
     @Test
@@ -34,7 +34,7 @@ public class PaymentServiceImplTest {
     @Test
     public void testSave(){
         try {
-            Assertions.assertTrue(service.save(new PaymentFactory().buildPayment("01", "01", "01/01/1999", 220)) != null);
+            Assertions.assertTrue(service.save(new PaymentFactory().buildPayment(01L, "01", "01/01/1999", 220)) != null);
         }catch(Exception e){
             e.getMessage();
         }

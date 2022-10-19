@@ -12,12 +12,12 @@ import za.ac.cput.Domain.Entity.Payment;
 
 public class PaymentFactoryTest {
     private PaymentFactory factory = new PaymentFactory();
-    private Payment payment = factory.buildPayment("01","31","01/01/2022", 200);
+    private Payment payment = factory.buildPayment(01L,"31","01/01/2022", 200);
 
     @Test
     public void testBuildPayment(){
         try {
-            Assertions.assertTrue(factory.buildPayment("01", "31", "01/01/2022", 200) == payment);
+            Assertions.assertTrue(factory.buildPayment(01L, "31", "01/01/2022", 200) == payment);
             Assertions.assertNotNull(factory);
         }catch(NullPointerException npe){
             npe.getMessage();

@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Test;
  */
 
 public class PaymentTest {
-    private Payment payment = new Payment.PaymentBuilder().createID("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build();
+    private Payment payment = new Payment.PaymentBuilder().createID(03L, 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build();
     private Payment payment2;
 
     @Test
     public void testEquals(){
         try{
-            Assertions.assertTrue(payment.equals(new Payment.PaymentBuilder().createID("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build()));
+            Assertions.assertTrue(payment.equals(new Payment.PaymentBuilder().createID(03L, 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build()));
         }catch(NullPointerException npe){
             npe.getStackTrace();npe.getMessage();
         }
@@ -28,7 +28,7 @@ public class PaymentTest {
     @Test
     public void testBuild(){
         try{
-            Assertions.assertNotNull(new Payment.PaymentBuilder().createID("P03", 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build());
+            Assertions.assertNotNull(new Payment.PaymentBuilder().createID(03L, 1900).createStudentAccountID("21919191").createPaymentDate("06/April/2022").build());
         }catch(NullPointerException npe){
             npe.getStackTrace();
             npe.getMessage();

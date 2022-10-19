@@ -23,10 +23,10 @@ public class MainController {
     protected final static Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping("/main")
-    public ModelAndView login(@ModelAttribute Employee employee, Admin admin) {
+    public ModelAndView login(@ModelAttribute String id, String password) {
         ModelAndView model;
-        Optional<Employee> tempE = serviceEmployee.read(employee.getEmployeeNum());
-        Optional<Admin> tempA = serviceAdmin.read(admin.getAdminID());
+        Optional<Employee> tempE = serviceEmployee.read(id);
+        Optional<Admin> tempA = serviceAdmin.read(password);
 
         System.out.println(tempE.get().getEmpFirstName());
         System.out.println(tempA.get().getAdminFirstName());
@@ -37,7 +37,7 @@ public class MainController {
             if (!tempE.get().getEmployeeNum().equals(null) && !tempE.get().getPassword().equals(null)) {
                 model = new ModelAndView();
                 model.setViewName("Main.html");
-                model.addObject("mainmessage", "Employee " + employee.getEmpFirstName() + ", successfully logged in.");
+                model.addObject("mainmessage", "Employee " + tempE.get().getEmpFirstName() + ", successfully logged in.");
                 return model;
             }
         }
@@ -45,7 +45,7 @@ public class MainController {
             if (tempA.get().getAdminID() != 0 && !tempA.get().getAdminType().equals(null)) {
                 model = new ModelAndView();
                 model.setViewName("Main.html");
-                model.addObject("mainmessage", "Admin " + admin.getAdminFirstName() + ", successfully logged in.");
+                model.addObject("mainmessage", "Admin " + tempA.get().getAdminFirstName() + ", successfully logged in.");
                 return model;
             }
         } else {

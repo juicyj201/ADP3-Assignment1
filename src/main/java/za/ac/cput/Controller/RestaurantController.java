@@ -1,5 +1,6 @@
 package za.ac.cput.Controller;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +9,6 @@ import za.ac.cput.Service.Impl.RestaurantService;
 import za.ac.cput.Service.Impl.RestaurantServiceImpl;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  * Matthew Jones
@@ -19,13 +19,14 @@ import java.util.logging.Logger;
 @RestController
 //@RequestMapping("/restaurant")
 public class RestaurantController {
-    private RestaurantService service;
-    protected final static Logger log = (Logger) LoggerFactory.getLogger(RestaurantController.class);
-
     @Autowired
-    public RestaurantController(RestaurantServiceImpl restaurantService) {
-        this.service = restaurantService;
-    }
+    private RestaurantServiceImpl service;
+    protected final static Logger log = LoggerFactory.getLogger(RestaurantController.class);
+
+//    @Autowired
+//    public RestaurantController(RestaurantServiceImpl restaurantService) {
+//        this.service = restaurantService;
+//    }
 
     @PostMapping("/restaurant")
     public Restaurant saveRestaurant(@RequestBody Restaurant restaurant){

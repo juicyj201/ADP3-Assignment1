@@ -13,7 +13,7 @@ import za.ac.cput.Factory.PaymentFactory;
 
 public class PaymentControllerTest {
     private PaymentController controller;
-    private final Payment paymenttestobject = new PaymentFactory().buildPayment("01","31","01/01/2022", 200);
+    private final Payment paymenttestobject = new PaymentFactory().buildPayment(01L,"31","01/01/2022", 200);
 
     @Test
     public void testSavePayment(){
