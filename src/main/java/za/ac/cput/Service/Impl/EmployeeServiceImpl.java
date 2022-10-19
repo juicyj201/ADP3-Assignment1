@@ -38,9 +38,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Optional<Employee> read(String employeeNum) {
-        if(!employeeNum.equals(null)) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Employee> read(Long employeeNum) {
+        if(employeeNum != 0) {
             System.out.println("Employee found: ");
-            return repo.findById(employeeNum);
+            return repo.findById(employeeNum.toString());
         }else{
             System.out.println("Error: Employee not found.");
             return null;

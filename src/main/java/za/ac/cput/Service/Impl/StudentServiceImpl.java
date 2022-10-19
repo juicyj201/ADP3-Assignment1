@@ -46,11 +46,16 @@ public StudentServiceImpl(StudentRepository studentRepository){
 
 
     @Override
-    public Optional<Student> read(String studentID) {
+    public Optional<Student> read(Long studentID) {
         return this.studentList
                 .stream()
                 .filter(a -> a.getStudentID().equals(studentID))
                 .findFirst();
+    }
+
+    @Override
+    public Optional<Student> read(String ID) {
+        return Optional.empty();
     }
 
     @Override

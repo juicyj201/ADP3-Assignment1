@@ -31,8 +31,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Optional<Admin> read(String adminID) {
-        if(!adminID.equals(null)) {
+    public Optional<Admin> read(String ID) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Admin> read(Long adminID) {
+        if(adminID != 0) {
             System.out.println("Admin found: ");
             Optional<Admin> readAdmin = repo.findById(adminID);
             return readAdmin;
