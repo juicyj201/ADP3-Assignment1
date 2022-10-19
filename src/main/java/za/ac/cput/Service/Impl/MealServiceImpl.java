@@ -35,6 +35,11 @@ public class MealServiceImpl implements MealService {
     }
 
     @Override
+    public Optional<Meal> read(Long ID) {
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<Meal> read(Meal meal) {
         return this.mealRepo.findById(meal.getOrderId());
     }

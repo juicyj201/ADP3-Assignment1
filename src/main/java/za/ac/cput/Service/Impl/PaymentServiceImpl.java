@@ -31,15 +31,20 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Optional<Payment> read(String paymentID) {
-        if(!paymentID.equals(null)) {
+    public Optional<Payment> read(Long paymentID) {
+        if(paymentID == 0) {
             System.out.println("Payment found: ");
-            Optional<Payment> readPayment = repo.findById(paymentID);
+            Optional<Payment> readPayment = repo.findById(paymentID.toString());
             return readPayment;
         }else{
             System.out.println("Error: Payment not found.");
             return null;
         }
+    }
+
+    @Override
+    public Optional<Payment> read(String ID) {
+        return Optional.empty();
     }
 
     @Override

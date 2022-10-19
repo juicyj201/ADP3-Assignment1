@@ -40,11 +40,16 @@ public StudentAccountServiceImpl(StudentAccountRepository studentAccountReposito
     }
 
     @Override
-    public Optional<StudentAccount> read(String studAccountNumber) {
+    public Optional<StudentAccount> read(Long studAccountNumber) {
         return this.studentAccountList
                 .stream()
                 .filter(a -> a.getStudAccountNumber().equals(studAccountNumber))
                 .findFirst();
+    }
+
+    @Override
+    public Optional<StudentAccount> read(String ID) {
+        return Optional.empty();
     }
 
     @Override
