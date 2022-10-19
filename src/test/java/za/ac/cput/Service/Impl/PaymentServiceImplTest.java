@@ -43,7 +43,7 @@ public class PaymentServiceImplTest {
     @Test
     public void testRead(){
         try {
-            Assertions.assertNotNull(service.read(payment));
+            Assertions.assertNotNull(service.read(payment.getPaymentID()));
         } catch(NullPointerException npe) {
             npe.getStackTrace();
             npe.getMessage();
@@ -68,7 +68,7 @@ public class PaymentServiceImplTest {
 
     @Test void testUpdate(){
         try {
-            Assertions.assertFalse(service.update(updatedPayment).equals(service.read(payment)));
+            Assertions.assertFalse(service.update(updatedPayment).equals(service.read(payment.getPaymentID())));
         } catch (Exception e) {
             e.printStackTrace();
         }

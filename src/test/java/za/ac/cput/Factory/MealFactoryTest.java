@@ -14,7 +14,7 @@ public class MealFactoryTest {
     @Test
     public void test(){
         //Assertions.assertEquals(factory.getAdmin("adminJohn"), admin);
-        Meal meal = MealFactory.createMeal("ORD001", "Hamburger", "Coke", "N/A");
+        Meal meal = MealFactory.createMeal((long) 10000, "Hamburger", "Coke", "N/A");
         System.out.println(meal.toString());
         Assertions.assertNotNull(meal);
     }

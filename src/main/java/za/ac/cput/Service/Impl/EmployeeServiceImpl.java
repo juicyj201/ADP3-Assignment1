@@ -1,6 +1,7 @@
 package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Employee;
 import za.ac.cput.Repository.EmployeeRepository;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
  * The Employee Service Impl
  */
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
     private final EmployeeRepository repo;
 
@@ -35,10 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Optional<Employee> read(Employee employee) {
-        if(!employee.equals(null)) {
+    public Optional<Employee> read(String employeeNum) {
+        if(!employeeNum.equals(null)) {
             System.out.println("Employee found: ");
-            return repo.findById(employee.getEmployeeNum());
+            return repo.findById(employeeNum);
         }else{
             System.out.println("Error: Employee not found.");
             return null;

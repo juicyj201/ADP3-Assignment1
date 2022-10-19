@@ -1,11 +1,15 @@
 package za.ac.cput.Controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.Meal;
 import za.ac.cput.Service.Impl.MealService;
+import za.ac.cput.Service.Impl.MealServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,52 +21,50 @@ import java.util.Optional;
  */
 
 @RestController
+@Slf4j
 @RequestMapping("/meal")
 public class MealController {
 
-    private MealService mealService;
-    protected final static Logger logger = LoggerFactory.getLogger(MealController.class);
+    private final MealService mealService;
 
     @Autowired
-    public MealController(MealService mealService) {
+    public MealController(MealServiceImpl mealService) {
         this.mealService = mealService;
     }
 
-    @PostMapping
+    @PostMapping("save")
     public Meal addMeal(@RequestBody Meal meal) {
-        logger.info("Saving meal...");
+        log.info("Creating meal: {}", meal.getOrderId());
         Meal savedMeal = mealService.save(meal);
-        logger.info("Meal saved...");
+        log.info("Meal ID: #{} created successfully!", meal.getOrderId());
         return savedMeal;
     }
 
-    @GetMapping
+    @GetMapping("read")
     Optional<Meal> getMeal(@RequestBody Meal meal) {
-        logger.info("Meal request has been initialized...");
-        return mealService.read(meal);
+        log.info("Meal request has been initialized...");
+        return Optional.ofNullable(mealService.read(meal).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
-    /**
-    @GetMapping
+    @GetMapping("readAll")
     public List<Meal> getMeals() {
-        logger.info("Retrieving meal list...");
+        log.info("Retrieving meal list...");
         return mealService.readAll();
     }
-     **/
 
-    @PutMapping
+    @PutMapping("update")
     Meal updateMeal(@RequestBody Meal meal) {
-        logger.info("Request initiated: Updating meal...");
+        log.info("Request initiated: Updating meal {}...", meal);
         Meal updatedMeal = mealService.update(meal);
-        logger.info("Request finalized: Meal " +updatedMeal.getOrderId()+ ", has been successfully updated!" );
+        log.info("Request finalized: #{}, has been successfully updated!", updatedMeal.getOrderId());
         return updatedMeal;
     }
 
-    @DeleteMapping
+    @DeleteMapping("delete")
     void deleteMeal(@RequestBody Meal meal) {
-        logger.info("Request initiated: Deleting meal...");
+        log.info("Request initiated: Deleting meal {}...", meal);
         mealService.delete(meal);
-        logger.info("Request finalized: Meal with" +meal.getOrderId()+ ", has been deleted!");
+        log.info("Request finalized: Meal  #{}, has been deleted!", meal.getOrderId());
     }
 
 }

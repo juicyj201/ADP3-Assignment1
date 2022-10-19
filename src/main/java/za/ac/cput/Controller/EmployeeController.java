@@ -1,5 +1,6 @@
 package za.ac.cput.Controller;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +10,6 @@ import za.ac.cput.Service.Impl.EmployeeServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  * Matthew Jones
@@ -17,18 +17,19 @@ import java.util.logging.Logger;
  * The Employee Controller
  */
 
-//@RestController
+@RestController
 //@RequestMapping("/employee")
 public class EmployeeController {
-    private EmployeeService service;
-    protected final static Logger log = (Logger) LoggerFactory.getLogger(EmployeeController.class);
-
     @Autowired
-    public EmployeeController(EmployeeServiceImpl employeeService){
-        this.service = employeeService;
-    }
+    private EmployeeServiceImpl service;
+    protected final static Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
-    @PostMapping
+//    @Autowired
+//    public EmployeeController(EmployeeServiceImpl employeeService){
+//        this.service = employeeService;
+//    }
+
+    @PostMapping("/employee")
     public Employee saveEmployee(@RequestBody Employee employee){
         log.info("The request has started");
         Employee savedEmployee = service.save(employee);
@@ -36,13 +37,13 @@ public class EmployeeController {
         return savedEmployee;
     }
 
-    @GetMapping
-    public Optional<Employee> getEmployeeByID(Employee employee){
+    @GetMapping("/employee/{employee}")
+    public Optional<Employee> getEmployeeByID(@PathVariable String employeeID){
         log.info("Service started reading employee requested");
-        return service.read(employee);
+        return service.read(employeeID);
     }
 
-    @PutMapping
+    @PutMapping("/employee")
     public Employee updateEmployee(Employee employee){
         log.info("Service started updating the employee request");
         Employee updatedEmployee = service.update(employee);
@@ -50,7 +51,7 @@ public class EmployeeController {
         return updatedEmployee;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/employee")
     public void deleteEmployee(Employee employee){
         log.info("Service has started deletion of employee");
         service.delete(employee);

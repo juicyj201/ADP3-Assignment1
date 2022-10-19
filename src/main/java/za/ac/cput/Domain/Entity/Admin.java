@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(name = "admin")
 public class Admin {
     @Id
-    @GeneratedValue
+    @Column(name = "adminID")
     private String adminID;
     @Column(name = "adminType")
     private String adminType;
@@ -23,10 +23,10 @@ public class Admin {
     private String adminSurname;
 
     public Admin(AdminBuilder adminBuilder){
-        this.adminID = adminID;
-        this.adminType = adminType;
-        this.adminFirstName = adminFirstName;
-        this.adminSurname = adminSurname;
+        this.adminID = adminBuilder.adminID;
+        this.adminType = adminBuilder.adminType;
+        this.adminFirstName = adminBuilder.adminFirstName;
+        this.adminSurname = adminBuilder.adminSurname;
     }
 
     public Admin(){

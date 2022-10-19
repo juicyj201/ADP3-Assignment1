@@ -25,7 +25,7 @@ public class MealTest {
     @Test
     public void test(){
         Meal meal = new Meal.MealBuilder()
-                .setOrderId("ORD001")
+                .setOrderId((long) 1000000)
                 .setStudentMealChoice("Hamburger")
                 .setDrink("Pepsi")
                 .setAllergens("N/A")

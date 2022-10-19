@@ -3,6 +3,7 @@ package za.ac.cput.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.Domain.Entity.Admin;
 
@@ -14,5 +15,5 @@ import java.util.List;
  * The admin repository interface
  */
 
-public interface AdminRepository extends JpaRepository<Admin, String> {
+public interface AdminRepository extends CrudRepository<Admin, String> {
 }

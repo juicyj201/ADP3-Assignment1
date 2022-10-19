@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 2%;
+    align-items: center;
+    background: #18283B;
+}
+
+.logo {
+    color: #fff;
+    font-size: 22px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #8291A5;
+    padding: 8px 20px;
+    border-radius: 7px;
+    transition: all .3s ease;
+}
+
+
+ul li a:hover,
+ul li a.active {
+    color: #0075FF;
+    background: #FFF;
+}
+
+#icon {
+    background-color: #FFF;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+    filter: drop-shadow(0 0 0.4rem white);
+}
+
+#icon svg {
+    color: #0075FF;
+    height: 28px;
+    transition: all .3s ease;
+}
+
+#icon:hover {
+    background: #0075FF;
+}
+
+#icon:hover svg {
+    color: #fff;
+}
+
+#checkbox,
+#icon {
+    display: none;
+}
+/* Youtube link */
+.link {
+    position: fixed;
+    background-color: #D12322;
+    padding: 23px 40px;
+    right: -100px;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(-90deg);
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .1s ease-in-out;
+}
+
+.link i {
+    padding-left: 7px;
+}
+
+.link:hover {
+    text-decoration: underline;
+    background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        border-bottom: 1px solid #455468;
+    }
+
+    ul {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 71px);
+        background-color: #18283B;
+        left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        margin-top: 71px;
+    }
+
+    ul li {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    ul li a {
+        display: block;
+        padding: 8px 20px;
+    }
+
+    #icon {
+        display: block;
+    }
+
+    #checkbox:checked~ul {
+        display: block;
+    }
+}
