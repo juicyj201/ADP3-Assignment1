@@ -10,7 +10,7 @@ import za.ac.cput.Domain.Entity.Util.Validation;
  */
 
 public class PaymentFactory {
-    public Payment buildPayment(String paymentID, String studentAccountID, String paymentDate, int paymentAmount) {
+    public Payment buildPayment(Long paymentID, String studentAccountID, String paymentDate, int paymentAmount) {
         Payment payment = new Payment.PaymentBuilder()
                 .createID(paymentID, paymentAmount)
                 .createStudentAccountID(studentAccountID)
@@ -19,7 +19,7 @@ public class PaymentFactory {
 
         if(Validation.checkPaymentNull(payment)) {
             throw new NullPointerException("This payment object is null");
-        }else if (Validation.checkStringNullOrEmpty(payment.getPaymentID(), payment.studentAccountID, payment.paymentDate) || Validation.checkAttributeEmpty(payment.getPaymentAmount())) {
+        }else if (Validation.checkStringNullOrEmpty(payment.getPaymentID().toString(), payment.studentAccountID, payment.paymentDate) || Validation.checkAttributeEmpty(payment.getPaymentAmount())) {
             throw new NullPointerException("The attribute(s) of this payment object are null");
         }else {
             return payment;

@@ -8,7 +8,7 @@ import za.ac.cput.Domain.Entity.Employee;
 
 @Controller
 public class LoginController {
-    @RequestMapping("/loginEmployee")
+    @RequestMapping("/login")
     public ModelAndView loginEmployee(){
         ModelAndView model = new ModelAndView();
         model.addObject("employee", new Employee());

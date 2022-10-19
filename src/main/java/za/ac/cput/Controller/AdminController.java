@@ -32,7 +32,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/{adminID}")
-    public Optional<Admin> getAdminByID(@PathVariable String adminID){
+    public Optional<Admin> getAdminByID(@PathVariable Long adminID){
         logger.info("Service has begun reading admin requested...");
         return service.read(adminID);
     }

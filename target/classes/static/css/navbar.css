@@ -10,10 +10,17 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+header {
+    margin: 0;
+    padding: 0;
+}
+
 nav {
+    width: 100vw;
+    height: 60px;
     display: flex;
     justify-content: space-between;
-    padding: 15px 5%;
+    padding: 15px 2%;
     align-items: center;
     background: #18283B;
 }
@@ -34,7 +41,7 @@ ul li {
 ul li a {
     text-decoration: none;
     color: #8291A5;
-    padding: 8px 30px;
+    padding: 8px 20px;
     border-radius: 7px;
     transition: all .3s ease;
 }
@@ -124,7 +131,7 @@ ul li a.active {
 
     ul li a {
         display: block;
-        padding: 10px 0;
+        padding: 8px 20px;
     }
 
     #icon {

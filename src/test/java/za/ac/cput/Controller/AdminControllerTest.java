@@ -13,7 +13,7 @@ import za.ac.cput.Factory.AdminFactory;
 
 public class AdminControllerTest {
     private AdminController controller;
-    private final Admin admintestobject = new AdminFactory().buildAdmin("21", "Manager", "John", "Banks");
+    private final Admin admintestobject = new AdminFactory().buildAdmin(21L, "Manager", "John", "Banks");
 
     @Test
     public void testSaveAdmin(){

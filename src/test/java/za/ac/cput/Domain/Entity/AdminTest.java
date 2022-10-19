@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Test;
  */
 
 public class AdminTest {
-    private Admin admin = new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build();
+    private Admin admin = new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID(01L).createAdminType("Manager").build();
     private Admin admin2;
 
     @Test
     public void testEquals() {
         try{
-            Assertions.assertTrue(admin.equals(new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build()));
+            Assertions.assertTrue(admin.equals(new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID(01L).createAdminType("Manager").build()));
         }catch(NullPointerException npe){
             npe.getStackTrace();
             npe.getMessage();
@@ -28,7 +28,7 @@ public class AdminTest {
     @Test
     public void testBuild(){
         try{
-            Assertions.assertNotNull(new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID("adJohnMan").createAdminType("Manager").build());
+            Assertions.assertNotNull(new Admin.AdminBuilder().createAdminName("John", "Grisham").createAdminID(01L).createAdminType("Manager").build());
         }catch(NullPointerException npe){
             npe.getStackTrace();
             npe.getMessage();

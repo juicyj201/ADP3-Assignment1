@@ -2,23 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Home</title>
+        <title>Index</title>
         <link rel="stylesheet" type="text/css" href="/./css/navbar.css">
         <link rel="stylesheet" type="text/css" href="/./css/index-not-logged-in.css">
     </head>
     <body>
         <header>
             <div th:replace="fragments/navbar :: navbar_not_logged_in"></div>
-            <div th:replace="fragments/navbar :: navbar_student_logged_in"></div>
-            <div th:replace="fragments/navbar :: navbar_admin_logged_in"></div>
         </header>
         <main>
             <article id="main-article" class="content">
                 <h1>Restaurant Management System Home</h1>
                 <h3>Welcome to the Restaurant Management Web Application</h3>
-                <form id="form" th:action="@{/login}">
-                    <label for="submit-index">Please click button below to log in and view app contents.</label>
-                    <input type="submit" id="submit-index" value="LOGIN"/>
+                <form id="form" th:action="@{/loginEmployee}" method="get">
+<!--                <label for="submit-index">Please click button below to log in and view app contents.</label>-->
+                    <label for="submit-employee">Please click button below to log in as employee and view app contents.</label>
+                    <input type="submit" id="submit-employee" value="Employee Login"/>
+                    <br/><br/>
+<!--                <input type="submit" id="submit-index" value="LOGIN"/>-->
+<!--                <input type="submit" id="submit-index" value="LOGIN"/>-->
+                </form>
+
+                <form id="form2" th:action="@{/loginAdmin}" method="get">
+                    <label for="submit-admin">Please click button below to log in and view app contents.</label>
+                    <input type="submit" id="submit-admin" value="Admin Login"/>
                 </form>
             </article>
 <!--        <footer>-->
