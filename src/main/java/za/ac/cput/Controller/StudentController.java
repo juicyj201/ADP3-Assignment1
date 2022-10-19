@@ -9,8 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.Student;
 import za.ac.cput.Service.Impl.StudentService;
 import za.ac.cput.Service.Impl.StudentServiceImpl;
-
-import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -22,44 +21,50 @@ import java.util.List;
 
 
 @RestController
-//@RequestMapping("/student")
+@RequestMapping("/student")
 public class StudentController {
-    @Autowired
-    private StudentServiceImpl studentService;
+    private final StudentService studentService;
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
 
-//    @Autowired
-//    public StudentController(StudentServiceImpl studentService){
-//        this.studentService = studentService;
-//    }
-
-    @PostMapping("/student")
-    public Student save(@RequestBody Student student) {
-        Student students = studentService.save(student);
-        return students;
+    @Autowired
+    public StudentController(StudentServiceImpl studentService){
+        this.studentService = studentService;
     }
 
-    @GetMapping("/student/{studentID}")
-    public Student read(@PathVariable String studentID){
-        Student students  = studentService.read(studentID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return students;
+    @PostMapping
+    public ResponseEntity<Student> save(@RequestBody Student student) {
+        log.info("Saving Account Student: {}", student);
+        Student saveStudent = studentService.save(student);
+        log.info("Student Account Saved: {}", student);
+        return ResponseEntity.ok(saveStudent);
     }
 
-    @DeleteMapping("/student")
-    public void delete(Student student){
-        log.info("Delete student: {}", student);
-        this.delete(student);
+    @GetMapping
+    public Optional<Student> read(Student student){
+        log.info("Locating student: {}", student);
+        return Optional.ofNullable(this.studentService.read(String.valueOf(student)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student does not exist")));
+
     }
 
-    @PutMapping("/student")
+    @PutMapping
     public Student update(Student student){
-        Student students = studentService.update(student);
-        return students;
+        log.info("Updating student: {}", student);
+        this.studentService.update(student);
+        log.info("Student Updated: {}", student);
+        return studentService.update(student);
     }
 
-    @GetMapping("/student")
-    public ResponseEntity<List<Student>> readAll(){
-        List<Student>students = this.studentService.readAll();
-        return ResponseEntity.ok(students);
+    @DeleteMapping
+    public void delete(Student student){
+        log.info("Deleting student: {}", student);
+        this.studentService.delete(student);
+        log.info("Student Deleted: {}", student);
     }
+
+
+//    @GetMapping("readAll")
+//    public ResponseEntity<List<Student>> readAll(){
+//        List<Student> student = this.studentService.readAll();
+//        return ResponseEntity.ok(student);
+//    }
 }

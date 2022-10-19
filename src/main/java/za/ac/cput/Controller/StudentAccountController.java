@@ -34,7 +34,7 @@ public class StudentAccountController {
 
     @PostMapping
     public ResponseEntity<StudentAccount> save(@RequestBody StudentAccount studentAccount) {
-            log.info("Saving Account Student: {}", studentAccount);
+            log.info("Saving Student account: {}", studentAccount);
             StudentAccount saveStudentAccount = studentAccountService.save(studentAccount);
             log.info("Student Account Saved: {}", studentAccount);
             return ResponseEntity.ok(saveStudentAccount);
@@ -42,24 +42,24 @@ public class StudentAccountController {
 
     @GetMapping
     public Optional<StudentAccount> read(StudentAccount studentAccount){
-        log.info("Locating student: {}", studentAccount);
-        return Optional.ofNullable(this.studentAccountService.read(studentAccount).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student Account does not exist")));
+        log.info("Locating student account: {}", studentAccount);
+        return Optional.ofNullable(this.studentAccountService.read(String.valueOf(studentAccount)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student Account does not exist")));
 
     }
 
     @PutMapping
     public StudentAccount update(StudentAccount studentAccount){
-        log.info("Updating student: {}", studentAccount);
+        log.info("Updating student account: {}", studentAccount);
         this.studentAccountService.update(studentAccount);
-        log.info("Student Updated: {}", studentAccount);
+        log.info("Student account updated: {}", studentAccount);
         return studentAccountService.update(studentAccount);
     }
 
     @DeleteMapping
     public void delete(StudentAccount studentAccount){
-        log.info("Deleting student: {}", studentAccount);
+        log.info("Deleting student account: {}", studentAccount);
         this.studentAccountService.delete(studentAccount);
-        log.info("Student Deleted: {}", studentAccount);
+        log.info("Student account deleted: {}", studentAccount);
     }
 
 
