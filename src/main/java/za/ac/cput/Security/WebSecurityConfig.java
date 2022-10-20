@@ -65,8 +65,6 @@ public class WebSecurityConfig{
                 .anyRequest().authenticated();
         });
 
-        //TODO - IMPLEMENT LOGIN AUTHORISATION
-
         http.formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
