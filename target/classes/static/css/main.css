@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.content {
+    width: 60vw;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: #18283B;
+    background-color: #fff;
+    text-align: center;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.4));;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: burlywood;
+    /* background-image: url("/images/pexels-chan-walrus-941861.jpg"); */
+    background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.8)
+    ), url("/static/images/pexels-chan-walrus-941861.jpg");
+    background-size: contain;
+}
+
+#main-article {
+    position: absolute;
+    align-content: center;
+}
+#main-article h1 {
+    font-size: 26px;
+    letter-spacing: .15rem;
+    margin-top: 20vh;
+}
+
+#main-article h2 {
+    font-size: 22px;
+    letter-spacing: .05rem;
+    margin: 10px;
+}
+
+#main-article p {
+    font-size: 22px;
+    letter-spacing: .05rem;
+    margin: 10px;
+}
+
+#main-article label {
+    text-align: start;
+    font-size: 16px;
+    margin: 5px;
+}
+
+#submit-index {
+    border: none;
+    color: white;
+    padding: 16px 230px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 10px 20px;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#submit-index {
+    background-color: #18283B;
+    color: #fff;
+}
+
+#submit-index:hover {
+    background-color: #fff;
+    color: #18283B;
+    border: 2px solid #18283B;
+}
+
+

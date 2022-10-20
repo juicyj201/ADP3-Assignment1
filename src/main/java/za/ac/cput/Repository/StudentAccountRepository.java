@@ -14,7 +14,7 @@ import za.ac.cput.Domain.Entity.StudentAccount;
 import java.util.List;
 import java.util.Optional;
 
-public interface StudentAccountRepository extends CrudRepository<StudentAccount, String> {
+public interface StudentAccountRepository extends JpaRepository<StudentAccount, String> {
 //    public StudentAccount save(StudentAccount student);
 //    public Optional<StudentAccount> read(String id);
 //    public List<StudentAccount> readAll();

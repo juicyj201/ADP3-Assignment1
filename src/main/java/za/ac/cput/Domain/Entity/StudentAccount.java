@@ -16,7 +16,7 @@ public class StudentAccount {
 
     @Id
     @Column(name = "studAccountNumber")
-    private String studAccountNumber;
+    private Long studAccountNumber;
     @Column(name = "studentID")
     private String studentID;
     @Column(name = "amountDue")
@@ -25,7 +25,7 @@ public class StudentAccount {
     private String amountPaid;
 
     private StudentAccount(StudentAccountBuilder builder){
-        this.studAccountNumber = builder.studAccountNumber;
+        this.studAccountNumber = Long.valueOf(builder.studAccountNumber);
         this.studentID = builder.studentID;
         this.amountDue = builder.amountDue;
         this.amountPaid = builder.amountPaid;
@@ -34,7 +34,7 @@ public class StudentAccount {
     public StudentAccount() {
     }
 
-    public String getStudAccountNumber() {
+    public Long getStudAccountNumber() {
         return studAccountNumber;
     }
 
@@ -91,7 +91,7 @@ public class StudentAccount {
 
     public StudentAccount copy(StudentAccount studentAccount)
     {
-        this.studAccountNumber = studentAccount.studAccountNumber;
+        this.studAccountNumber = String.valueOf(studentAccount.studAccountNumber);
         this.studentID = studentAccount.studentID;
         this.amountDue = studentAccount.amountDue;
         this.amountPaid = studentAccount.amountPaid;

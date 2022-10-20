@@ -13,7 +13,7 @@ import za.ac.cput.Domain.Entity.Student;
 public class StudentFactory {
 
     public static Student createStudent
-            (String studentID, String studFirstName, String studSurname, String gender, String age, String allergies) {
+            (long studentID, String studFirstName, String studSurname, String gender, String age, String allergies) {
 
         if(allergies == null)
             return null;

@@ -1,0 +1,155 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.content {
+    width: 90vw;
+    height: 80vh;
+    position: absolute;
+    margin-top: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: #18283B;
+    background-color: #fff;
+    text-align: center;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.4));
+;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+}
+
+#main-article {
+    display: inline-flex;
+    position: absolute;
+    align-content: center;
+}
+
+#main-article h1 {
+    font-size: 26px;
+    letter-spacing: .15rem;
+    margin-top: 20vh;
+}
+
+#main-article h2 {
+    font-size: 22px;
+    letter-spacing: .05rem;
+    margin: 10px;
+}
+
+#main-article p {
+    font-size: 22px;
+    letter-spacing: .05rem;
+    margin: 10px;
+}
+
+#main-article label {
+    text-align: start;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.students {
+    height: 100%;
+    width: 35%;
+    padding: 20px;
+    background-color: aqua;
+}
+
+.students form {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: brown;
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    display: flex;
+}
+
+.searchStudent {
+    width: 100%;
+    height: 50px;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchStudent:focus {
+    color: #00B4CC;
+}
+
+.searchButton {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.list {
+    height: calc(100% - 80px);
+    width: 100%;
+    padding: 10px;
+    background-color: blueviolet;
+}
+
+.list-item {
+    height: 65px;
+    width: 100%;
+    margin: 5px 0px;
+    background-color: coral;
+}
+
+.student-information {
+    height: 100%;
+    width: 65%;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+.student-information-display {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #9DBFAF;
+}
+
+#submit-index {
+    border: none;
+    color: white;
+    padding: 16px 230px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 10px 20px;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#submit-index {
+    background-color: #18283B;
+    color: #fff;
+}
+
+#submit-index:hover {
+    background-color: #fff;
+    color: #18283B;
+    border: 2px solid #18283B;
+}
