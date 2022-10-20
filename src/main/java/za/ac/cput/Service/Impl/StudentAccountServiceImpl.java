@@ -20,7 +20,7 @@ public class StudentAccountServiceImpl implements StudentAccountService {
     private static StudentAccountService studentAccountService;
 
 public StudentAccountServiceImpl(StudentAccountRepository studentAccountRepository){
-    this.studentAccountRepository = studentAccountRepository;
+    StudentAccountServiceImpl.studentAccountRepository = studentAccountRepository;
 }
 //    public static StudentAccountService getService(){
 //        if(studentAccountService == null){
