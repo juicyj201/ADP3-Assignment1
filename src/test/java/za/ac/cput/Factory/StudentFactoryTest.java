@@ -37,6 +37,7 @@ class StudentFactoryTest {
     public void StudentFactoryTest() {
         Student student1 = StudentFactory.createStudent(219113149, "Kessia", "Robertson", "Female", "22", "Peanuts");
         assertNotNull(student1);
+        System.out.println(student1);
     }
 
     @AfterEach
