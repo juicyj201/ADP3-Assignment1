@@ -3,6 +3,7 @@ package za.ac.cput.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -32,19 +33,20 @@ public class WebSecurityConfig{
         http.authorizeHttpRequests((requests) -> {requests
                 .antMatchers("/").permitAll()
                 .antMatchers("/h2/**").permitAll()
-                .antMatchers("/login/**").permitAll()
+//                .antMatchers("/login/**").permitAll()
                 .antMatchers("/main/**").permitAll()
-                .antMatchers("/admin/**").permitAll()
+//                .antMatchers("/admin/**").permitAll()
                 .antMatchers("/employee/**").permitAll()
                 .antMatchers("/student/**").permitAll()
                 .anyRequest().authenticated();
         });
 
-//                .formLogin((form) -> form
-//                        .loginPage("/login")
-//                        .permitAll()
-//                )
-//                .logout((logout) -> logout.permitAll());
+        http.formLogin((form) -> form
+                        .loginPage("/login")
+                        .permitAll()
+                );
+
+        //http.httpBasic(Customizer.withDefaults()).authorizeHttpRequests();
 
         http.csrf().disable();
         http.headers().frameOptions().disable();

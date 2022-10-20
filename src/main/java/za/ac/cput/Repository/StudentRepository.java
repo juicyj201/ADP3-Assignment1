@@ -13,7 +13,7 @@ import za.ac.cput.Domain.Entity.Student;
 import java.util.List;
 import java.util.Optional;
 
-public interface StudentRepository extends JpaRepository<Student, String> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 //    public Student save(Student student);
 //    public Optional<Student> read(String id);
 //    public List<Student> readAll();

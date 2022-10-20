@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class Student implements Serializable
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "studentID")
     private long studentID;
     @Column(name = "studFirstName")

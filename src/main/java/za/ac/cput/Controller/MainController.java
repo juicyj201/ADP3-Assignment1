@@ -23,29 +23,27 @@ public class MainController {
     protected final static Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping("/main")
-    public ModelAndView login(@ModelAttribute String id, String password) {
+    public ModelAndView login(@ModelAttribute("username") String username, @ModelAttribute("password") String password) {
         ModelAndView model;
-        Optional<Employee> tempE = serviceEmployee.read(id);
-        Optional<Admin> tempA = serviceAdmin.read(id);
+        System.out.println("Username: "+username);
+        System.out.println("Password: "+password);
 
-        System.out.println(tempE.get().getEmpFirstName());
-        System.out.println(tempA.get().getAdminFirstName());
-
-        //TODO - check that the employee password is working and that the username exists rather than just the employee password
+        Employee tempE = serviceEmployee.readByID(Long.parseLong(username));
+        Admin tempA = serviceAdmin.readByID(Long.parseLong(username));
 
         if (!tempE.equals(null)) {
-            if (!tempE.get().getEmployeeNum().equals(null) && !tempE.get().getPassword().equals(null)) {
+            if (!tempE.getEmployeeNum().equals(null) && !tempE.getPassword().equals(null)) {
                 model = new ModelAndView();
-                model.setViewName("Main.html");
-                model.addObject("mainmessage", "Employee " + tempE.get().getEmpFirstName() + ", successfully logged in.");
+                model.setViewName("view-student-accounts.html");
+               //model.addObject("mainmessage", "Employee " + tempE.getEmpFirstName() + ", successfully logged in.");
                 return model;
             }
         }
         else if (!tempA.equals(null)) {
-            if (tempA.get().getAdminID() != 0 && !tempA.get().getAdminType().equals(null)) {
+            if (tempA.getAdminID() != 0 && !tempA.getAdminType().equals(null)) {
                 model = new ModelAndView();
-                model.setViewName("Main.html");
-                model.addObject("mainmessage", "Admin " + tempA.get().getAdminFirstName() + ", successfully logged in.");
+                model.setViewName("view-admin-accounts.html");
+                //model.addObject("mainmessage", "Admin " + tempA.getAdminFirstName() + ", successfully logged in.");
                 return model;
             }
         } else {

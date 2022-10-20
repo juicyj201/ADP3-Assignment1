@@ -48,6 +48,18 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public Admin readByID(Long adminID) {
+        if(adminID != 0) {
+            System.out.println("Admin found: ");
+            Admin readAdmin = repo.findById(adminID).get();
+            return readAdmin;
+        }else{
+            System.out.println("Error: Admin not found.");
+            return null;
+        }
+    }
+
+    @Override
     public List<Admin> readAll() {
         if(repo.count() != 0) {
             List<Admin> aList = (List<Admin>) repo.findAll();
