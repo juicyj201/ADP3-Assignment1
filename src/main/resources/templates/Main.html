@@ -16,8 +16,8 @@
         </label>
         <ul>
             <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">View Student Accounts</a></li>
-            <li><a href="#">View Admin Accounts</a></li>
+            <li><a href="#" th:if="${!user.isAdmin()}">View Student Accounts</a></li>
+            <li><a href="#" th:if="${user.isAdmin()}">View Admin Accounts</a></li>
             <li><a href="#">Hi, Delron</a></li>
         </ul>
     </nav>
@@ -26,7 +26,8 @@
     <article id="main-article" class="content">
         <h1>Restaurant Management System Home</h1>
 <!--        <h2><strong>Hi, Delron</strong></h2>-->
-        <h2 th:text=" $Hi, {mainmessage}"/><strong/>
+        <h2 th:if="${user.isAdmin()}" th:text="Hi, ${adminmessage}"/><strong/>
+        <h2 th:if="${!user.isAdmin()}" th:text="Hi, ${empmessage}"/><strong/>
         <p><b>Welcome to the Restaurant Management Web Application</b></p>
     </article>
 </main>
