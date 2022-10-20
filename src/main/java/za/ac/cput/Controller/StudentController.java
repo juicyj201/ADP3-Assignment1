@@ -5,10 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.Student;
 import za.ac.cput.Service.Impl.StudentService;
 import za.ac.cput.Service.Impl.StudentServiceImpl;
+
+import javax.validation.Valid;
 import java.util.Optional;
 
 /**
@@ -23,39 +26,36 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/student")
 public class StudentController {
-    private final StudentService studentService;
+    private StudentService studentService;
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
+    public RestOperations restTemplate;
 
     @Autowired
     public StudentController(StudentServiceImpl studentService){
         this.studentService = studentService;
     }
 
-    @PostMapping
-    public ResponseEntity<Student> save(@RequestBody Student student) {
-        log.info("Saving Account Student: {}", student);
-        Student saveStudent = studentService.save(student);
+    @PostMapping("save/")
+    public Student save(@RequestBody @Valid Student student) {
         log.info("Student Account Saved: {}", student);
-        return ResponseEntity.ok(saveStudent);
+        return studentService.save(student);
     }
 
-    @GetMapping
-    public Optional<Student> read(Student student){
-        log.info("Locating student: {}", student);
-        return Optional.ofNullable(this.studentService.read(String.valueOf(student)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student does not exist")));
+    @GetMapping("read/{studentID}")
+    public Optional<Student> read( @PathVariable long studentID){
+        log.info("Locating student: {}", studentID);
+        return studentService.read(studentID);
 
     }
 
-    @PutMapping
-    public Student update(Student student){
+    @PutMapping("update/")
+    public Student update(@RequestBody Student student){
         log.info("Updating student: {}", student);
-        this.studentService.update(student);
-        log.info("Student Updated: {}", student);
-        return studentService.update(student);
+        return studentService.save(student);
     }
 
-    @DeleteMapping
-    public void delete(Student student){
+    @DeleteMapping("delete/")
+    public void delete(@RequestBody Student student){
         log.info("Deleting student: {}", student);
         this.studentService.delete(student);
         log.info("Student Deleted: {}", student);
