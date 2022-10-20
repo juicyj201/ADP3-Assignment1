@@ -12,10 +12,12 @@ import za.ac.cput.Domain.Entity.Student;
 import za.ac.cput.Factory.StudentFactory;
 import za.ac.cput.Service.Impl.StudentService;
 
+import java.net.URI;
+import java.net.http.HttpClient;
 import java.util.Optional;
 
 
-
+import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -30,24 +32,26 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StudentControllerTest {
     @Autowired
     private StudentController studentController;
-    private Student studenta ;
+    private Student studenta = StudentFactory.createStudent(219113140, "Peter", "Griffin", "Male", "47", "Peanuts");
     @LocalServerPort
-    private int port;
-    private  String localhost;
+    private final int port = 8080;
+    private final String localhost = "http://localhost:"+this.port+"/student/";
+    private final URI url = URI.create(localhost+"save/");
     @Autowired
-    private TestRestTemplate restTemplate;
-@BeforeEach
-    public void setUp(){
-    assertNotNull(studentController);
-    this.studenta = StudentFactory.createStudent(219113140, "Peter", "Griffin", "Male", "47", "Peanuts");
-    this.localhost = "http://localhost:"+this.port+"/student/";
-}
+    private TestRestTemplate restTemplate = new TestRestTemplate("quandale", "dingle");
+
+    @BeforeEach
+    public void setUp() {
+        assertNotNull(studentController);
+//        this.studenta = StudentFactory.createStudent(219113140, "Peter", "Griffin", "Male", "47", "Peanuts");
+//        this.localhost = "http://localhost:" + this.port + "/student/";
+    }
 
     @Test
     public void testSave(){
-        String url = localhost + "save/";
+        //String url = localhost + "save/";
         System.out.println("Student to save: " + this.studenta);
-        ResponseEntity<Student>response = this.restTemplate.postForEntity(url, this.studenta,Student.class);
+        ResponseEntity<Student> response = this.restTemplate.postForEntity(url, this.studenta, Student.class);
         System.out.println(response);
         assertAll(
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -60,7 +64,7 @@ public class StudentControllerTest {
 
     @Test
     void save() {
-        String url = localhost + "save/";
+        //String url = localhost + "save/";
         System.out.println("Student to save: " + this.studenta);
         ResponseEntity<Student>response = this.restTemplate.postForEntity(url, this.studenta,Student.class);
         System.out.println(response);
