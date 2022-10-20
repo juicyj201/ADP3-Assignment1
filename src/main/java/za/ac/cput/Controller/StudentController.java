@@ -42,7 +42,7 @@ public class StudentController {
     }
 
     @GetMapping("read/{studentID}")
-    public Optional<Student> read( @PathVariable long studentID){
+    public Optional<Student> read( @PathVariable Long studentID){
         log.info("Locating student: {}", studentID);
         return studentService.read(studentID);
 

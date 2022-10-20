@@ -22,8 +22,8 @@
 <!--                        </form>-->
                         <form th:action="@{/main}" method="post">
                             <h3>SIGN IN</h3>
-                            <input type="text" placeholder="STAFF ID" name="username" th:field="*{username}"/>
-                            <input text="password" placeholder="PASSWORD" name="password" th:field="*{password}"/>
+                            <input type="text" placeholder="STAFF ID" name="username" th:object="${username}"/>
+                            <input text="password" placeholder="PASSWORD" name="password" th:object="${password}"/>
                             <button type="submit" class="submit" value="Login">SIGN IN</button>
                         </form>
                     </div>

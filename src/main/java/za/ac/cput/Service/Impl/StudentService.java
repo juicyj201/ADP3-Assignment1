@@ -17,7 +17,7 @@ import java.util.Optional;
 public interface StudentService
 {
     Student save(Student student);
-    Optional<Student> read(long studentID);
+    Optional<Student> read(Long studentID);
     void delete(Student student);
     Student update(Student student);
 }

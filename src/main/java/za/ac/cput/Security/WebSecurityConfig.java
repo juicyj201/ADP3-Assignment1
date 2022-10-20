@@ -37,7 +37,7 @@ public class WebSecurityConfig{
                 .antMatchers("/main/**").permitAll()
 //                .antMatchers("/admin/**").permitAll()
                 .antMatchers("/employee/**").permitAll()
-//                .antMatchers("/student/**").permitAll()
+                .antMatchers("/student/**").permitAll()
                 .anyRequest().authenticated();
         });
 

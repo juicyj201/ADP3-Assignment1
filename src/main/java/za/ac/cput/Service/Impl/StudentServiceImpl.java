@@ -30,8 +30,8 @@ public StudentServiceImpl(StudentRepository studentRepository){
     }
 
     @Override
-    public Optional<Student> read(long studentID) {
-    return this.studentRepository.findById(String.valueOf(studentID));
+    public Optional<Student> read(Long studentID) {
+    return this.studentRepository.findById(studentID);
     }
 
     @Override
