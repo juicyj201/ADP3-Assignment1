@@ -10,6 +10,8 @@ import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.Domain.Entity.StudentAccount;
 import za.ac.cput.Service.Impl.StudentAccountService;
 import za.ac.cput.Service.Impl.StudentAccountServiceImpl;
+
+import javax.validation.Valid;
 import java.util.Optional;
 
 /**
@@ -32,31 +34,27 @@ public class StudentAccountController {
         this.studentAccountService = studentAccountService;
     }
 
-    @PostMapping
-    public ResponseEntity<StudentAccount> save(@RequestBody StudentAccount studentAccount) {
+    @PostMapping("save/")
+    public StudentAccount save(@RequestBody @Valid StudentAccount studentAccount) {
             log.info("Saving Student account: {}", studentAccount);
-            StudentAccount saveStudentAccount = studentAccountService.save(studentAccount);
-            log.info("Student Account Saved: {}", studentAccount);
-            return ResponseEntity.ok(saveStudentAccount);
+            return studentAccountService.save(studentAccount);
     }
 
-    @GetMapping
-    public Optional<StudentAccount> read(StudentAccount studentAccount){
-        log.info("Locating student account: {}", studentAccount);
-        return Optional.ofNullable(this.studentAccountService.read(String.valueOf(studentAccount)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student Account does not exist")));
+    @GetMapping("read/{studAccountNumber}")
+    public Optional<StudentAccount> read(@PathVariable long studAccountNumber){
+        log.info("Locating student account: {}", studAccountNumber);
+        return studentAccountService.read(studAccountNumber);
 
     }
 
-    @PutMapping
-    public StudentAccount update(StudentAccount studentAccount){
+    @PutMapping("update/")
+    public StudentAccount update(@RequestBody StudentAccount studentAccount){
         log.info("Updating student account: {}", studentAccount);
-        this.studentAccountService.update(studentAccount);
-        log.info("Student account updated: {}", studentAccount);
-        return studentAccountService.update(studentAccount);
+        return studentAccountService.save(studentAccount);
     }
 
-    @DeleteMapping
-    public void delete(StudentAccount studentAccount){
+    @DeleteMapping("delete/")
+    public void delete(@RequestBody StudentAccount studentAccount){
         log.info("Deleting student account: {}", studentAccount);
         this.studentAccountService.delete(studentAccount);
         log.info("Student account deleted: {}", studentAccount);

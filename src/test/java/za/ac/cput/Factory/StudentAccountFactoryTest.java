@@ -32,12 +32,14 @@ class StudentAccountFactoryTest {
                 .createAmountDue("12.00")
                 .createAmountPaid("12.00")
                 .builder();
+
     }
 
     @Test
     void StudentAccountFactTest(){
-        StudentAccount studentAccount = StudentAccountFactory.createStudentAccount(001, "219113149", "12.00", "12.00");
+        StudentAccount studentAccount = StudentAccountFactory.createStudentAccount(11111, "219113149", "12.00", "12.00");
         assertNotNull(studentAccount);
+        System.out.println(studentAccount);
     }
 
     @AfterEach
