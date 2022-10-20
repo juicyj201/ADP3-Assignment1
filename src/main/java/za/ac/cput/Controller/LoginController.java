@@ -14,6 +14,7 @@ public class LoginController {
         ModelAndView model = new ModelAndView();
         model.addObject("username");
         model.addObject("password");
+        model.addObject("type");
         model.setViewName("Login.html");
         return model;
     }

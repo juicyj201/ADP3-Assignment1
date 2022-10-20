@@ -23,7 +23,8 @@
                         <form th:action="@{/main}" method="post">
                             <h3>SIGN IN</h3>
                             <input type="text" placeholder="STAFF ID" name="username" th:object="${username}"/>
-                            <input text="password" placeholder="PASSWORD" name="password" th:object="${password}"/>
+                            <input type="password" placeholder="PASSWORD" name="password" th:object="${password}"/>
+                            <br/>Staff Type<input type="checkbox" name="type" th:checked="${type} ? 'true' : 'false'"/>
                             <button type="submit" class="submit" value="Login">SIGN IN</button>
                         </form>
                     </div>

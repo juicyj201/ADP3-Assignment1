@@ -2,6 +2,7 @@ package za.ac.cput.Controller;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Factory.AdminFactory;
 
@@ -11,9 +12,11 @@ import za.ac.cput.Factory.AdminFactory;
  * The admin controller test
  */
 
+@SpringBootTest
 public class AdminControllerTest {
     private AdminController controller;
     private final Admin admintestobject = new AdminFactory().buildAdmin(21L, "Manager", "John", "Banks");
+
 
     @Test
     public void testSaveAdmin(){
