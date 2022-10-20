@@ -16,7 +16,7 @@ public class StudentAccount {
 
     @Id
     @Column(name = "studAccountNumber")
-    private String studAccountNumber;
+    private Long studAccountNumber;
     @Column(name = "studentID")
     private String studentID;
     @Column(name = "amountDue")
@@ -25,7 +25,7 @@ public class StudentAccount {
     private String amountPaid;
 
     private StudentAccount(StudentAccountBuilder builder){
-        this.studAccountNumber = builder.studAccountNumber;
+        this.studAccountNumber = Long.valueOf(builder.studAccountNumber);
         this.studentID = builder.studentID;
         this.amountDue = builder.amountDue;
         this.amountPaid = builder.amountPaid;
@@ -34,7 +34,7 @@ public class StudentAccount {
     public StudentAccount() {
     }
 
-    public String getStudAccountNumber() {
+    public Long getStudAccountNumber() {
         return studAccountNumber;
     }
 
@@ -56,20 +56,20 @@ public class StudentAccount {
     }
 
     public static class StudentAccountBuilder{
-        private String studAccountNumber;
+        private long studAccountNumber;
         private String studentID;
         private String amountDue;
         private String amountPaid;
 
-        public StudentAccountBuilder() {
-            this.studAccountNumber = studAccountNumber;
-            this.studentID = studentID;
-            this.amountDue = amountDue;
-            this.amountPaid = amountPaid;
-        }
+//        public StudentAccountBuilder() {
+//            this.studAccountNumber = studAccountNumber;
+//            this.studentID = studentID;
+//            this.amountDue = amountDue;
+//            this.amountPaid = amountPaid;
+//        }
 
 
-        public StudentAccountBuilder createStudAccountNumber(String studAccountNumber) {
+        public StudentAccountBuilder createStudAccountNumber(long studAccountNumber) {
             this.studAccountNumber = studAccountNumber;
             return this;
         }

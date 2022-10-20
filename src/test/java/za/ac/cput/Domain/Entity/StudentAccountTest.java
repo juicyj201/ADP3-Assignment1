@@ -28,7 +28,7 @@ class StudentAccountTest {
     @Test
     public void test(){
         StudentAccount studentAccount = new StudentAccount.StudentAccountBuilder()
-                .createStudAccountNumber("21919191")
+                .createStudAccountNumber(21919191)
                 .getStudentID("219113149")
                 .createAmountDue("12.00")
                 .createAmountPaid("12.00")

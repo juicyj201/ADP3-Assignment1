@@ -31,7 +31,7 @@ class StudentTest {
     @Test
     public void test() {
         Student student = new Student.StudentBuilder()
-                .createStudentID("219113149")
+                .createStudentID(219113149)
                 .createStudFirstName("Keziah")
                 .createStudSurname("Robinson")
                 .createGender("Female")
