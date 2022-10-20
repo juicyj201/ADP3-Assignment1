@@ -22,10 +22,6 @@ import static java.lang.String.format;
 
 @Controller
 public class MainController {
-    @Autowired
-    private EmployeeServiceImpl serviceEmployee;
-    @Autowired
-    private AdminServiceImpl serviceAdmin;
     protected final static Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping("/main")
@@ -37,26 +33,12 @@ public class MainController {
             model.setViewName("view-student-accounts.html");
             model.addObject("empmessage", format("Employee {username}, successfully logged in."));
             return model;
-//            Employee tempE = serviceEmployee.readByID(Long.parseLong(username));
-//            if (Long.parseLong(tempE.getEmployeeNum()) != 0 && !tempE.getPassword().equals(null)) {
-//                model = new ModelAndView();
-//                model.setViewName("view-student-accounts.html");
-//                model.addObject("empmessage", "Employee " + tempE.getEmpFirstName() + ", successfully logged in.");
-//                return model;
-//            }
         }
         else if (type.equals("on")) {
             model = new ModelAndView();
             model.setViewName("view-admin-accounts.html");
             model.addObject("adminmessage", format("Employee {username}, successfully logged in."));
             return model;
-//            Admin tempA = serviceAdmin.readByID(Long.parseLong(username));
-//            if (tempA.getAdminID() != 0 && !tempA.getAdminType().equals(null)) {
-//                model = new ModelAndView();
-//                model.setViewName("view-admin-accounts.html");
-//                model.addObject("adminmessage", "Admin " + tempA.getAdminFirstName() + ", successfully logged in.");
-//                return model;
-//            }
         }
         else {
             model = new ModelAndView();
