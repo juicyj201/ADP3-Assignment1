@@ -30,7 +30,7 @@ public class StudentAccountControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(studentAccountController);
-        this.studentAccount = StudentAccountFactory.createStudentAccount("0111", "219113140", "24.00", "12.00");
+        this.studentAccount = StudentAccountFactory.createStudentAccount(0111, "219113140", "24.00", "12.00");
     }
 
     @Test

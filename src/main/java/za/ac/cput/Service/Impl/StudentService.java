@@ -16,8 +16,8 @@ import java.util.Optional;
 
 public interface StudentService
 {
-    public Student save(Student student);
-    public Optional<Student> read(long studentID);
-    public void delete(Student student);
-    public Student update(Student student);
+    Student save(Student student);
+    Optional<Student> read(long studentID);
+    void delete(Student student);
+    Student update(Student student);
 }

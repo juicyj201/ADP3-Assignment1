@@ -54,7 +54,7 @@ public class StudentControllerTest {
                 ()-> assertNotNull(response),
                 ()-> assertNotNull(response.getBody())
         );
-        System.out.printf(String.valueOf(response.getBody()));
+        System.out.printf("Student saved: " + response.getBody());
 //        assertEquals("219113140", postResponse);
     }
 

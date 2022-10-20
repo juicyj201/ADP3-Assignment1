@@ -56,20 +56,20 @@ public class StudentAccount {
     }
 
     public static class StudentAccountBuilder{
-        private String studAccountNumber;
+        private long studAccountNumber;
         private String studentID;
         private String amountDue;
         private String amountPaid;
 
-        public StudentAccountBuilder() {
-            this.studAccountNumber = studAccountNumber;
-            this.studentID = studentID;
-            this.amountDue = amountDue;
-            this.amountPaid = amountPaid;
-        }
+//        public StudentAccountBuilder() {
+//            this.studAccountNumber = studAccountNumber;
+//            this.studentID = studentID;
+//            this.amountDue = amountDue;
+//            this.amountPaid = amountPaid;
+//        }
 
 
-        public StudentAccountBuilder createStudAccountNumber(String studAccountNumber) {
+        public StudentAccountBuilder createStudAccountNumber(long studAccountNumber) {
             this.studAccountNumber = studAccountNumber;
             return this;
         }
@@ -91,7 +91,7 @@ public class StudentAccount {
 
     public StudentAccount copy(StudentAccount studentAccount)
     {
-        this.studAccountNumber = String.valueOf(studentAccount.studAccountNumber);
+        this.studAccountNumber = studentAccount.studAccountNumber;
         this.studentID = studentAccount.studentID;
         this.amountDue = studentAccount.amountDue;
         this.amountPaid = studentAccount.amountPaid;
