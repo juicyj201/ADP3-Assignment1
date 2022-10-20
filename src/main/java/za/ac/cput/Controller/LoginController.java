@@ -11,16 +11,9 @@ public class LoginController {
     @RequestMapping("/login")
     public ModelAndView loginEmployee(){
         ModelAndView model = new ModelAndView();
-        model.addObject("employee", new Employee());
-        model.setViewName("LoginEmployee.html");
-        return model;
-    }
-
-    @RequestMapping("/loginAdmin")
-    public ModelAndView loginAdmin(){
-        ModelAndView model = new ModelAndView();
-        model.addObject("admin", new Admin());
-        model.setViewName("LoginAdmin.html");
+        model.addObject("id", new Employee());
+        model.addObject("pass", new String());
+        model.setViewName("Login.html");
         return model;
     }
 }

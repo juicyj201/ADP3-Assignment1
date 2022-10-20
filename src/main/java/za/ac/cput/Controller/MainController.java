@@ -26,7 +26,7 @@ public class MainController {
     public ModelAndView login(@ModelAttribute String id, String password) {
         ModelAndView model;
         Optional<Employee> tempE = serviceEmployee.read(id);
-        Optional<Admin> tempA = serviceAdmin.read(password);
+        Optional<Admin> tempA = serviceAdmin.read(id);
 
         System.out.println(tempE.get().getEmpFirstName());
         System.out.println(tempA.get().getAdminFirstName());

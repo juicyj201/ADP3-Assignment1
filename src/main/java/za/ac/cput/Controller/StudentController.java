@@ -24,7 +24,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/student/")
 public class StudentController {
     private StudentService studentService;
     private final static Logger log = LoggerFactory.getLogger(StudentController.class);
