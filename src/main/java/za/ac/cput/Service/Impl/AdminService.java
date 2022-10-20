@@ -15,6 +15,7 @@ import java.util.Optional;
 public interface AdminService extends IService<Admin, Long> {
     public Admin save(Admin admin);
     public Optional<Admin> read(Long adminID);
+    public Admin readByID(Long adminID);
     public List<Admin> readAll();
     public Admin update(Admin admin);
     public void delete(Admin admin);
