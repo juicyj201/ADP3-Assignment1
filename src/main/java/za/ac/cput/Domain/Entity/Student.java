@@ -1,8 +1,7 @@
 package za.ac.cput.Domain.Entity;
 
-import za.ac.cput.Service.Impl.StudentService;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  *
@@ -15,12 +14,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
-public class Student
+public class Student implements Serializable
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "studentID")
-    private String studentID;
+    private long studentID;
     @Column(name = "studFirstName")
     private String studFirstName;
     @Column(name = "studSurname")
@@ -45,7 +44,7 @@ public class Student
     public Student() {
     }
 
-    public String getStudentID() {
+    public long getStudentID() {
         return studentID;
     }
 
@@ -78,23 +77,23 @@ public class Student
 
     public static class StudentBuilder{
 
-        private String studentID;
+        private long studentID;
         private String studFirstName;
         private String studSurname;
         private String gender;
         private String age;
         private String allergies;
 
-        public StudentBuilder() {
-            this.studentID = studentID;
-            this.studFirstName = studFirstName;
-            this.studSurname = studSurname;
-            this.gender = gender;
-            this.age = age;
-            this.allergies = allergies;
-        }
+//        public StudentBuilder() {
+//            this.studentID = studentID;
+//            this.studFirstName = studFirstName;
+//            this.studSurname = studSurname;
+//            this.gender = gender;
+//            this.age = age;
+//            this.allergies = allergies;
+//        }
 
-        public StudentBuilder createStudentID(String studentID) {
+        public StudentBuilder createStudentID(long studentID) {
             this.studentID = studentID;
             return this;
         }
@@ -135,9 +134,7 @@ public class Student
         }
 
         public Student builder() {
-            if (studentID.equals(null)) {
-                throw new IllegalArgumentException("Student ID cannot be null");
-            }
+
             return new Student(this);
         }
 

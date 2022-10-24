@@ -31,10 +31,27 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Optional<Admin> read(String adminID) {
-        if(!adminID.equals(null)) {
+    public Optional<Admin> read(String ID) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Admin> read(Long adminID) {
+        if(adminID != 0) {
             System.out.println("Admin found: ");
             Optional<Admin> readAdmin = repo.findById(adminID);
+            return readAdmin;
+        }else{
+            System.out.println("Error: Admin not found.");
+            return null;
+        }
+    }
+
+    @Override
+    public Admin readByID(Long adminID) {
+        if(adminID != 0) {
+            System.out.println("Admin found: ");
+            Admin readAdmin = repo.findById(adminID).get();
             return readAdmin;
         }else{
             System.out.println("Error: Admin not found.");

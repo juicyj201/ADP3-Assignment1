@@ -14,17 +14,24 @@
                 <div class="left">
                     <div class="top_link"><a href="/"><img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="">Return home</a></div>
                     <div class="contact">
-                        <form th:action="@{/main}" th:object="${employee}" method="post">
+<!--                        <form th:action="@{/main}" th:object="${employee}" method="post">-->
+<!--                            <h3>SIGN IN</h3>-->
+<!--                            <input type="text" placeholder="EMPLOYEE NUMBER" name="employeeNum" th:field="*{employeeNum}"/>-->
+<!--                            <input type="password" placeholder="PASSWORD" name="password" th:field="*{password}"/>-->
+<!--                            <button type="submit" class="submit" value="Login">SIGN IN</button>-->
+<!--                        </form>-->
+                        <form th:action="@{/main}" method="post">
                             <h3>SIGN IN</h3>
-                            <input type="text" placeholder="EMPLOYEE NUMBER" name="employeeNum" th:field="*{employeeNum}"/>
-                            <input type="password" placeholder="PASSWORD" name="password" th:field="*{password}"/>
+                            <input type="text" placeholder="STAFF ID" name="username" th:object="${username}"/>
+                            <input type="password" placeholder="PASSWORD" name="password" th:object="${password}"/>
+                            <br/>Staff Type<input type="checkbox" name="type" th:checked="${type} ? 'true' : 'false'"/>
                             <button type="submit" class="submit" value="Login">SIGN IN</button>
                         </form>
                     </div>
                 </div>
                 <div class="right">
                     <div class="right-text">
-                        <h2>EMPLOYEE LOGIN</h2>
+                        <h2>STAFF LOGIN</h2>
                         <h5>RESTAURANT MANAGEMENT SYSTEM</h5>
                     </div>
 <!--                    <div class="right-inductor"><img src="https://images.pexels.com/photos/1383776/pexels-photo-1383776.jpeg?cs=srgb&dl=pexels-huy-phan-1383776.jpg&fm=jpg" alt=""></div>-->

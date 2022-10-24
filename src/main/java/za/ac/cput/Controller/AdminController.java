@@ -3,6 +3,7 @@ package za.ac.cput.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Service.Impl.AdminService;
@@ -32,7 +33,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/{adminID}")
-    public Optional<Admin> getAdminByID(@PathVariable String adminID){
+    public Optional<Admin> getAdminByID(@PathVariable Long adminID){
         logger.info("Service has begun reading admin requested...");
         return service.read(adminID);
     }

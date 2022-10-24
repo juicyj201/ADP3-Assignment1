@@ -14,13 +14,15 @@ import java.util.Objects;
 public class Admin {
     @Id
     @Column(name = "adminID")
-    private String adminID;
+    private Long adminID;
     @Column(name = "adminType")
     private String adminType;
     @Column(name = "adminFirstName")
     private String adminFirstName;
     @Column(name = "adminSurname")
     private String adminSurname;
+    @Column(name = "password")
+    private String password;
 
     public Admin(AdminBuilder adminBuilder){
         this.adminID = adminBuilder.adminID;
@@ -33,7 +35,7 @@ public class Admin {
         //empty constructor
     }
 
-    public void setAdminID(String adminID){
+    public void setAdminID(Long adminID){
         this.adminID = adminID;
     }
 
@@ -46,7 +48,11 @@ public class Admin {
         this.adminSurname = adminSurname;
     }
 
-    public String getAdminID(){
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getAdminID(){
         return adminID;
     }
 
@@ -66,22 +72,32 @@ public class Admin {
         return adminSurname;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Admin admin = (Admin) o;
-        return adminID.equals(admin.adminID) && adminType.equals(admin.adminType) && adminFirstName.equals(admin.adminFirstName) && adminSurname.equals(admin.adminSurname);
+        return adminID == admin.adminID && Objects.equals(adminType, admin.adminType) && Objects.equals(adminFirstName, admin.adminFirstName) && Objects.equals(adminSurname, admin.adminSurname) && Objects.equals(password, admin.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(adminID, adminType, adminFirstName, adminSurname);
+        return Objects.hash(adminID, adminType, adminFirstName, adminSurname, password);
     }
 
     @Override
-    public String toString(){
-        return this.adminID + ", " + this.adminFirstName + ", " + this.adminSurname + ", " + this.adminType;
+    public String toString() {
+        return "Admin{" +
+                "adminID=" + adminID +
+                ", adminType='" + adminType + '\'' +
+                ", adminFirstName='" + adminFirstName + '\'' +
+                ", adminSurname='" + adminSurname + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     @Override
@@ -90,7 +106,7 @@ public class Admin {
     }
 
     public static class AdminBuilder{
-        private String adminID;
+        private Long adminID;
         private String adminType;
         private String adminFirstName;
         private String adminSurname;
@@ -108,7 +124,7 @@ public class Admin {
             return this;
         }
 
-        public AdminBuilder createAdminID(String adminID){
+        public AdminBuilder createAdminID(Long adminID){
             this.adminID = adminID;
             return this;
         }

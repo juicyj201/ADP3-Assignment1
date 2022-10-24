@@ -38,7 +38,7 @@ public class PaymentController {
     }
 
     @GetMapping("/payment/{paymentID}")
-    public Optional<Payment> getPaymentByID(@PathVariable String paymentID){
+    public Optional<Payment> getPaymentByID(@PathVariable Long paymentID){
         logger.info("Service has begun reading payment requested...");
         return service.read(paymentID);
     }

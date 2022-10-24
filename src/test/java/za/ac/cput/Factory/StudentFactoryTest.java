@@ -23,7 +23,7 @@ class StudentFactoryTest {
     @Test
     public void StudentTest() {
         Student student = new Student.StudentBuilder()
-                .createStudentID("219113149")
+                .createStudentID(219113149)
                 .createStudFirstName("Keziah")
                 .createStudSurname("Robinson")
                 .createGender("Female")
@@ -35,8 +35,9 @@ class StudentFactoryTest {
 
     @Test
     public void StudentFactoryTest() {
-        Student student1 = StudentFactory.createStudent("219113148", "Kessia", "Robertson", "Female", "22", "Peanuts");
+        Student student1 = StudentFactory.createStudent(219113149, "Kessia", "Robertson", "Female", "22", "Peanuts");
         assertNotNull(student1);
+        System.out.println(student1);
     }
 
     @AfterEach

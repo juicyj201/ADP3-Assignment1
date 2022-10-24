@@ -1,6 +1,7 @@
 package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Restaurant;
 import za.ac.cput.Repository.RestaurantRepository;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
  * The Restaurant Service Impl
  */
 
+@Service
 public class RestaurantServiceImpl implements RestaurantService{
     private final RestaurantRepository repo;
 
@@ -35,14 +37,19 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public Optional<Restaurant> read(String restaurantID) {
-        if(!restaurantID.equals(null)) {
+    public Optional<Restaurant> read(Long restaurantID) {
+        if(restaurantID == 0) {
             System.out.println("Restaurant found: ");
-            return repo.findById(restaurantID);
+            return repo.findById(restaurantID.toString());
         }else{
             System.out.println("Error: Restaurant not found.");
             return null;
         }
+    }
+
+    @Override
+    public Optional<Restaurant> read(String ID) {
+        return Optional.empty();
     }
 
     @Override

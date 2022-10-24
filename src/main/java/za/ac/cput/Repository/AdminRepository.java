@@ -15,5 +15,5 @@ import java.util.List;
  * The admin repository interface
  */
 
-public interface AdminRepository extends CrudRepository<Admin, String> {
+public interface AdminRepository extends CrudRepository<Admin, Long> {
 }

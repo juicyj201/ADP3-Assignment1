@@ -27,17 +27,19 @@ class StudentAccountFactoryTest {
     @Test
     public void StudentAccountTest(){
         StudentAccount studentAccount = new StudentAccount.StudentAccountBuilder()
-                .createStudAccountNumber("21919191")
+                .createStudAccountNumber(21919191)
                 .getStudentID("219113149")
                 .createAmountDue("12.00")
                 .createAmountPaid("12.00")
                 .builder();
+
     }
 
     @Test
-    public void StudentAccountFactoryTest(){
-        StudentAccount studentAccount = StudentAccountFactory.createStudentAccount("001", "219113149", "12.00", "12.00");
+    void StudentAccountFactTest(){
+        StudentAccount studentAccount = StudentAccountFactory.createStudentAccount(11111, "219113149", "12.00", "12.00");
         assertNotNull(studentAccount);
+        System.out.println(studentAccount);
     }
 
     @AfterEach

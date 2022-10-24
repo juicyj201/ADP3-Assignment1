@@ -12,7 +12,7 @@ package za.ac.cput.Factory;
 import za.ac.cput.Domain.Entity.StudentAccount;
 
 public class StudentAccountFactory {
-    public static StudentAccount createStudentAccount(String studAccountNumber, String studentID, String amountDue, String amountPaid){
+    public static StudentAccount createStudentAccount(long studAccountNumber, String studentID, String amountDue, String amountPaid){
 
         if(amountDue == null || amountPaid == null)
             return null;

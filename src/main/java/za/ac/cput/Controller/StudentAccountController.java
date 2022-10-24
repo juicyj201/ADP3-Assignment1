@@ -11,7 +11,8 @@ import za.ac.cput.Domain.Entity.StudentAccount;
 import za.ac.cput.Service.Impl.StudentAccountService;
 import za.ac.cput.Service.Impl.StudentAccountServiceImpl;
 
-import java.util.List;
+import javax.validation.Valid;
+import java.util.Optional;
 
 /**
  *
@@ -22,44 +23,52 @@ import java.util.List;
  */
 
 @RestController
-//@RequestMapping("/studentAccount")
+@RequestMapping("/studentAccount")
 public class StudentAccountController {
-    @Autowired
-    private StudentAccountService studentAccountService;
-    private final static Logger log = LoggerFactory.getLogger(StudentController.class);
 
-//    @Autowired
-//    public StudentAccountController(StudentAccountServiceImpl studentAccountService){
-//        this.studentAccountService = studentAccountService;
+    private final StudentAccountService studentAccountService;
+    private final static Logger log = LoggerFactory.getLogger(StudentAccountController.class);
+
+    @Autowired
+    public StudentAccountController(StudentAccountServiceImpl studentAccountService){
+        this.studentAccountService = studentAccountService;
+    }
+
+    @PostMapping("save/")
+    public StudentAccount save(@RequestBody @Valid StudentAccount studentAccount) {
+            log.info("Saving Student account: {}", studentAccount);
+            return studentAccountService.save(studentAccount);
+    }
+
+    @GetMapping("read/{studAccountNumber}")
+    public Optional<StudentAccount> read(@PathVariable long studAccountNumber){
+        log.info("Locating student account: {}", studAccountNumber);
+        return studentAccountService.read(studAccountNumber);
+
+    }
+
+    @PutMapping("update/")
+    public StudentAccount update(@RequestBody StudentAccount studentAccount){
+        log.info("Updating student account: {}", studentAccount);
+        return studentAccountService.save(studentAccount);
+    }
+
+    @DeleteMapping("delete/")
+    public void delete(@RequestBody StudentAccount studentAccount){
+        log.info("Deleting student account: {}", studentAccount);
+        this.studentAccountService.delete(studentAccount);
+        log.info("Student account deleted: {}", studentAccount);
+    }
+
+
+//    @GetMapping("readAll")
+//    public ResponseEntity<List<StudentAccount>> readAll(){
+//        List<StudentAccount> studentAccounts = this.studentAccountService.readAll();
+//        return ResponseEntity.ok(studentAccounts);
 //    }
 
-    @PostMapping("/studentAccount")
-    public StudentAccount save(StudentAccount studentAccount) {
-        StudentAccount studentAccounts = studentAccountService.save(studentAccount);
-        return studentAccounts;
-    }
 
-    @GetMapping("/studentAccount/{studAccountNumber}")
-    public StudentAccount read(@PathVariable String studAccountNumber){
-        StudentAccount studentAccounts  = studentAccountService.read(studAccountNumber).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return studentAccounts;
-    }
 
-    @DeleteMapping("/studentAccount")
-    public void delete(StudentAccount studentAccount){
-        log.info("Delete student: {}", studentAccount);
-        this.delete(studentAccount);
-    }
 
-    @PutMapping("/studentAccount")
-    public StudentAccount update(StudentAccount studentAccount){
-        StudentAccount studentAccounts = studentAccountService.update(studentAccount);
-        return studentAccounts;
-    }
 
-    @GetMapping("/studentAccount")
-    public ResponseEntity<List<StudentAccount>> readAll(){
-        List<StudentAccount>studentAccounts = this.studentAccountService.readAll();
-        return ResponseEntity.ok(studentAccounts);
-    }
 }

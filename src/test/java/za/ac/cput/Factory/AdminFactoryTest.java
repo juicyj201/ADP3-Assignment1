@@ -12,12 +12,12 @@ import za.ac.cput.Domain.Entity.Admin;
 
 public class AdminFactoryTest {
     private AdminFactory factory = new AdminFactory();
-    private Admin admin = factory.buildAdmin("21", "Manager", "John", "Banks");
+    private Admin admin = factory.buildAdmin(21L, "Manager", "John", "Banks");
 
     @Test
     public void testBuildAdmin(){
         try {
-            Assertions.assertTrue(factory.buildAdmin("21", "Manager", "John", "Banks") == admin);
+            Assertions.assertTrue(factory.buildAdmin(21L, "Manager", "John", "Banks") == admin);
             Assertions.assertNotNull(factory);
         }catch(NullPointerException npe){
             npe.getMessage();

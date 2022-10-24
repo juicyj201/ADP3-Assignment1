@@ -12,9 +12,10 @@ import java.util.Optional;
  * The admin service interface
  */
 
-public interface AdminService extends IService<Admin, String> {
+public interface AdminService extends IService<Admin, Long> {
     public Admin save(Admin admin);
-    public Optional<Admin> read(String adminID);
+    public Optional<Admin> read(Long adminID);
+    public Admin readByID(Long adminID);
     public List<Admin> readAll();
     public Admin update(Admin admin);
     public void delete(Admin admin);

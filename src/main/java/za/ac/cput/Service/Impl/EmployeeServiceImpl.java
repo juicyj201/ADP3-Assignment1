@@ -2,6 +2,7 @@ package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.Employee;
 import za.ac.cput.Repository.EmployeeRepository;
 
@@ -38,7 +39,24 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Optional<Employee> read(String employeeNum) {
-        if(!employeeNum.equals(null)) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Employee readByID(Long employeeNum) {
+        if(employeeNum != 0) {
+            System.out.println("Admin found: ");
+            Employee readEmp = repo.findById(employeeNum).get();
+            return readEmp;
+        }else{
+            System.out.println("Error: Admin not found.");
+            return null;
+        }
+    }
+
+    @Override
+    public Optional<Employee> read(Long employeeNum) {
+        if(employeeNum != 0) {
             System.out.println("Employee found: ");
             return repo.findById(employeeNum);
         }else{

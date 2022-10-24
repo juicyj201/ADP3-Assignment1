@@ -14,9 +14,10 @@ import za.ac.cput.Service.IService;
 import java.util.List;
 import java.util.Optional;
 
-public interface StudentService extends IService<Student, String> {
-    public Student save(Student student);
-    public Optional<Student> read(String studentID);
-    public void delete(Student student);
-    public Student update(Student student);
+public interface StudentService
+{
+    Student save(Student student);
+    Optional<Student> read(Long studentID);
+    void delete(Student student);
+    Student update(Student student);
 }

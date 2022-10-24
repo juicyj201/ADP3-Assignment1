@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Payment {
     @Id
     @Column(name = "paymentID")
-    public String paymentID;
+    public Long paymentID;
     @Column(name = "studentAccountID")
     public String studentAccountID;
     @Column(name = "paymentDate")
@@ -33,7 +33,7 @@ public class Payment {
         //empty constructor
     }
 
-    public void setPaymentID(String paymentID){
+    public void setPaymentID(Long paymentID){
         this.paymentID = paymentID;
     }
 
@@ -49,7 +49,7 @@ public class Payment {
         this.paymentAmount = paymentAmount;
     }
 
-    public String getPaymentID(){
+    public Long getPaymentID(){
         return paymentID;
     }
 
@@ -89,7 +89,7 @@ public class Payment {
     }
 
     public static class PaymentBuilder{
-        public String paymentID;
+        public Long paymentID;
         public String studentAccountID;
         public String paymentDate;
         public int paymentAmount;
@@ -101,7 +101,7 @@ public class Payment {
             this.paymentAmount = paymentAmount;
         }
 
-        public PaymentBuilder createID(String paymentID, int paymentAmount){
+        public PaymentBuilder createID(Long paymentID, int paymentAmount){
             this.paymentID = paymentID;
             this.paymentAmount = paymentAmount;
             return this;
