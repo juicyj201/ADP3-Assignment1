@@ -19,19 +19,19 @@ public class TemplateController {
         return "login";
     }
 
-    @RequestMapping("/main")
+    @RequestMapping("/home")
     public String getMain() {
         return "main";
     }
 
-    @RequestMapping("/view-student-accounts")
+    @RequestMapping("/student-accounts")
     public String getStudent(){
-        return "student";
+        return "view-student-accounts";
     }
 
-    @RequestMapping("/view-admin-accounts")
+    @RequestMapping("/admin-accounts")
     public String getAdmin(){
-        return "admin";
+        return "view-admin-accounts";
     }
 
 }
