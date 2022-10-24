@@ -120,7 +120,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                     .successHandler(new UserSuccessAuthenticationHandler())
                     .loginPage("/login").permitAll()
                     // Default page after successful login, true to force redirect
-//                    .defaultSuccessUrl("/main", true)
+                    .defaultSuccessUrl("/home", true)
                     // Customize login page fields, incase you dont use the conventional password and username fields
                     .passwordParameter("password")
                     .usernameParameter("username")
