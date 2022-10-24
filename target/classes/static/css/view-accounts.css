@@ -1,72 +1,49 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: rgb(255, 255, 255);
 }
 
+/*Content container*/
 .content {
     width: 90vw;
-    height: 80vh;
+    height: 90vh;
     position: absolute;
-    margin-top: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 5vh 5vh 5vw;
     border-radius: 10px;
     color: #18283B;
     background-color: #fff;
     text-align: center;
     filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.4));
-;
-}
-
-main {
-    width: 100vw;
-    height: 100vh;
 }
 
 #main-article {
     display: inline-flex;
     position: absolute;
     align-content: center;
+    overflow: hidden;
 }
 
-#main-article h1 {
-    font-size: 26px;
-    letter-spacing: .15rem;
-    margin-top: 20vh;
-}
 
-#main-article h2 {
-    font-size: 22px;
-    letter-spacing: .05rem;
-    margin: 10px;
-}
-
-#main-article p {
-    font-size: 22px;
-    letter-spacing: .05rem;
-    margin: 10px;
-}
-
-#main-article label {
-    text-align: start;
-    font-size: 16px;
-    margin: 5px;
-}
-
+/* Student list */
 .students {
     height: 100%;
     width: 35%;
     padding: 20px;
-    background-color: aqua;
 }
 
 .students form {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background-color: brown;
+    border: #fff;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.4));
 }
 
+/* Search Student */
 .search {
     width: 100%;
     padding: 15px;
@@ -101,55 +78,235 @@ main {
     font-size: 20px;
 }
 
+/* Align info next to one another */
+.inline-info {
+    display: flex;
+    align-content: space-around;
+}
+
+/* List of student information */
 .list {
     height: calc(100% - 80px);
     width: 100%;
     padding: 10px;
-    background-color: blueviolet;
+    background-color: white;
+    /* border: 0.1rem solid rgba(0, 0, 0, 0.4); */
+    border-radius: 5px;
+    /* background-color: blueviolet; */
 }
 
 .list-item {
     height: 65px;
     width: 100%;
     margin: 5px 0px;
-    background-color: coral;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 20px;
+    background-color: white;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.4));
+    /* background-color: coral; */
 }
 
-.student-information {
+.list-item:hover {
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.6));
+}
+
+.student-list-info * {
+    width: 100%;
+    display: flex;
+    align-items: initial;
+    font-size: 14px;
+    /* background-color: aqua; */
+}
+
+.student-information-block {
     height: 100%;
     width: 65%;
     padding: 20px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
+/* Student personal Information */
 .student-information-display {
     height: 100%;
     width: 100%;
     border-radius: 20px;
-    background-color: #9DBFAF;
+    background-color: #fff;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.4));
+    padding: 20px;
+    /* background-color: #9DBFAF; */
 }
 
-#submit-index {
-    border: none;
-    color: white;
-    padding: 16px 230px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 10px 20px;
+
+.student-information {
+    width: 100%;
+    display: inline-flex;
+    /* background-color: #9DBFAF; */
+}
+
+.student-personal-information {
+    /* background-color: palevioletred; */
+    width: 80%;
+    height: auto;
+    padding: 10px;
     border-radius: 5px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+    background-color: white;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.4));
 }
 
-#submit-index {
-    background-color: #18283B;
+.student-personal-information div {
+    padding: 3px;
+    justify-content: space-around;
+}
+
+/* Buttons */
+.student-personal-information-controls {
+    width: 20%;
+    border-radius: 5px;
+    background-color: white;
+    margin-left: 10px;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.4));
+}
+
+.student-personal-information-controls div {
+    display: block;
+    padding: 10px;
+    margin: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.15s;
+    cursor: pointer;
+    justify-content: space-around;
+}
+
+/* .btnSave {
+    border: 0.15rem solid green;
+    color: green;
+}
+
+.btnSave:hover {
+    background-color: green;
+    cursor: pointer;
+    color: #fff;
+} */
+
+.btnDelete {
+    border: 0.15rem solid red;
+    color: red;
+}
+
+.btnDelete:hover {
+    background-color: red;
+    cursor: pointer;
     color: #fff;
 }
 
-#submit-index:hover {
+.btnEdit {
+    border: 0.15rem solid blue;
+    color: blue;
+}
+
+.btnEdit:hover {
+    background-color: blue;
+    cursor: pointer;
+    color: #fff;
+}
+
+/*student-order-history*/
+.student-order-history {
+    /* background-color: palevioletred; */
     background-color: #fff;
-    color: #18283B;
-    border: 2px solid #18283B;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.4))
+}
+
+.student-order-history-table {
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.student-order-history table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin: 50px auto; */
+}
+
+/* Zebra striping */
+.student-order-history tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+.student-order-history th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.student-order-history td,
+th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 14px;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    table {
+        width: 100%;
+    }
+
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        /* Label the data */
+        content: attr(data-column);
+
+        color: #000;
+        font-weight: bold;
+    }
+
 }

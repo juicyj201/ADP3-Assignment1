@@ -17,10 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
-    @RequestMapping("/")
-    public ModelAndView index(){
-        ModelAndView model = new ModelAndView();
-        model.setViewName("index.html");
-        return model;
-    }
+//    @RequestMapping("/")
+//    public ModelAndView index(){
+//        ModelAndView model = new ModelAndView();
+//        model.setViewName("index.html");
+//        return model;
+//    }
 }

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -13,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import java.util.concurrent.TimeUnit;
@@ -74,6 +76,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
     @Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("/favicon.ico", "/Error");
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 // Adds layer of protection for any user logged into application against any request whilst logged in
@@ -84,9 +91,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 //Allows any files in path that's in the antMatcher
                 // to be permitted without authentication - permitAll()
-                .antMatchers("/", "/index", "/css/**", "/js/**", "/images/**").permitAll()
+                .antMatchers("/", "/index", "/css/**", "/static/**", "/js/**", "/images/**", "/h2/**", "/Error").permitAll()
                 // User with role student has access only to main path
-                //.antMatchers("/main").hasRole(STUDENT.name())
+//                .antMatchers("/view-admin-accounts.html").hasRole(ADMIN.name())
+//                .antMatchers("/view-student-accounts.html").hasRole(STUDENT.name())
+//                .antMatchers("/main").hasRole(ADMIN.name())
+//                .antMatchers("/main").hasRole(STUDENT.name())
                 // Maps permissions to api - this means that you need a certain permission to access or use the api
                 // Uses permissions to access/protect api -> .hasAuthority(permission)
                 // Order in which the antMatchers are specified matters
@@ -107,9 +117,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 // Uses form based authentication
                 .formLogin()
                     // Shows login page
+                    .successHandler(new UserSuccessAuthenticationHandler())
                     .loginPage("/login").permitAll()
                     // Default page after successful login, true to force redirect
-                    .defaultSuccessUrl("/main", true)
+//                    .defaultSuccessUrl("/main", true)
                     // Customize login page fields, incase you dont use the conventional password and username fields
                     .passwordParameter("password")
                     .usernameParameter("username")
@@ -120,9 +131,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                     .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
                     // Remember me md5 Hash key
                     .key("somethingverysecured")
-                    .rememberMeParameter("remember-me")
-                .and()
-                // Logs user out of application
+                    .rememberMeParameter("remember-me").
+                and()
+                //Logs user out of application
                 .logout()
                     // Tells spring what to do after logout
                     .logoutUrl("/logout")
@@ -148,14 +159,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         UserDetails User2 = User.builder()
                 .username("User2")
                 .password(passwordEncoder.encode("password"))
-                //.roles(ADMIN.name()) // ROLE_ADMIN
+//                .roles(ADMIN.name()) // ROLE_ADMIN
                 .authorities(ADMIN.getGrantedAuthorities())
                 .build();
 
         UserDetails User3 = User.builder()
                 .username("User3")
                 .password(passwordEncoder.encode("password"))
-                //.roles(EMPLOYEE.name()) // ROLE_EMPLOYEE
+//                .roles(EMPLOYEE.name()) // ROLE_EMPLOYEE
                 .authorities(EMPLOYEE.getGrantedAuthorities())
                 .build();
 

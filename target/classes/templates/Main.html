@@ -29,6 +29,9 @@
         <h2 th:if="${user.isAdmin()}" th:text="Hi, ${adminmessage}"/><strong/>
         <h2 th:if="${!user.isAdmin()}" th:text="Hi, ${empmessage}"/><strong/>
         <p><b>Welcome to the Restaurant Management Web Application</b></p>
+        <form action="/logout" method="post">
+            <button type="submit" class="submit">Logout</button>
+        </form>
     </article>
 </main>
 </body>

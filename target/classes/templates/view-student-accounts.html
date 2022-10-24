@@ -26,8 +26,6 @@
                 </path>
             </svg>
         </label>
-        <p th:text="Hi, ${empmessage}"/>
-
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="view-student-accounts.html" class="active">View Student Accounts</a></li>
@@ -41,32 +39,132 @@
             <form action="#" method="get">
                 <div class="search">
                     <input type="text" class="searchStudent" placeholder="Search for student...">
-                    <button type="submit" class="searchButton">
-                        <i class="fa fa-search"></i>
-                    </button>
+                    <div type="submit" class="searchdiv">
+                        <i class="fa fa-search"><img src="images/magnifying-glass(1).png" height="25px"
+                                                     alt="search icon"></i>
+                    </div>
                 </div>
                 <div class="list">
                     <div class="list-item">
-
+                        <div class="student-list-info">
+                            <div class="student-account-number">Student Account Number: SAN001</div>
+                            <div class="student-id">Student ID: 001</div>
+                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
+                                <div class="student-amount-due">Amount Due: R50</div>
+                                <div class="student-amount-paid">Amount Paid: R50</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-item">
-
+                        <div class="student-list-info">
+                            <div class="student-account-number">Student Account Number: SAN001</div>
+                            <div class="student-id">Student ID: 001</div>
+                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
+                                <div class="student-amount-due">Amount Due: R50</div>
+                                <div class="student-amount-paid">Amount Paid: R50</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-item">
-
+                        <div class="student-list-info">
+                            <div class="student-account-number">Student Account Number: SAN001</div>
+                            <div class="student-id">Student ID: 001</div>
+                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
+                                <div class="student-amount-due">Amount Due: R50</div>
+                                <div class="student-amount-paid">Amount Paid: R50</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-item">
-
+                        <div class="student-list-info">
+                            <div class="student-account-number">Student Account Number: SAN001</div>
+                            <div class="student-id">Student ID: 001</div>
+                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
+                                <div class="student-amount-due">Amount Due: R50</div>
+                                <div class="student-amount-paid">Amount Paid: R50</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-item">
-
+                        <div class="student-list-info">
+                            <div class="student-account-number">Student Account Number: SAN001</div>
+                            <div class="student-id">Student ID: 001</div>
+                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
+                                <div class="student-amount-due">Amount Due: R50</div>
+                                <div class="student-amount-paid">Amount Paid: R50</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="student-information">
+        <div class="student-information-block">
             <div class="student-information-display">
-
+                <div class="student-information">
+                    <div class="student-personal-information">
+                        <div class="inline-info">
+                            <div class="student-account-number">Student Account Number: SAN001</div>
+                            <div class="student-id">Student ID: 001</div>
+                        </div>
+                        <div class="inline-info">
+                            <div class="student-name">Name: Delron</div>
+                            <div class="student-surname">Surname: Claassen</div>
+                        </div>
+                        <div class="inline-info">
+                            <div class="student-gender">Gender: Male</div>
+                            <div class="student-age">Age: 21</div>
+                        </div>
+                        <div class="student-amount inline-info">
+                            <div class="student-amount-due">Amount Due: R50</div>
+                            <div class="student-amount-paid">Amount Paid: R50</div>
+                        </div>
+                        <div class="student-allergies">
+                            Allergies
+                            <ol>
+                                <li>Allergy List Item 1</li>
+                                <li>Allergy List Item 2</li>
+                                <li>Allergy List Item 3</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="student-personal-information-controls">
+                        <!-- <div class="btnSave">Save</div> -->
+                        <div class="btnDelete">Delete</div>
+                        <div class="btnEdit">Update</div>
+                    </div>
+                </div>
+                <div class="student-order-history">
+                    <h2 style="align-items:center;margin: 6px; background-color: aqua;">Order History</h2>
+                    <div class="student-order-history-table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Order Description</th>
+                                <th>Order Num</th>
+                                <th>Order Receipt</th>
+                                <th>Student Account ID</th>
+                                <th>Student Meal Choice</th>
+                                <th colspan="2">Meal Controls</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="order: ${orders}">
+                                <td data-column="Order ID" th:text="${order.orderId}"></td>
+                                <td data-column="Order Description" th:text="${order.orderDesc}"></td>
+                                <td data-column="Order Num" th:text="${order.orderNum}"></td>
+                                <td data-column="Order Receipt" th:text="${order.orderReceipt}"></td>
+                                <td data-column="Student Account ID" th:text="${order.studentAccountId}"></td>
+                                <td data-column="Student Meal Choice" th:text="${order.studentMealChoice}"></td>
+                                <td>
+                                    <button class="btnEdit">Edit</button>
+                                    <button class="btnDelete">Delete</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </article>
