@@ -118,6 +118,12 @@
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>25.1-jre</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
     <dependency>
       <groupId>org.springframework.security</groupId>
