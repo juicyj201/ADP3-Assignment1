@@ -34,4 +34,9 @@ public class TemplateController {
         return "view-admin-accounts";
     }
 
+    //Add this in the Template controller at the bottom
+    @RequestMapping("/test")
+    public String getTest() {
+        return "test";
+    }
 }
