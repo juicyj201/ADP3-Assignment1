@@ -14,10 +14,15 @@
                 <div class="left">
                     <div class="top_link"><a href="/"><img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="">Return home</a></div>
                     <div class="contact">
-                        <form th:action="@{/main}" th:object="${employee}" method="post">
+<!--                        <form th:action="@{/main}" th:object="${employee}" method="post">-->
+                        <form action="/login" method="post">
                             <h3>SIGN IN</h3>
-                            <input type="text" placeholder="EMPLOYEE NUMBER" name="employeeNum" th:field="*{employeeNum}"/>
-                            <input type="password" placeholder="PASSWORD" name="password" th:field="*{password}"/>
+<!--                            <input type="text" placeholder="EMPLOYEE NUMBER" name="employeeNum" th:field="*{employee.employeeNum}"/>-->
+                            <input type="text" id="username" name="username" placeholder="USERNAME" required/>
+<!--                            <input type="password" placeholder="PASSWORD" name="password" th:field="*{employee.password}"/>-->
+                            <input type="password" id="password" name="password" placeholder="PASSWORD" required/>
+                            <label for="remember-me">Remember me?</label>
+                            <input type="checkbox" id="remember-me" style="width:40%;" name="remember-me">
                             <button type="submit" class="submit" value="Login">SIGN IN</button>
                         </form>
                     </div>
