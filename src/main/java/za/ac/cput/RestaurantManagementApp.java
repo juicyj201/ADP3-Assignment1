@@ -1,8 +1,9 @@
 package za.ac.cput;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 /**
  * Joshua Julies
@@ -11,10 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */ 
 
 @SpringBootApplication
-public class Main
+public class RestaurantManagementApp
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(RestaurantManagementApp.class, args);
     }
 }

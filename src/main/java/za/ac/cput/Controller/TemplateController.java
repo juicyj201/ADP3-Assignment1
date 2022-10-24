@@ -24,4 +24,14 @@ public class TemplateController {
         return "main";
     }
 
+    @RequestMapping("/view-student-accounts")
+    public String getStudent(){
+        return "student";
+    }
+
+    @RequestMapping("/view-admin-accounts")
+    public String getAdmin(){
+        return "admin";
+    }
+
 }
