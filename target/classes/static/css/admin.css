@@ -1,0 +1,232 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+/*Content container*/
+.content {
+    width: 90vw;
+    height: auto;
+    position: absolute;
+    margin: 5vh 5vw;
+    border-radius: 10px;
+    color: #18283B;
+    background-color: #fff;
+    text-align: center;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.4));
+}
+
+#main-article {
+    display: block;
+    position: absolute;
+    align-content: center;
+    overflow: hidden;
+}
+
+
+/* Student list */
+.admins {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding-left: 20px;
+    /* background-color: #00B4CC; */
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 20px;
+    /* margin: 5px 10px; */
+    border-radius: 6px;
+    transition: all 0.15s;
+    cursor: pointer;
+    background-color: #eee;
+    justify-content: space-around;
+}
+
+.btnAdd {
+    margin-left: 2em;
+    border: 0.15rem solid green;
+    color: green;
+}
+
+.btnAdd:hover {
+    background-color: green;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btnDelete {
+    border: 0.15rem solid red;
+    color: red;
+}
+
+.btnDelete:hover {
+    background-color: red;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btnEdit {
+    border: 0.15rem solid blue;
+    color: blue;
+}
+
+.btnEdit:hover {
+    background-color: blue;
+    cursor: pointer;
+    color: #fff;
+}
+
+.admins form {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: #fff;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.4));
+}
+
+/* Search Student */
+.search {
+    width: 40%;
+    padding: 15px;
+    position: relative;
+    display: flex;
+}
+
+.searchAdmin {
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    color: #000;
+    background-color: #fff;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.2));
+}
+
+.searchAdmin:focus {
+    background-color: #fff;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.2));
+}
+
+.searchButton {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.admin-information-block {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    /* background-color: aquamarine; */
+}
+
+.list-admins {
+    /* background-color: palevioletred; */
+    background-color: #fff;
+    width: 100%;
+    /* margin: 20px; */
+    border-radius: 5px;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.4));
+    /* background-color: #00B4CC; */
+}
+
+.admin-table {
+    width: 100%;
+    padding: 20px;
+}
+
+.admin-table table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin: 50px auto; */
+    overflow-y: scroll;
+}
+
+/* Zebra striping */
+.admin-table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+.admin-table th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.admin-table td,
+th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 14px;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    table {
+        width: 100%;
+    }
+
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        /* Label the data */
+        content: attr(data-column);
+
+        color: #000;
+        font-weight: bold;
+    }
+
+}
