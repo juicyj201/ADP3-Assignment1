@@ -11,6 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Restaurant Management Web App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/./css/navbar.css">
     <link rel="stylesheet" type="text/css" href="/./css/view-accounts.css">
 </head>
@@ -27,8 +30,10 @@
             </svg>
         </label>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="view-student-accounts.html" class="active">View Student Accounts</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/student-accounts" class="active">View Student Accounts</a></li>
+            <li><a href="/admin-accounts">View Admin Accounts</a></li>
+            <li><a href="/logged-in" class="active">View User Details</a></li>
             <li><a href="#">Hi, Delron</a></li>
         </ul>
     </nav>
@@ -40,8 +45,7 @@
                 <div class="search">
                     <input type="text" class="searchStudent" placeholder="Search for student...">
                     <div type="submit" class="searchdiv">
-                        <i class="fa fa-search"><img src="images/magnifying-glass(1).png" height="25px"
-                                                     alt="search icon"></i>
+                        <i class="fa fa-search"></i>
                     </div>
                 </div>
                 <div class="list">
@@ -128,7 +132,7 @@
                         </div>
                     </div>
                     <div class="student-personal-information-controls">
-                        <!-- <div class="btnSave">Save</div> -->
+                         <div class="btnAdd">Add</div>
                         <div class="btnDelete">Delete</div>
                         <div class="btnEdit">Update</div>
                     </div>

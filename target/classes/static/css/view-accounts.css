@@ -178,16 +178,16 @@ body {
     justify-content: space-around;
 }
 
-/* .btnSave {
+.btnAdd {
     border: 0.15rem solid green;
     color: green;
 }
 
-.btnSave:hover {
+.btnAdd:hover {
     background-color: green;
     cursor: pointer;
     color: #fff;
-} */
+}
 
 .btnDelete {
     border: 0.15rem solid red;

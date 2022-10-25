@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Restaurant Management Web App</title>
@@ -15,19 +15,19 @@
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
         <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#" th:if="${!user.isAdmin()}">View Student Accounts</a></li>
-            <li><a href="#" th:if="${user.isAdmin()}">View Admin Accounts</a></li>
-            <li><a href="#">Hi, Delron</a></li>
+            <li><a href="/main" class="active">Home</a></li>
+<!--            <li><a href="/test">Test</a></li>-->
+            <li><a href="/student-accounts">View Student Accounts</a></li>
+            <li><a href="/admin-accounts">View Admin Accounts</a></li>
+            <li><a href="/logged-in" class="active">View User Details</a></li>
+            <li><a href="#">Hi, <span sec:authentication="name"></span></a></li>
         </ul>
     </nav>
 </header>
 <main>
     <article id="main-article" class="content">
         <h1>Restaurant Management System Home</h1>
-<!--        <h2><strong>Hi, Delron</strong></h2>-->
-        <h2 th:if="${user.isAdmin()}" th:text="Hi, ${adminmessage}"/><strong/>
-        <h2 th:if="${!user.isAdmin()}" th:text="Hi, ${empmessage}"/><strong/>
+        <h2><strong>Hi, Delron</strong></h2>
         <p><b>Welcome to the Restaurant Management Web Application</b></p>
         <form action="/logout" method="post">
             <button type="submit" class="submit">Logout</button>

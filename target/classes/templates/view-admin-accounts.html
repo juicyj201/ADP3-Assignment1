@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Restaurant Management Web App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="/./css/navbar.css">
-  <link rel="stylesheet" type="text/css" href="/./css/view-accounts.css">
+  <link rel="stylesheet" type="text/css" href="/./css/admin.css">
 </head>
 
 <body>
@@ -20,45 +21,103 @@
       </svg>
     </label>
     <ul>
-      <li><a href="main.html">Home</a></li>
-      <li><a href="view-admin-accounts.html" class="active">View Admin Accounts</a></li>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/student-accounts">View Student Accounts</a></li>
+      <li><a href="/admin-accounts" class="active">View Admin Accounts</a></li>
+      <li><a href="/logged-in" class="active">View User Details</a></li>
       <li><a href="#">Hi, Delron</a></li>
     </ul>
   </nav>
 </header>
 <main>
   <article id="main-article" class="content">
-    <div class="students">
+    <h2 style="align-items:center;margin: 6px; margin-top: 30px;">RESTAURANT MANAGEMENT SYSTEM - ADMINS</h2>
+    <div class="admins">
       <form action="#" method="get">
         <div class="search">
-          <input type="text" class="searchStudent" placeholder="Search for admin...">
+          <input type="text" class="searchAdmin" placeholder="Search for admin...">
           <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>
-        </div>
-        <div class="list">
-          <div class="list-item">
-
-          </div>
-          <div class="list-item">
-
-          </div>
-          <div class="list-item">
-
-          </div>
-          <div class="list-item">
-
-          </div>
-          <div class="list-item">
-
-          </div>
+          <button type="submit" class="btn btnAdd">
+            Add
+          </button>
         </div>
       </form>
     </div>
-    <div class="student-information">
-      <div class="student-information-display">
-
+    <div class="admin-information-block">
+      <div class="list-admins">
+        <div class="admin-table">
+          <table>
+            <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Password</th>
+              <th colspan="2">Admin Controls</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td data-column="Meal Name">Fried Chicken</td>
+              <td data-column="Meal Quantity">2</td>
+              <td data-column="Meal Price">R60</td>
+              <td>
+                <button class="btn btnEdit">Edit</button>
+                <button class="btn btnDelete">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-column="Meal Name">Fried Chicken</td>
+              <td data-column="Meal Quantity">2</td>
+              <td data-column="Meal Price">R60</td>
+              <td>
+                <button class="btn btnEdit">Edit</button>
+                <button class="btn btnDelete">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-column="Meal Name">Fried Chicken</td>
+              <td data-column="Meal Quantity">2</td>
+              <td data-column="Meal Price">R60</td>
+              <td>
+                <button class="btn btnEdit">Edit</button>
+                <button class="btn btnDelete">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-column="Meal Name">Fried Chicken</td>
+              <td data-column="Meal Quantity">2</td>
+              <td data-column="Meal Price">R60</td>
+              <td>
+                <button class="btn btnEdit">Edit</button>
+                <button class="btn btnDelete">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-column="Meal Name">Fried Chicken</td>
+              <td data-column="Meal Quantity">2</td>
+              <td data-column="Meal Price">R60</td>
+              <td>
+                <button class="btn btnEdit">Edit</button>
+                <button class="btn btnDelete">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-column="Meal Name">Fried Chicken</td>
+              <td data-column="Meal Quantity">2</td>
+              <td data-column="Meal Price">R60</td>
+              <td>
+                <button class="btn btnEdit">Edit</button>
+                <button class="btn btnDelete">Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+      </form>
+    </div>
     </div>
   </article>
 </main>
