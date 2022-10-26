@@ -19,11 +19,9 @@ public class PaymentControllerTest {
     public void testSavePayment(){
         try {
             Assertions.assertNotNull(controller.savePayment(paymenttestobject));
-        }catch(NullPointerException npe){
+        }catch(NullPointerException npe) {
             npe.getMessage();
             npe.getStackTrace();
-        }catch(Exception e){
-            e.getMessage();
         }
     }
 
