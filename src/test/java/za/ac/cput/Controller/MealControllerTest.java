@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class MealControllerTest {
 
+    @Autowired
     private MealController mealController;
     private Meal newMeal = MealFactory.createMeal(1000L, "Cheeseburger", "Coke", "Peanuts");
 
@@ -53,7 +54,7 @@ class MealControllerTest {
     public void testRead(){
 
         try {
-            Assertions.assertNotNull(mealController.getMeal(newMeal));
+            Assertions.assertNotNull(mealController.getMeal(this.newMeal.getOrderId()));
         }catch(NullPointerException nullPointerException){
             nullPointerException.getMessage();
             nullPointerException.getStackTrace();

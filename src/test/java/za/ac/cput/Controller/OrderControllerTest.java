@@ -40,7 +40,7 @@ public class OrderControllerTest {
         String url = baseURL + "save";
         System.out.println(url);
         try {
-            assertNotNull(orderController.getOrder(order));
+            assertNotNull(orderController.getOrder(order.getOrderId()));
         }catch(NullPointerException npe) {
             npe.getMessage();
             npe.getStackTrace();
@@ -52,7 +52,7 @@ public class OrderControllerTest {
     public void testRead(){
 
         try {
-            Assertions.assertNotNull(orderController.getOrder(order));
+            Assertions.assertNotNull(orderController.getOrder(order.getOrderId()));
         }catch(NullPointerException nullPointerException){
             nullPointerException.getMessage();
             nullPointerException.getStackTrace();

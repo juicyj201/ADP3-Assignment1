@@ -12,9 +12,9 @@ import java.util.Optional;
  * Order Service interface
  */
 
-public interface OrderService extends IService<Order, String> {
+public interface OrderService extends IService<Order, Long> {
     public Order save(Order order);
-    public Optional<Order> read(Order order);
+    public Optional<Order> read(Long ID);
     public void delete(Order order);
     public List<Order> readAll();
     public Order update(Order order);

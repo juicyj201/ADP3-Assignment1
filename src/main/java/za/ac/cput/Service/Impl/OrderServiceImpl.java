@@ -41,18 +41,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Optional<Order> read(String ID) {
-        return Optional.empty();
-    }
-
-    @Override
     public Optional<Order> read(Long ID) {
         return this.orderRepo.findById(ID);
-    }
-
-    @Override
-    public Optional<Order> read(Order order) {
-        return this.orderRepo.findById(order.getOrderId());
     }
 
     @Override
