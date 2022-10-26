@@ -66,12 +66,10 @@ public class AdminControllerTest {
 
     @Test
     public void testUpdateAdmin(){
-        ResponseEntity<Admin> response = this.temp.getForEntity(local+"/"+admintestobject.getAdminID(), Admin.class);
-        temp.put(String.valueOf(local), admintestobject2, Admin.class);
-        ResponseEntity<Admin> response2 = this.temp.getForEntity(local+"/"+admintestobject2.getAdminID(), Admin.class);
-        System.out.println("First: "+response+"Second: "+response2);
-        Assertions.assertNotNull(response2);
-        Assertions.assertEquals(HttpStatus.OK, response2.getStatusCode());
+        String url = local + "update/" + this.admintestobject.getAdminID();
+        System.out.println(url);
+        this.temp.put(url, admintestobject);
+        System.out.println("Student updated: " + this.admintestobject.getAdminID()+"\n"+url);
     }
 
     @Test
