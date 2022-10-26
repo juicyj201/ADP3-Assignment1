@@ -33,10 +33,10 @@ public class OrderController {
     }
 
 
-    @GetMapping("read")
-    Optional<Order> getOrder(@RequestBody Order order) {
+    @GetMapping("/read/{orderId}")
+    public Optional<Order> getOrder(@PathVariable Long orderId) {
         log.info("Order request has been initialized...");
-        return Optional.ofNullable(orderService.read(order).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
+        return Optional.ofNullable(orderService.read(orderId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
     @GetMapping("orders")
