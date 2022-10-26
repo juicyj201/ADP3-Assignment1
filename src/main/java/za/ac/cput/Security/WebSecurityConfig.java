@@ -86,6 +86,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 // Adds layer of protection for any user logged into application against any request whilst logged in
 //                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //                .and()
+
                 .csrf().disable()
                 //Authorize requests
                 .authorizeRequests()
@@ -140,7 +141,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                     .clearAuthentication(true)
                     .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID", "remember-me")
-                    .logoutSuccessUrl("/login");
+                    .logoutSuccessUrl("/login").
+                and()
+                .headers().frameOptions().sameOrigin();
     }
     @Override
     @Bean
