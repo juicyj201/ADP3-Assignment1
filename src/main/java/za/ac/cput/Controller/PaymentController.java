@@ -3,6 +3,7 @@ package za.ac.cput.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Domain.Entity.Payment;
 import za.ac.cput.Service.Impl.PaymentServiceImpl;
@@ -30,6 +31,7 @@ public class PaymentController {
     }
 
     @PostMapping("/payment")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Payment savePayment(@RequestBody Payment payment){
         logger.info("Request has initiated...");
         Payment savedPayment = service.save(payment);
@@ -38,18 +40,21 @@ public class PaymentController {
     }
 
     @GetMapping("/payment/{paymentID}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Optional<Payment> getPaymentByID(@PathVariable Long paymentID){
         logger.info("Service has begun reading payment requested...");
         return service.read(paymentID);
     }
 
     @GetMapping("/payment")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public List<Payment> getAllPayment() {
         logger.info("Service has begun reading the payment list requested...");
         return service.readAll();
     }
 
     @PutMapping("/payment")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Payment updatePayment(Payment payment){
         logger.info("Service has begun updating the payment request...");
         Payment updatedPayment = service.update(payment);
@@ -58,6 +63,7 @@ public class PaymentController {
     }
 
     @DeleteMapping("/payment")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public void deletePayment(Payment payment){
         logger.info("Service has begun deletion of payment...");
         service.delete(payment);
