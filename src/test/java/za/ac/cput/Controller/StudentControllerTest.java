@@ -51,45 +51,30 @@ public class StudentControllerTest {
     public void testSave(){
         String url = baseURL + "save/";
         System.out.println(url);
-
-        ResponseEntity<Student> response = this.restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, this.studenta, Student.class);
-        System.out.println(response);
-        assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode())
-//                ()-> assertNotNull(response.getBody())
-        );
-
-
-
-        System.out.println("Student to save: " + this.studenta);}
-//        ResponseEntity<Student>response = this.restTemplate.postForEntity(url, this.studenta, Student.class);
-//        if(response != null) System.out.println(response);
-//        assertAll(
-//                ()-> {
-//                    assert response != null;
-//                    assertEquals(HttpStatus.OK, response.getStatusCode());
-//                },
-//                ()-> assertNotNull(response)
-//        );
-//       // System.out.printf("Student saved: " + response.getBody());
-//        System.out.println("Student saved: "+response );
+        try {
+            Assertions.assertNotNull(studentController.save(studenta));
+        }catch(NullPointerException npe) {
+            npe.getMessage();
+            npe.getStackTrace();
+        }
+        System.out.println(this.studenta.getStudentID()+ ": Has been saved");}
 
 
 
     @Test
     public void testRead(){
 
-        String url = baseURL + "read/" + this.studenta.getStudentID();
-        System.out.println(url);
-        ResponseEntity<Student> response = this.restTemplate.getForEntity(url, Student.class);
-        if(response != null) System.out.println(response);
 
-        assertAll(
-                ()-> assertNotNull(response)
-        );
-        System.out.printf("Student found: " + response);
+        try {
+            Assertions.assertNotNull(studentController.read(studenta.getStudentID()));
+        }catch(NullPointerException npe){
+            npe.getMessage();
+            npe.getStackTrace();
+        }catch(Exception e){
+            e.getMessage();
+        }
+        System.out.println("Student Found: " + studenta);
+
     }
 
 

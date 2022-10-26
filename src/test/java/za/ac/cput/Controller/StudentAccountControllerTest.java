@@ -42,29 +42,26 @@ public class StudentAccountControllerTest {
     @Test
     public void testSave(){
         String url = baseURL + "save/";
-        System.out.println("Student Account to save: " + this.studentAccounta);
-        ResponseEntity<StudentAccount>response = this.restTemplate.postForEntity(url, this.studentAccounta,StudentAccount.class);
-        System.out.println(response);
-        assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response),
-                ()-> assertNotNull(response.getBody())
-        );
-        System.out.printf("Student Account saved: " + response.getBody());
+        System.out.println(url);
+        try {
+            Assertions.assertNotNull(studentAccountController.save(studentAccounta));
+        }catch(NullPointerException npe) {
+            npe.getMessage();
+            npe.getStackTrace();
+        }
+        System.out.println(this.studentAccounta.getStudentID()+ ": Has been saved");}
 
-    }
 
     @Test
     public void testRead(){
 
-        String url = baseURL + "read/" + this.studentAccounta.getStudAccountNumber();
-        System.out.println(url);
-        ResponseEntity<StudentAccount> response = this.restTemplate.getForEntity(url, StudentAccount.class);
-        System.out.println(response);
-        assertAll(
-                ()-> assertNotNull(response.getBody())
-        );
-        System.out.printf("Student Account found: " + response.getBody());
+        try {
+            Assertions.assertNotNull(studentAccountController.read(studentAccounta.getStudAccountNumber()));
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.getMessage();
+            nullPointerException.getStackTrace();
+        }
+        System.out.println("Student Account Found: " + studentAccounta);
     }
 
 
