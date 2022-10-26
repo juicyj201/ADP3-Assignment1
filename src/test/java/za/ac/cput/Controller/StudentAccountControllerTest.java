@@ -24,22 +24,24 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StudentAccountControllerTest {
     @Autowired
     private StudentAccountController studentAccountController;
-    private StudentAccount studentAccounta ;
+    private StudentAccount studentAccounta = StudentAccountFactory.createStudentAccount(12121212L, "219113149", "24.00", "20.00");
+
     @LocalServerPort
     private int baseport;
-    private String localhost;
+    private String baseURL;
     @Autowired
     private TestRestTemplate restTemplate;
     @BeforeEach
     public void setUp(){
         assertNotNull(studentAccountController);
         this.studentAccounta = StudentAccountFactory.createStudentAccount(11111, "219113149", "45.00", "40.00");
-        this.localhost = "http://localhost:"+this.baseport+"/studentAccount/";
+        this.baseURL = "http://localhost:"+this.baseport+"/studentAccount/";
+        System.out.println(studentAccounta);
     }
 
     @Test
     public void testSave(){
-        String url = localhost + "save/";
+        String url = baseURL + "save/";
         System.out.println("Student Account to save: " + this.studentAccounta);
         ResponseEntity<StudentAccount>response = this.restTemplate.postForEntity(url, this.studentAccounta,StudentAccount.class);
         System.out.println(response);
@@ -55,9 +57,9 @@ public class StudentAccountControllerTest {
     @Test
     public void testRead(){
 
-        String url = localhost + "read/" + this.studentAccounta.getStudAccountNumber();
+        String url = baseURL + "read/" + this.studentAccounta.getStudAccountNumber();
         System.out.println(url);
-        ResponseEntity<StudentAccount> response = this.restTemplate.getForEntity(url, StudentAccount.class);;
+        ResponseEntity<StudentAccount> response = this.restTemplate.getForEntity(url, StudentAccount.class);
         System.out.println(response);
         assertAll(
                 ()-> assertNotNull(response.getBody())
@@ -68,23 +70,18 @@ public class StudentAccountControllerTest {
 
     @Test
     public void testDelete(){
-        String url = localhost + "delete/" + this.studentAccounta.getStudAccountNumber();
+        String url = baseURL + "delete/" + this.studentAccounta.getStudAccountNumber();
         this.restTemplate.delete(url);
         System.out.println("Student Account deleted: " + this.studentAccounta.getStudAccountNumber()+"\n"+url);
     }
 
     @Test
     public void testUpdate(){
-        String url = localhost + "update/" + this.studentAccounta.getStudAccountNumber();
+        String url = baseURL + "update/" + this.studentAccounta.getStudentID();
         System.out.println(url);
-        ResponseEntity<StudentAccount> response = this.restTemplate.getForEntity(url, StudentAccount.class);;
-        System.out.println(response);
-        assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response),
-                ()-> assertNotNull(response.getBody())
-        );
-        System.out.printf("Student Account updated: " + response.getBody());
+        this.restTemplate.put(url, studentAccounta);
+        System.out.println("Student Account updated: " + this.studentAccounta.getStudAccountNumber()+"\n"+url);
+
 
     }
 
