@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged in User</title>
+    <link rel="stylesheet" type="text/css" href="/./css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/./css/index-not-logged-in.css">
+</head>
+<body sec:authorize="isAuthenticated()">
+<header>
+    <div th:if="${authority}=='ROLE_ADMIN'"><div th:replace="fragments/navbar :: navbar_admin_logged_in"></div></div>
+    <div th:if="${authority}=='ROLE_EMPLOYEE'"><div th:replace="fragments/navbar :: navbar_student_logged_in"></div></div>
+    <div th:if="${authority}=='ROLE_STUDENT'"><div th:replace="fragments/navbar :: navbar_student_logged_in"></div></div>
+</header>
+<main>
+    <article id="main-article" class="content">
+        <h1>Restaurant Management System Home</h1>
+        <h3>Welcome to the Restaurant Management Web Application</h3>
+
+        <h4>Username: <span sec:authentication="name"></span></h4><br/>
+        <h4>Authorities: <span sec:authentication="principal.authorities"></span></h4>
+
+<!--        Username: <p th:object="${username}"></p>-->
+<!--        Credentials: <p th:object="${credentials}"></p>-->
+<!--        Authenticated: <p th:object="${authenticated}"></p>-->
+    </article>
+</main>
+</body>
+</html>
