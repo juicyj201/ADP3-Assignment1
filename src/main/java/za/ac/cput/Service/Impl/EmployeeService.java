@@ -8,13 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmployeeService extends IService<Employee, Long> {
-    /**public Employee save(Employee employee);
-    public Optional<Employee> read(Employee employee);
-    public List<Employee> readAll();
-    public Employee update(Employee employee);
-    public void delete(Employee employee);
-    **/
-
     @Override
     Employee save(Employee employee);
 

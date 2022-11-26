@@ -38,11 +38,6 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Optional<Employee> read(String employeeNum) {
-        return Optional.empty();
-    }
-
-    @Override
     public Employee readByID(Long employeeNum) {
         if(employeeNum != 0) {
             System.out.println("Admin found: ");

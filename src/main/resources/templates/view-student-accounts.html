@@ -46,13 +46,15 @@
                         <!--This div class section will allow multiple students who placed orders to appear.
                             There is a dynamic list of students that are called once this page loads,
                             however we only use the div tag for the student information.
+
+                            Side note: for thymeleaf there is options for string literal substitution. I used it.
                             -->
                         <div class="student-list-info" th:each="stud: ${students}">
-                            <div class="student-account-number" th:text="${stud.studAccountNumber}">Student Account Number: </div>
-                            <div class="student-id" th:text="${stud.studentID}">Student ID: </div>
+                            <div class="student-account-number" th:text="|Student Account Number: ${stud.studAccountNumber}|"></div>
+                            <div class="student-id" th:text="|Student ID: ${stud.studentID}|"></div>
                             <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due" th:text="${stud.amountDue}">Amount Due: </div>
-                                <div class="student-amount-paid" th:text="${stud.amountPaid}">Amount Paid: </div>
+                                <div class="student-amount-due" th:text="|Amount Due: ${stud.amountDue}"></div>
+                                <div class="student-amount-paid" th:text="|Amount Paid: ${stud.amountPaid}"></div>
                             </div>
                         </div>
                     </div>
@@ -62,30 +64,28 @@
         <!--Add a conditional function here for selecting the student and displaying the selected student-->
         <div class="student-information-block">
             <div class="student-information-display">
-                <div class="student-information">
-                    <div class="student-personal-information">
+                <div class="student-information" th:each="student: ${students2}">
+                    <div class="student-personal-information" th:if="${stud.studentID} == ${student.studentID}">
                         <div class="inline-info">
-                            <div class="student-account-number">Student Account Number: SAN001</div>
-                            <div class="student-id">Student ID: 001</div>
+                            <div class="student-account-number" th:text="|Student Account Number: ${stud.studAccountNumber}|"></div>
+                            <div class="student-id" th:text="|Student ID: ${student.studentID}|"></div>
                         </div>
                         <div class="inline-info">
-                            <div class="student-name">Name: Delron</div>
-                            <div class="student-surname">Surname: Claassen</div>
+                            <div class="student-name" th:text="|Name: ${student.studentFirstName}|"></div>
+                            <div class="student-surname" th:text="|Surname: ${student.Surname}}|"></div>
                         </div>
                         <div class="inline-info">
-                            <div class="student-gender">Gender: Male</div>
-                            <div class="student-age">Age: 21</div>
+                            <div class="student-gender" th:text="|Gender: ${student.gender}|"></div>
+                            <div class="student-age" th:text="|Age: ${student.age}|"></div>
                         </div>
                         <div class="student-amount inline-info">
-                            <div class="student-amount-due">Amount Due: R50</div>
-                            <div class="student-amount-paid">Amount Paid: R50</div>
+                            <div class="student-amount-due" th:text="|Amount Due: ${stud.amountDue}|"></div>
+                            <div class="student-amount-paid" th:text="|Amount Paid: ${stud.amountPaid}"|></div>
                         </div>
                         <div class="student-allergies">
                             Allergies
                             <ol>
-                                <li>Allergy List Item 1</li>
-                                <li>Allergy List Item 2</li>
-                                <li>Allergy List Item 3</li>
+                                <li th:text="${student.allergies}"></li>
                             </ol>
                         </div>
                     </div>

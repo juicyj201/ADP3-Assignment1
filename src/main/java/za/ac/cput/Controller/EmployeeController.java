@@ -24,11 +24,6 @@ public class EmployeeController {
     private EmployeeServiceImpl service;
     protected final static Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
-//    @Autowired
-//    public EmployeeController(EmployeeServiceImpl employeeService){
-//        this.service = employeeService;
-//    }
-
     @PostMapping("/employee")
     public Employee saveEmployee(@RequestBody Employee employee){
         log.info("The request has started");
@@ -38,7 +33,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{employee}")
-    public Optional<Employee> getEmployeeByID(@PathVariable String employeeID){
+    public Optional<Employee> getEmployeeByID(@PathVariable Long employeeID){
         log.info("Service started reading employee requested");
         return service.read(employeeID);
     }

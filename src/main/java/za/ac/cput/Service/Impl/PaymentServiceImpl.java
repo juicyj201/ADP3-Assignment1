@@ -43,11 +43,6 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Optional<Payment> read(String ID) {
-        return Optional.empty();
-    }
-
-    @Override
     public List<Payment> readAll() {
         if(repo.count() != 0) {
             List<Payment> pList = repo.findAll();

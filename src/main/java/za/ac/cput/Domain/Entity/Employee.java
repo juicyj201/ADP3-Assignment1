@@ -14,7 +14,7 @@ public class Employee
 {
     @Id
     @Column(name = "employeeNum")
-    public String employeeNum;
+    public Long employeeNum;
     @Column(name = "empFirstName")
     public String empFirstName;
     @Column(name = "empLastName")
@@ -34,11 +34,11 @@ public class Employee
 
     }
 
-    public String getEmployeeNum() {
+    public Long getEmployeeNum() {
         return employeeNum;
     }
 
-    public void setEmployeeNum(String employeeNum) {
+    public void setEmployeeNum(Long employeeNum) {
         this.employeeNum = employeeNum;
     }
 
@@ -100,12 +100,12 @@ public class Employee
 
     public static class EmployeeBuilder
     {
-        public String employeeNum;
+        public Long employeeNum;
         public String empFirstName;
         public String empLastName;
         public String studentAccountID;
 
-        public EmployeeBuilder setEmployeeNum(String employeeNum) {
+        public EmployeeBuilder setEmployeeNum(Long employeeNum) {
             this.employeeNum = employeeNum;
             return this;
         }

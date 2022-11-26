@@ -48,11 +48,6 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public Optional<Restaurant> read(String ID) {
-        return Optional.empty();
-    }
-
-    @Override
     public Restaurant update(Restaurant entity) {
         return null;
     }

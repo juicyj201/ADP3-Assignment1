@@ -1,5 +1,6 @@
 package za.ac.cput.Service.Impl;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Service.IService;
 

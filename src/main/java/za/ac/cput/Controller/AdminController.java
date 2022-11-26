@@ -121,4 +121,6 @@ public class AdminController {
         logger.info("All admins have been loaded from the database successfully");
         return model;
     }
+
+    //Might add functionality for registration
 }

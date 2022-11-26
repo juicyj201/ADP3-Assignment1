@@ -18,18 +18,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
-
     private OrderRepository orderRepo;
-//    private static OrderService orderService;
-
-//    public static OrderServiceImpl getOrderService() {
-//        if(orderService==null) {
-//            orderService = new OrderServiceImpl();
-//        };
-//
-//        return (OrderServiceImpl) orderService;
-//    }
-
 
     public OrderServiceImpl(OrderRepository orderRepo) {
         this.orderRepo = orderRepo;
@@ -38,11 +27,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order save(Order order) {
         return this.orderRepo.save(order);
-    }
-
-    @Override
-    public Optional<Order> read(String ID) {
-        return Optional.empty();
     }
 
     @Override

@@ -37,7 +37,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/restaurant/{restaurantID}")
-    public Optional<Restaurant> getRestaurantByID(@PathVariable String restaurantID){
+    public Optional<Restaurant> getRestaurantByID(@PathVariable Long restaurantID){
         log.info("Service started reading restaurant requested");
         return service.read(restaurantID);
     }

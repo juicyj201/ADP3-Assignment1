@@ -14,6 +14,13 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 public class RestaurantManagementApp
 {
+    /**
+     * @method main
+     * ------------
+     * Runs and compiles the spring boot application live
+     *
+     * @param args
+     */
     public static void main( String[] args )
     {
         SpringApplication.run(RestaurantManagementApp.class, args);

@@ -43,7 +43,7 @@ public class StudentAccountController {
     }
 
     @GetMapping("student-account/read/{studAccountNumber}")
-    public Optional<StudentAccount> read(@PathVariable long studAccountNumber){
+    public Optional<StudentAccount> read(@PathVariable Long studAccountNumber){
         log.info("Locating student account: {}", studAccountNumber);
         return studentAccountService.read(studAccountNumber);
 

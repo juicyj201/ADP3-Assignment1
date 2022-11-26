@@ -7,7 +7,7 @@ import za.ac.cput.Factory.EmployeeFactory;
 
 public class EmployeeServiceImplTest {
     private EmployeeService service;
-    private Employee emp = new EmployeeFactory().createEmployee("01", "John", "Walker", "02");
+    private Employee emp = new EmployeeFactory().createEmployee(01L, "John", "Walker", "02");
 
     @Test
     void testService() {

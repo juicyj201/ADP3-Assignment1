@@ -36,7 +36,6 @@ import static za.ac.cput.Security.ApplicationUserRole.*;
 
 @Configuration
 @EnableWebSecurity
-// Informs application that method security is being used
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     private final PasswordEncoder passwordEncoder;
@@ -119,86 +118,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 and()
                 .headers().frameOptions().sameOrigin();
     }
-
-    @Override
-    @Bean
-    protected UserDetailsService userDetailsService() {
-        UserDetails User1 = User.builder()
-                //sets username for user
-                .username("User1")
-                //encodes password
-                .password(passwordEncoder.encode("password"))
-                // Assigns a role to user
-                //.roles(STUDENT.name()) // ROLE_STUDENT
-                // Assigns a permission to a user
-                .authorities(STUDENT.getGrantedAuthorities())
-                .build();
-
-        UserDetails User2 = User.builder()
-                .username("User2")
-                .password(passwordEncoder.encode("password"))
-//                .roles(ADMIN.name()) // ROLE_ADMIN
-                .authorities(ADMIN.getGrantedAuthorities())
-                .build();
-
-        UserDetails User3 = User.builder()
-                .username("User3")
-                .password(passwordEncoder.encode("password"))
-//                .roles(EMPLOYEE.name()) // ROLE_EMPLOYEE
-                .authorities(EMPLOYEE.getGrantedAuthorities())
-                .build();
-
-        return new InMemoryUserDetailsManager(
-                //Stores user in memory
-                User1,
-                User2,
-                User3
-        );
-    }
-
-    //ADD DOCUMENTATION FOR THIS
-//    @Override
-//    @Bean
-//    protected UserDetailsService userDetailsService() {
-//        JdbcUserDetailsManager manager = new JdbcUserDetailsManager();
-//
-//        if(adminserv.readAll() != null && empserv.readAll() != null && studserv.readAll() != null) {
-//            List<Admin> adminlist = new ArrayList<Admin>(adminserv.readAll());
-//            List<Employee> emplist = new ArrayList<Employee>(empserv.readAll());
-//            List<Student> studlist = new ArrayList<Student>(studserv.readAll());
-//
-//            /**Added three for loops for every admin, employee and student
-//             * Might seem redundant to have so much similar code, but since we don't know
-//             * the amount of different admin, students and employees there might be
-//             * that are all different, we do this dynamically.
-//             **/
-//            for (int i = 0; i < adminlist.size(); i++) {
-//                manager.createUser((UserDetails) User.builder()
-//                        .username(adminlist.get(i).getAdminFirstName())
-//                        .password(passwordEncoder.encode(adminlist.get(i).getPassword()))
-//                        .authorities(ADMIN.getGrantedAuthorities())
-//                        .build());
-//            }
-//
-//            for (int i = 0; i < emplist.size(); i++) {
-//                manager.createUser((UserDetails) User.builder()
-//                        .username(emplist.get(i).getEmpFirstName())
-//                        .password(passwordEncoder.encode(emplist.get(i).getPassword()))
-//                        .authorities(EMPLOYEE.getGrantedAuthorities())
-//                        .build());
-//            }
-//
-//            for (int i = 0; i < studlist.size(); i++) {
-//                manager.createUser((UserDetails) User.builder()
-//                        .username(studlist.get(i).getStudFirstName())
-//                        .password(passwordEncoder.encode(studlist.get(i).getPassword()))
-//                        .authorities(STUDENT.getGrantedAuthorities())
-//                        .build());
-//            }
-//
-//            return manager;
-//        }
-//
-//        return null;
-//    }
 }
