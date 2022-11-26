@@ -26,6 +26,14 @@ public class AdminController {
     private AdminService service;
     protected final static Logger logger = LoggerFactory.getLogger(AdminController.class);
 
+    /**
+     * @method saveAdmin
+     * -----------------
+     * This returns a newly created admin object
+     *
+     * @param admin - this is the object to be saved to the db
+     * @return - it returns the saved object - if successful
+     */
     @PostMapping("/admin")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Admin saveAdmin(@RequestBody Admin admin){
@@ -35,6 +43,14 @@ public class AdminController {
         return savedAdmin;
     }
 
+    /**
+     * @method getAdminById
+     * --------------------
+     * This retrieves an admin object by the AdminId attribute
+     *
+     * @param adminID - this is the PK used to search for an admin
+     * @return - it returns a selected admin object
+     */
     @GetMapping("/admin/{adminID}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Optional<Admin> getAdminByID(@PathVariable Long adminID){
@@ -42,6 +58,13 @@ public class AdminController {
         return service.read(adminID);
     }
 
+    /**
+     * @method getAllAdmin
+     * -------------------
+     * This retrieves a list of all the admin that is in the db.
+     *
+     * @return - it returns a list (not arraylist) of admin objects
+     */
     @GetMapping("/admin")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public List<Admin> getAllAdmin() {
@@ -49,6 +72,14 @@ public class AdminController {
         return service.readAll();
     }
 
+    /**
+     * @method updateAdmin()
+     * ---------------------
+     * This updates a selected admin.
+     *
+     * @param admin - this dao is the object that must be deleted
+     * @return - it returns an updated admin object
+     */
     @PutMapping("/admin")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Admin updateAdmin(@RequestBody Admin admin){
@@ -58,6 +89,13 @@ public class AdminController {
         return updatedAdmin;
     }
 
+    /**
+     * @method deleteAdmin()
+     * -------------------
+     * This deletes an admin directly from the db.
+     *
+     * @param admin - this dao is the object that must be deleted
+     */
     @DeleteMapping("/admin")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public void deleteAdmin(Admin admin){
@@ -67,13 +105,12 @@ public class AdminController {
     }
 
     /**
-     * @getAdmin()
-     *
+     * @method getAdmin()
+     * -----------------
      * This method will allow one or more admins' details to be displayed,
      * within the view admin accounts page. It's return type is ModelAndView
      * since it allows the passing of information directly to the web pages
      * through the controller, as is the MVC structure.
-     *
      */
     @RequestMapping("/admin-accounts")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
@@ -82,7 +119,6 @@ public class AdminController {
         model.addObject("admins", (List<Admin>) service.readAll());
         model.setViewName("view-admin-accounts.html");
         logger.info("All admins have been loaded from the database successfully");
-
         return model;
     }
 }

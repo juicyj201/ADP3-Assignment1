@@ -67,12 +67,4 @@ public class StudentAccountController {
 //        List<StudentAccount> studentAccounts = this.studentAccountService.readAll();
 //        return ResponseEntity.ok(studentAccounts);
 //    }
-
-    @RequestMapping("/student-accounts")
-    public ModelAndView getStudent(){
-        ModelAndView model = new ModelAndView();
-        model.addObject("students", (List<StudentAccount>) studentAccountService.readAll());
-        model.setViewName("view-student-accounts.html");
-        return model;
-    }
 }

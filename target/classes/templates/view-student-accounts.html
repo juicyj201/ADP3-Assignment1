@@ -48,17 +48,18 @@
                             however we only use the div tag for the student information.
                             -->
                         <div class="student-list-info" th:each="stud: ${students}">
-                            <div class="student-account-number" th:text="Student Account Number: ${stud.studAccountNumber}"></div>
-                            <div class="student-id" th:text="Student ID: ${stud.studentID}"></div>
+                            <div class="student-account-number" th:text="${stud.studAccountNumber}">Student Account Number: </div>
+                            <div class="student-id" th:text="${stud.studentID}">Student ID: </div>
                             <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due" th:text="Amount Due: ${stud.amountDue}"></div>
-                                <div class="student-amount-paid" th:text="Amount Paid: ${stud.amountPaid}"></div>
+                                <div class="student-amount-due" th:text="${stud.amountDue}">Amount Due: </div>
+                                <div class="student-amount-paid" th:text="${stud.amountPaid}">Amount Paid: </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <!--Add a conditional function here for selecting the student and displaying the selected student-->
         <div class="student-information-block">
             <div class="student-information-display">
                 <div class="student-information">

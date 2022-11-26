@@ -30,6 +30,8 @@ public class Student implements Serializable
     private String age;
     @Column(name = "allergies")
     private String allergies;
+    @Column(name = "password")
+    private String password;
 
 
     private Student(StudentBuilder builder){
@@ -68,7 +70,9 @@ public class Student implements Serializable
         return allergies;
     }
 
-
+    public String getPassword() {
+        return password;
+    }
     @Override
     public String toString() {
         return "Student{" + "StudentID='" + studentID + '\'' + ", StudFirstName='" + studFirstName + '\'' + ", StudSurname='" + studSurname + '\'' + ", Gender='" + gender + '\'' + ", Age=" + age + ", Allergies='" + allergies + '\'' + '}';

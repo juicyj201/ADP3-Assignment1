@@ -18,9 +18,9 @@ import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-private final StudentRepository studentRepository;
-@Autowired
-public StudentServiceImpl(StudentRepository studentRepository){
+    private final StudentRepository studentRepository;
+    @Autowired
+    public StudentServiceImpl(StudentRepository studentRepository){
         this.studentRepository = studentRepository;
     }
 
@@ -42,5 +42,9 @@ public StudentServiceImpl(StudentRepository studentRepository){
     @Override
     public Student update(Student student) {
         return this.studentRepository.save(student);
+    }
+
+    public List<Student> readAll(){
+        return this.studentRepository.findAll();
     }
 }
