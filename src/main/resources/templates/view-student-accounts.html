@@ -43,58 +43,23 @@
                 </div>
                 <div class="list">
                     <div class="list-item">
-                        <div class="student-list-info">
-                            <div class="student-account-number">Student Account Number: SAN001</div>
-                            <div class="student-id">Student ID: 001</div>
+                        <!--This div class section will allow multiple students who placed orders to appear.
+                            There is a dynamic list of students that are called once this page loads,
+                            however we only use the div tag for the student information.
+                            -->
+                        <div class="student-list-info" th:each="stud: ${students}">
+                            <div class="student-account-number" th:text="${stud.studAccountNumber}">Student Account Number: </div>
+                            <div class="student-id" th:text="${stud.studentID}">Student ID: </div>
                             <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due">Amount Due: R50</div>
-                                <div class="student-amount-paid">Amount Paid: R50</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="student-list-info">
-                            <div class="student-account-number">Student Account Number: SAN001</div>
-                            <div class="student-id">Student ID: 001</div>
-                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due">Amount Due: R50</div>
-                                <div class="student-amount-paid">Amount Paid: R50</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="student-list-info">
-                            <div class="student-account-number">Student Account Number: SAN001</div>
-                            <div class="student-id">Student ID: 001</div>
-                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due">Amount Due: R50</div>
-                                <div class="student-amount-paid">Amount Paid: R50</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="student-list-info">
-                            <div class="student-account-number">Student Account Number: SAN001</div>
-                            <div class="student-id">Student ID: 001</div>
-                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due">Amount Due: R50</div>
-                                <div class="student-amount-paid">Amount Paid: R50</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="student-list-info">
-                            <div class="student-account-number">Student Account Number: SAN001</div>
-                            <div class="student-id">Student ID: 001</div>
-                            <div class="student-amount" style="display:inline-flex; align-content: space-between;">
-                                <div class="student-amount-due">Amount Due: R50</div>
-                                <div class="student-amount-paid">Amount Paid: R50</div>
+                                <div class="student-amount-due" th:text="${stud.amountDue}">Amount Due: </div>
+                                <div class="student-amount-paid" th:text="${stud.amountPaid}">Amount Paid: </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <!--Add a conditional function here for selecting the student and displaying the selected student-->
         <div class="student-information-block">
             <div class="student-information-display">
                 <div class="student-information">
@@ -146,6 +111,10 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <!--This data table section will allow multiple orders related to the student to be displayed.
+                            There is a dynamic list of orders that are called once this page loads.
+                            While there are items in the database there should be a display of the order details.
+                            -->
                             <tr th:each="order: ${orders}">
                                 <td data-column="Order ID" th:text="${order.orderId}"></td>
                                 <td data-column="Order Description" th:text="${order.orderDesc}"></td>
@@ -167,5 +136,4 @@
     </article>
 </main>
 </body>
-
 </html>

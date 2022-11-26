@@ -66,12 +66,23 @@ public class AdminController {
         logger.info("Admin "+admin.getAdminFirstName()+", has been deleted.");
     }
 
-    //RELATING TO THE WEBAPP
+    /**
+     * @getAdmin()
+     *
+     * This method will allow one or more admins' details to be displayed,
+     * within the view admin accounts page. It's return type is ModelAndView
+     * since it allows the passing of information directly to the web pages
+     * through the controller, as is the MVC structure.
+     *
+     */
     @RequestMapping("/admin-accounts")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ModelAndView getAdmin(){
         ModelAndView model = new ModelAndView();
         model.addObject("admins", (List<Admin>) service.readAll());
         model.setViewName("view-admin-accounts.html");
+        logger.info("All admins have been loaded from the database successfully");
+
         return model;
     }
 }

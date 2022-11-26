@@ -58,55 +58,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+
+            <!--This data table section will allow an admin to be displayed.
+                There is a dynamic list of admins that are called once this page loads.
+                While there are items in the database there should be a display of the personal details of the admins.
+                -->
+            <tr th:each="admin: ${admins}">
               <td data-column="Admin First Name" th:text="${admin.adminFirstName}"></td>
               <td data-column="Admin Last Name" th:text="${admin.adminSurname}"></td>
               <td data-column="Admin Password" th:text="${admin.password}"></td>
-              <td>
-                <button class="btn btnEdit">Edit</button>
-                <button class="btn btnDelete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-column="Meal Name">Fried Chicken</td>
-              <td data-column="Meal Quantity">2</td>
-              <td data-column="Meal Price">R60</td>
-              <td>
-                <button class="btn btnEdit">Edit</button>
-                <button class="btn btnDelete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-column="Meal Name">Fried Chicken</td>
-              <td data-column="Meal Quantity">2</td>
-              <td data-column="Meal Price">R60</td>
-              <td>
-                <button class="btn btnEdit">Edit</button>
-                <button class="btn btnDelete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-column="Meal Name">Fried Chicken</td>
-              <td data-column="Meal Quantity">2</td>
-              <td data-column="Meal Price">R60</td>
-              <td>
-                <button class="btn btnEdit">Edit</button>
-                <button class="btn btnDelete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-column="Meal Name">Fried Chicken</td>
-              <td data-column="Meal Quantity">2</td>
-              <td data-column="Meal Price">R60</td>
-              <td>
-                <button class="btn btnEdit">Edit</button>
-                <button class="btn btnDelete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-column="Meal Name">Fried Chicken</td>
-              <td data-column="Meal Quantity">2</td>
-              <td data-column="Meal Price">R60</td>
               <td>
                 <button class="btn btnEdit">Edit</button>
                 <button class="btn btnDelete">Delete</button>

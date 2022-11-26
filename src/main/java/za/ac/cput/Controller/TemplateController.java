@@ -34,16 +34,6 @@ public class TemplateController {
         return "main";
     }
 
-    @RequestMapping("/student-accounts")
-    public String getStudent(){
-        return "view-student-accounts";
-    }
-
-//    @RequestMapping("/admin-accounts")
-//    public String getAdmin(){
-//        return "view-admin-accounts";
-//    }
-
     @RequestMapping("/test")
     public String getTest() {
         return "test";

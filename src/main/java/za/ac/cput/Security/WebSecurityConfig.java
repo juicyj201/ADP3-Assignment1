@@ -1,5 +1,6 @@
 package za.ac.cput.Security;
 
+import org.apache.catalina.session.PersistentManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +13,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static za.ac.cput.Security.ApplicationUserPermission.ORDER_WRITE;
@@ -104,40 +109,58 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 and()
                 .headers().frameOptions().sameOrigin();
     }
+//    @Override
+//    @Bean
+//    protected UserDetailsService userDetailsService() {
+//        UserDetails User1 = User.builder()
+//                //sets username for user
+//                .username("User1")
+//                //encodes password
+//                .password(passwordEncoder.encode("password"))
+//                // Assigns a role to user
+//                //.roles(STUDENT.name()) // ROLE_STUDENT
+//                // Assigns a permission to a user
+//                .authorities(STUDENT.getGrantedAuthorities())
+//                .build();
+//
+//        UserDetails User2 = User.builder()
+//                .username("User2")
+//                .password(passwordEncoder.encode("password"))
+////                .roles(ADMIN.name()) // ROLE_ADMIN
+//                .authorities(ADMIN.getGrantedAuthorities())
+//                .build();
+//
+//        UserDetails User3 = User.builder()
+//                .username("User3")
+//                .password(passwordEncoder.encode("password"))
+////                .roles(EMPLOYEE.name()) // ROLE_EMPLOYEE
+//                .authorities(EMPLOYEE.getGrantedAuthorities())
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(
+//                //Stores user in memory
+//                User1,
+//                User2,
+//                User3
+//        );
+//    }
+
     @Override
     @Bean
     protected UserDetailsService userDetailsService() {
         UserDetails User1 = User.builder()
-                //sets username for user
                 .username("User1")
-                //encodes password
                 .password(passwordEncoder.encode("password"))
-                // Assigns a role to user
-                //.roles(STUDENT.name()) // ROLE_STUDENT
-                // Assigns a permission to a user
-                .authorities(STUDENT.getGrantedAuthorities())
-                .build();
-
-        UserDetails User2 = User.builder()
-                .username("User2")
-                .password(passwordEncoder.encode("password"))
-//                .roles(ADMIN.name()) // ROLE_ADMIN
                 .authorities(ADMIN.getGrantedAuthorities())
                 .build();
 
-        UserDetails User3 = User.builder()
-                .username("User3")
-                .password(passwordEncoder.encode("password"))
-//                .roles(EMPLOYEE.name()) // ROLE_EMPLOYEE
-                .authorities(EMPLOYEE.getGrantedAuthorities())
-                .build();
+        //FIND A WAY TO GET THE USER DETAILS SERVICE TO CREATE A USER WITH CERTAIN PRIVILEGES, AUTONOMOUSLY.
+        JdbcUserDetailsManager man = new JdbcUserDetailsManager();
+        List<UserDetails> userlist = new ArrayList<UserDetails>();
+        userlist.add(User1);
+        man.createUser(userlist.get(1));
 
-        return new InMemoryUserDetailsManager(
-                //Stores user in memory
-                User1,
-                User2,
-                User3
-        );
+
+        return man;
     }
-
 }
