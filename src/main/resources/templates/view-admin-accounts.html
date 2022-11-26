@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
   <meta charset="UTF-8">
@@ -25,7 +25,7 @@
       <li><a href="/student-accounts">View Student Accounts</a></li>
       <li><a href="/admin-accounts" class="active">View Admin Accounts</a></li>
       <li><a href="/logged-in" class="active">View User Details</a></li>
-      <li><a href="#">Hi, Delron</a></li>
+      <li><a href="#">Hi, <span sec:authentication="name"></span></a></li>
     </ul>
   </nav>
 </header>
@@ -58,10 +58,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td data-column="Meal Name">Fried Chicken</td>
-              <td data-column="Meal Quantity">2</td>
-              <td data-column="Meal Price">R60</td>
+            <tr th:each="admin: ${admins}">
+              <td data-column="Admin First Name" th:text="${admin.adminFirstName}"></td>
+              <td data-column="Admin Last Name" th:text="${admin.adminSurname}"></td>
+              <td data-column="Admin Password" th:text="${admin.password}"></td>
               <td>
                 <button class="btn btnEdit">Edit</button>
                 <button class="btn btnDelete">Delete</button>

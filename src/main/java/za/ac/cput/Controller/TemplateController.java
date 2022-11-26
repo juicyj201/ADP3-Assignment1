@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import za.ac.cput.Domain.Entity.Admin;
 
 import java.security.Principal;
 import java.util.Collection;
@@ -15,6 +16,8 @@ import java.util.Collection;
 @Controller
 @RequestMapping("/")
 public class TemplateController {
+
+    private AdminController admincontroller;
 
     @RequestMapping("/")
     public String getIndex() {
@@ -36,14 +39,13 @@ public class TemplateController {
         return "view-student-accounts";
     }
 
-    @RequestMapping("/admin-accounts")
-    public String getAdmin(){
-        return "view-admin-accounts";
-    }
+//    @RequestMapping("/admin-accounts")
+//    public String getAdmin(){
+//        return "view-admin-accounts";
+//    }
 
     @RequestMapping("/test")
     public String getTest() {
-
         return "test";
     }
 

@@ -14,8 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,45 +26,6 @@ import static za.ac.cput.Security.ApplicationUserRole.*;
 // Informs application that method security is being used
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-
-//    @Autowired
-//    private AuthEntryPoint authEntryPoint;
-
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/securityNone").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .httpBasic()
-//                .authenticationEntryPoint(authEntryPoint);
-//
-//        http.addFilterAfter(new ResponseFilter(), ResponseFilter.class);
-//    }
-
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.authorizeHttpRequests((requests) -> {requests
-//                .antMatchers("/", "/css/*").permitAll()
-//                .antMatchers("/h2/**").permitAll()
-//                .antMatchers("/login/**").permitAll()
-//                .antMatchers("/main/**").permitAll()
-//                .antMatchers("/admin/**").permitAll()
-//                .antMatchers("/employee/**").permitAll()
-//                .anyRequest().authenticated();
-//        });
-
-//                .formLogin((form) -> form
-//                        .loginPage("/login")
-//                        .permitAll()
-//                )
-//                .logout((logout) -> logout.permitAll());
-//
-//        http.csrf().disable();
-//        http.headers().frameOptions().disable();
-//        return http.build();
-//    }
-
     private final PasswordEncoder passwordEncoder;
 
     //Invokes password encoder
@@ -155,7 +114,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .password(passwordEncoder.encode("password"))
                 // Assigns a role to user
                 //.roles(STUDENT.name()) // ROLE_STUDENT
-                // Assigns a permissions to user
+                // Assigns a permission to a user
                 .authorities(STUDENT.getGrantedAuthorities())
                 .build();
 

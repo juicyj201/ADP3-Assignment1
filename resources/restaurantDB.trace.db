@@ -11544,3 +11544,6 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/ProjectsF
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 131 more
+2022-11-26 02:37:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INFORMATION_SCHEMA[*].RIGHTS"; expected "INSERT"; SQL statement:
+INFORMATION_SCHEMA.RIGHTS [42001-200]

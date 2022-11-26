@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8">
@@ -34,7 +27,7 @@
             <li><a href="/student-accounts" class="active">View Student Accounts</a></li>
             <li><a href="/admin-accounts">View Admin Accounts</a></li>
             <li><a href="/logged-in" class="active">View User Details</a></li>
-            <li><a href="#">Hi, Delron</a></li>
+            <li><a href="#">Hi, <span sec:authentication="name"></span></a></li>
         </ul>
     </nav>
 </header>
@@ -175,6 +168,4 @@
 </main>
 </body>
 
-</html>
-</body>
 </html>

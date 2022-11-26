@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Service.Impl.AdminService;
 import za.ac.cput.Service.Impl.AdminServiceImpl;
@@ -65,4 +66,12 @@ public class AdminController {
         logger.info("Admin "+admin.getAdminFirstName()+", has been deleted.");
     }
 
+    //RELATING TO THE WEBAPP
+    @RequestMapping("/admin-accounts")
+    public ModelAndView getAdmin(){
+        ModelAndView model = new ModelAndView();
+        model.addObject("admins", (List<Admin>) service.readAll());
+        model.setViewName("view-admin-accounts.html");
+        return model;
+    }
 }
