@@ -3,31 +3,31 @@ package za.ac.cput.Security;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import za.ac.cput.Domain.Entity.Admin;
+import za.ac.cput.Domain.Entity.Student;
 
 import java.util.Collection;
 import java.util.Collections;
 
-public class AdminUserDetails implements UserDetails {
-    private final Admin admin;
-    public AdminUserDetails(Admin admin){
-        this.admin = admin;
+public class StudentUserDetails implements UserDetails {
+    private final Student student;
+    public StudentUserDetails(Student student){
+        this.student = student;
     }
 
     /**
      * @method getAuthorities
      * ----------------------
-     * This method checks and adds the admin's granted authorities.
-     * The admin has full access and permission to the web app.
+     * This method checks and adds the student's granted authority.
+     * The student has limited access compared to the admin.
      *
-     * @return - the admin role
+     * @return - the student role
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new GrantedAuthority() {
             @Override
             public String getAuthority() {
-                return "ROLE_ADMIN";
+                return "ROLE_STUDENT";
             }
         });
     }
@@ -36,7 +36,7 @@ public class AdminUserDetails implements UserDetails {
      * @method getPassword
      * -------------------
      * Initialises the password encoder object and scrambles
-     * the admin user password for safety purposes.
+     * the student user password for safety purposes.
      *
      * @return - it returns the encoded password
      */
@@ -44,20 +44,20 @@ public class AdminUserDetails implements UserDetails {
     public String getPassword() {
         PasswordConfig pconfig = new PasswordConfig();
         PasswordEncoder encoder = pconfig.passwordEncoder();
-        return encoder.encode(admin.getPassword());
+        return encoder.encode(student.getPassword());
     }
 
     /**
      * @method getUsername
      * -------------------
-     * Retrieves the admin first name as a placeholder
+     * Retrieves the student first name as a placeholder
      * for the login username.
      *
      * @return - it returns the username object
      */
     @Override
     public String getUsername() {
-        return admin.getAdminFirstName();
+        return this.student.getStudFirstName();
     }
 
     /**

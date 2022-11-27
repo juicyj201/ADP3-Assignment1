@@ -29,7 +29,11 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="90a506da-e606-4169-9121-e1404438f60c">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[INSERT INTO ADMIN VALUES (1, 'Johan', 'Liebert', 'Manager', 'bababoi');
+INSERT INTO EMPLOYEE VALUES (1, 'Mad', 'Max', 'bababoi', '2');
+INSERT INTO STUDENT VALUES ('16', 'Peanut Allergy', 'Male', 'bababoi', 2, 'Micheal', 'Jackson');
+INSERT INTO STUDENT_ACCOUNT VALUES (2, '50', '50', '2');
+INSERT INTO ORDERS VALUES (6, 'Sandwiches with tuna-mayo and egg-mayo varities', '6', '59', '2', 'Lunch Sandwiches');]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -74,7 +78,7 @@
       <connection id="90a506da-e606-4169-9121-e1404438f60c" active="true" signed="true">
         <database>
           <name value="Connection" />
-          <description value="H2 Database connection" />
+          <description value="" />
           <database-type value="GENERIC" />
           <config-type value="CUSTOM" />
           <database-version value="9999.0" />
@@ -113,7 +117,7 @@
           <connect-automatically value="true" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="false" />
-          <environment-type value="default" />
+          <environment-type value="development" />
           <connectivity-timeout value="5" />
           <idle-time-to-disconnect value="30" />
           <idle-time-to-disconnect-pool value="5" />
