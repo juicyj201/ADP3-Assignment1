@@ -15,11 +15,8 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method getAuthorities
-     * ----------------------
      * This method checks and adds the student's granted authority.
      * The student has limited access compared to the admin.
-     *
      * @return - the student role
      */
     @Override
@@ -33,11 +30,8 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method getPassword
-     * -------------------
      * Initialises the password encoder object and scrambles
      * the student user password for safety purposes.
-     *
      * @return - it returns the encoded password
      */
     @Override
@@ -48,11 +42,8 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method getUsername
-     * -------------------
      * Retrieves the student first name as a placeholder
      * for the login username.
-     *
      * @return - it returns the username object
      */
     @Override
@@ -61,10 +52,7 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method isAccountNonExpired
-     * ---------------------------
      * This method is used to check whether the account is expired
-     *
      * @return - this is a boolean value
      */
     @Override
@@ -73,10 +61,7 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method isAccountNonLocked
-     * ---------------------------
      * This method is used to check whether the account is locked
-     *
      * @return - this is a boolean value
      */
     @Override
@@ -85,10 +70,7 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method isCredentialsNonExpired
-     * ---------------------------
      * This method is used to check whether the credentials is expired
-     *
      * @return - this is a boolean value
      */
     @Override
@@ -97,10 +79,7 @@ public class StudentUserDetails implements UserDetails {
     }
 
     /**
-     * @method isEnabled
-     * ---------------------------
      * This method is used to check whether the user account is enabled for use
-     *
      * @return - this is a boolean value
      */
     @Override

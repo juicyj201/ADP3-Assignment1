@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdminServiceImpl implements AdminService, UserDetailsService {
+public class AdminServiceImpl implements AdminService {
     private final AdminRepository repo;
 
     @Autowired
@@ -98,13 +98,5 @@ public class AdminServiceImpl implements AdminService, UserDetailsService {
         }else{
             System.out.println("Error: Admin not found.");
         }
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if(repo.findAll().iterator().next().getAdminFirstName().equals(username)) {
-            return new AdminUserDetails(repo.findAll().iterator().next());
-        }
-        return null;
     }
 }

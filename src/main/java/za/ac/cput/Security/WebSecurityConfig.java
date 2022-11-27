@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -15,56 +16,40 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
-import za.ac.cput.Domain.Entity.Admin;
-import za.ac.cput.Domain.Entity.Employee;
-import za.ac.cput.Domain.Entity.Student;
+
 import za.ac.cput.Service.Impl.AdminServiceImpl;
+import za.ac.cput.Service.Impl.CustomUserDetailsService;
 import za.ac.cput.Service.Impl.EmployeeServiceImpl;
 import za.ac.cput.Service.Impl.StudentServiceImpl;
-
-import java.util.*;
 import java.util.concurrent.TimeUnit;
-
-import static za.ac.cput.Security.ApplicationUserPermission.ORDER_WRITE;
-import static za.ac.cput.Security.ApplicationUserPermission.STUDENT_WRITE;
-import static za.ac.cput.Security.ApplicationUserRole.*;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-    private final PasswordEncoder passwordEncoder;
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AdminServiceImpl adminserv;
     @Autowired
     private EmployeeServiceImpl empserv;
     @Autowired
     private StudentServiceImpl studserv;
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
 
     /**
-     * @method WebSecurityConfig()
-     * -------------------------
-     * Initialises the password encoder object for use in the
-     * UserDetails method.
-     *
-     * @param passwordEncoder - this scrambles a user's password for safety purposes
+     * This is similar to the other config methods
+     * however, this allows the custom user details to be set
+     * @param auth - the authentication manager object
+     * @throws Exception - general exception handling
      */
-    @Autowired
-    public WebSecurityConfig(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
     }
 
     /**
-     * @method configure()
-     * -----------------
      * Similar to the configure method using the http parameter.
      * We do not use this method to it's full extent, for redundancy reasons.
-     *
      * @param web - this allows us to use the web security support
      */
     @Override
@@ -73,13 +58,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
     /**
-     * @method configure()
-     * -----------------
      * This method allows the site administrator (us) to change
      * the access to the web pages. There are several configurations
      * made, but the most important sections include the csrf token,
      * antMatchers, login info, rememberme, and logout info.
-     *
      * @param http - this allows us to use the http security support for website administration
      * @throws Exception - this is required by the http method call should any errors arise
      */
@@ -89,11 +71,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/index", "/css/**", "/static/**", "/js/**", "/images/**", "/h2/**", "/Error").permitAll()
-                // Maps permissions to api - this means that you need a certain permission to access or use the api
-                // Uses permissions to access/protect api -> .hasAuthority(permission)
-                // Order in which the antMatchers are specified matters
-                // - e.g. if you allow give student access to an api before you add an Admin access layer
-                // than the student will be able to access it
+                 /**
+                  * Maps permissions to api - this means that you need a certain permission to access or use the api
+                  * Uses permissions to access/protect api -> .hasAuthority(permission)
+                  * Order in which the antMatchers are specified matters
+                  * - e.g. if you allow give student access to an api before you add an Admin access layer
+                  * than the student will be able to access it
+                  **/
                 .anyRequest()
                 .authenticated()
                 .and()

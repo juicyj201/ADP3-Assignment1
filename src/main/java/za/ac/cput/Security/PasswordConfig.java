@@ -8,11 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class PasswordConfig {
     /**
-     * @method passwordEncoder
-     * -----------------------
      * This returns a password encoder (scrambler) for user
      * security purposes. It is used only by the webconfig methods.
-     *
      * @return - returns a password encoder object
      */
     @Bean

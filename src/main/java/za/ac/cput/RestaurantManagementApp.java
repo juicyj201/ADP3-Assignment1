@@ -9,16 +9,17 @@ import org.springframework.stereotype.Component;
  * Joshua Julies
  * 220102473
  * The Spring Boot Application
+ *
+ * @author Group 22
+ * @version 1.2
+ * @since 2022
  */ 
 
 @SpringBootApplication
 public class RestaurantManagementApp
 {
     /**
-     * @method main
-     * ------------
      * Runs and compiles the spring boot application live
-     *
      * @param args
      */
     public static void main( String[] args )

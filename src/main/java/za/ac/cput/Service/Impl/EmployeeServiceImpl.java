@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService, UserDetailsService {
+public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository repo;
 
     @Autowired
@@ -85,13 +85,5 @@ public class EmployeeServiceImpl implements EmployeeService, UserDetailsService 
             System.out.println("Error: Employee not found.");
             return null;
         }
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if(repo.findAll().iterator().next().getEmpFirstName().equals(username)) {
-            return new EmployeeUserDetails(repo.findAll().iterator().next());
-        }
-        return null;
     }
 }

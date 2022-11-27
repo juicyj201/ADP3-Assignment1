@@ -11,13 +11,10 @@ import za.ac.cput.Domain.Entity.Util.Validation;
 
 public class PaymentFactory {
     /**
-     * @method buildPayment
-     * --------------------
      * This method allows for the unlinked creation of admin objects.
      * It's use is however currently not that important. Once the
      * creation of database entities from this factory using a
      * mini-system has been designed, it will have more functionality
-     *
      * @param paymentID - This is the PK of the payment entity
      * @param studentAccountID - This is the related FK of the student account
      * @param paymentDate - This is the date that the payment had been made

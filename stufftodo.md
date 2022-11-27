@@ -1,6 +1,4 @@
 # Stuff i still need to do
 
-### 1. Documentation still has to be made for all classes
-
-### 2. Fix ddb connection for permanent storage
-
+### 1. Fix unit tests 
+(remember they can be for the entire package instead of one class for each)

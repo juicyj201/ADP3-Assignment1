@@ -99,6 +99,7 @@ public class TemplateController {
      * @method getLoggedInUser
      * ----------------------
      * This checks if the user is logged in
+     *
      * @param auth - this allows authentication support for user information
      * @return - it returns a ModelAndView object which is necessary for the model-object structure we have.
      */

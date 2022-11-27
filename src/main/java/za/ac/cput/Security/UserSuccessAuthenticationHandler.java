@@ -15,12 +15,9 @@ public class UserSuccessAuthenticationHandler extends SimpleUrlAuthenticationSuc
     SimpleUrlAuthenticationSuccessHandler adminSuccess = new SimpleUrlAuthenticationSuccessHandler("/view-admin-accounts");
 
     /**
-     * @method onAuthenticationSuccess
-     * -------------------------------
      * This checks whether a user has a certain role or authority
      * (namely Admin, Employee and Student) and redirects to the right address after authentication
      * has succeeded
-     *
      * @param request - This is the servlet request that comes from the previous page's redirect
      * @param response - This is the response we send on auth success
      * @param authentication - this allows us to access the different authority types

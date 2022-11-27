@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceImpl implements StudentService, UserDetailsService {
+public class StudentServiceImpl implements StudentService{
     private final StudentRepository studentRepository;
     @Autowired
     public StudentServiceImpl(StudentRepository studentRepository){
@@ -51,13 +51,5 @@ public class StudentServiceImpl implements StudentService, UserDetailsService {
 
     public List<Student> readAll(){
         return this.studentRepository.findAll();
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if(studentRepository.findAll().iterator().next().getStudFirstName().equals(username)) {
-            return new StudentUserDetails(studentRepository.findAll().iterator().next());
-        }
-        return null;
     }
 }

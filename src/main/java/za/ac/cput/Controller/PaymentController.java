@@ -24,8 +24,6 @@ public class PaymentController {
     protected final static Logger logger = LoggerFactory.getLogger(PaymentController.class);
 
     /**
-     * @construct PaymentController
-     * ----------------------------
      * This is the constructor of the payment MVC object.
      * This controller uses dependency-injection for the service object,
      * similarly in the service implementations for the repository objects

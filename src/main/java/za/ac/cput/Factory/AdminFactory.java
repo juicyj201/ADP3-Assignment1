@@ -11,13 +11,10 @@ import za.ac.cput.Domain.Entity.Util.Validation;
 
 public class AdminFactory {
     /**
-     * @method buildAdmin
-     * ------------------
      * This method allows for the unlinked creation of admin objects.
      * It's use is however currently not that important. Once the
      * creation of database entities from this factory using a
      * mini-system has been designed, it will have more functionality
-     *
      * @param adminID - This is the PK of the admin object
      * @param adminType - This is the type of the admin user
      * @param adminFirstName - This is the first name of the admin
