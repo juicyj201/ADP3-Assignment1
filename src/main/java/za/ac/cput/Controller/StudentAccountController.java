@@ -7,11 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.ModelAndView;
+import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.StudentAccount;
 import za.ac.cput.Service.Impl.StudentAccountService;
 import za.ac.cput.Service.Impl.StudentAccountServiceImpl;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,7 +26,6 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/studentAccount")
 public class StudentAccountController {
 
     private final StudentAccountService studentAccountService;
@@ -34,41 +36,35 @@ public class StudentAccountController {
         this.studentAccountService = studentAccountService;
     }
 
-    @PostMapping("save/")
+    @PostMapping("student-account/save/")
     public StudentAccount save(@RequestBody @Valid StudentAccount studentAccount) {
             log.info("Saving Student account: {}", studentAccount);
             return studentAccountService.save(studentAccount);
     }
 
-    @GetMapping("read/{studAccountNumber}")
-    public Optional<StudentAccount> read(@PathVariable long studAccountNumber){
+    @GetMapping("student-account/read/{studAccountNumber}")
+    public Optional<StudentAccount> read(@PathVariable Long studAccountNumber){
         log.info("Locating student account: {}", studAccountNumber);
         return studentAccountService.read(studAccountNumber);
 
     }
 
-    @PutMapping("update/")
+    @PutMapping("student-account/update/")
     public StudentAccount update(@RequestBody StudentAccount studentAccount){
         log.info("Updating student account: {}", studentAccount);
         return studentAccountService.save(studentAccount);
     }
 
-    @DeleteMapping("delete/")
+    @DeleteMapping("student-account/delete/")
     public void delete(@RequestBody StudentAccount studentAccount){
         log.info("Deleting student account: {}", studentAccount);
         this.studentAccountService.delete(studentAccount);
         log.info("Student account deleted: {}", studentAccount);
     }
 
-
 //    @GetMapping("readAll")
 //    public ResponseEntity<List<StudentAccount>> readAll(){
 //        List<StudentAccount> studentAccounts = this.studentAccountService.readAll();
 //        return ResponseEntity.ok(studentAccounts);
 //    }
-
-
-
-
-
 }

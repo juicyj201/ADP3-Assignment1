@@ -1,10 +1,13 @@
 package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Domain.Entity.Employee;
 import za.ac.cput.Repository.EmployeeRepository;
+import za.ac.cput.Security.EmployeeUserDetails;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +20,7 @@ import java.util.Optional;
  */
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository repo;
 
     @Autowired
@@ -35,11 +38,6 @@ public class EmployeeServiceImpl implements EmployeeService{
             System.out.println("Error: Employee not found");
             return null;
         }
-    }
-
-    @Override
-    public Optional<Employee> read(String employeeNum) {
-        return Optional.empty();
     }
 
     @Override

@@ -23,11 +23,16 @@ public class PaymentController {
     private PaymentService service;
     protected final static Logger logger = LoggerFactory.getLogger(PaymentController.class);
 
+    /**
+     * This is the constructor of the payment MVC object.
+     * This controller uses dependency-injection for the service object,
+     * similarly in the service implementations for the repository objects
+     * to prevent against dependency-injection attacks.
+     * @param paymentService
+     */
     @Autowired
     public PaymentController(PaymentServiceImpl paymentService){
         this.service = paymentService;
-        //side note - controller uses dependency injection for the service object,
-        //similarly in the service implementations for the repository objects.
     }
 
     @PostMapping("/payment")

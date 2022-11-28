@@ -12,7 +12,7 @@ import java.util.Optional;
  * Meal Service interface
  */
 
-public interface MealService extends IService<Meal, String> {
+public interface MealService extends IService<Meal, Long> {
     public Meal save(Meal meal);
     public Optional<Meal> read(Meal meal);
     public void delete(Meal meal);

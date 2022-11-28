@@ -12,9 +12,9 @@ import java.util.Optional;
  * The payment service interface
  */
 
-public interface PaymentService extends IService<Payment, String> {
+public interface PaymentService extends IService<Payment, Long> {
     public Payment save(Payment payment);
-    public Optional<Payment> read(String paymentID);
+    public Optional<Payment> read(Long paymentID);
     public List<Payment> readAll();
     public Payment update(Payment payment);
     public void delete(Payment payment);

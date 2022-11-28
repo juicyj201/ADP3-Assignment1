@@ -19,14 +19,9 @@ public class StudentAccountServiceImpl implements StudentAccountService {
     private List<StudentAccount> studentAccountList;
     private static StudentAccountService studentAccountService;
 
-public StudentAccountServiceImpl(StudentAccountRepository studentAccountRepository){
-    StudentAccountServiceImpl.studentAccountRepository = studentAccountRepository;
-}
-//    public static StudentAccountService getService(){
-//        if(studentAccountService == null){
-//            studentAccountService = new StudentAccountServiceImpl();}
-//        return studentAccountService;
-//    }
+    public StudentAccountServiceImpl(StudentAccountRepository studentAccountRepository){
+        StudentAccountServiceImpl.studentAccountRepository = studentAccountRepository;
+    }
 
     @Override
     public StudentAccount save(StudentAccount studentAccount) {
@@ -45,11 +40,6 @@ public StudentAccountServiceImpl(StudentAccountRepository studentAccountReposito
                 .stream()
                 .filter(a -> a.getStudAccountNumber().equals(studAccountNumber))
                 .findFirst();
-    }
-
-    @Override
-    public Optional<StudentAccount> read(String ID) {
-        return Optional.empty();
     }
 
     @Override

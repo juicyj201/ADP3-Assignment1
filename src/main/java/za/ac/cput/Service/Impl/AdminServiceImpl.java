@@ -1,9 +1,13 @@
 package za.ac.cput.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Entity.Admin;
 import za.ac.cput.Repository.AdminRepository;
+import za.ac.cput.Security.AdminUserDetails;
 
 import java.util.Collections;
 import java.util.List;
@@ -28,11 +32,6 @@ public class AdminServiceImpl implements AdminService {
             System.out.println("Error: Admin not found");
             return null;
         }
-    }
-
-    @Override
-    public Optional<Admin> read(String ID) {
-        return Optional.empty();
     }
 
     @Override
@@ -100,6 +99,4 @@ public class AdminServiceImpl implements AdminService {
             System.out.println("Error: Admin not found.");
         }
     }
-
-
 }

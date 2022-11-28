@@ -1,0 +1,6 @@
+2022-11-26 04:56:49 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "STUDENT_ACCOUT" not found; SQL statement:
+SELECT * FROM STUDENT_ACCOUT [42102-200]
+2022-11-26 15:10:25 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Lunch sandwiches with tuna-mayo and egg-mayo varities' (ORDERS: ""ORDER_ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO ORDERS VALUES ('Lunch sandwiches with tuna-mayo and egg-mayo varities', 6, '6', '59', '2', 'Lunch Sandwiches') [22018-200]

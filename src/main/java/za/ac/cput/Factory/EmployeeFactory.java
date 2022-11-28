@@ -10,7 +10,7 @@ import za.ac.cput.Domain.Entity.Employee;
 
 public class EmployeeFactory
 {
-    public static Employee createEmployee(String employeeNum, String empFirstName, String empLastName, String studentAccountID)
+    public static Employee createEmployee(Long employeeNum, String empFirstName, String empLastName, String studentAccountID)
     {
         if(employeeNum == null)
             return null;
