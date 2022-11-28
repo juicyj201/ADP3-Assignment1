@@ -27,58 +27,58 @@ class MealControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-
-    @BeforeEach
-    void setUp() {
-        assertNotNull(mealController);
-        this.newMeal = MealFactory.createMeal(1000L, "Cheeseburger", "Coke", "Peanuts");
-        this.baseURL = "http://localhost:"+this.baseport+"/meal/";
-        System.out.println(newMeal);
-    }
-
-
-    @Test
-    public void addMeal(){
-        String url = baseURL + "save/";
-        System.out.println(url);
-        try {
-            Assertions.assertNotNull(mealController.addMeal(newMeal));
-        }catch(NullPointerException npe) {
-            npe.getMessage();
-            npe.getStackTrace();
-        }
-        System.out.println(this.newMeal.getOrderId()+ ": Has been saved");}
-
-    @Test
-    public void testRead(){
-
-        try {
-            Assertions.assertNotNull(mealController.getMeal(newMeal));
-        }catch(NullPointerException nullPointerException){
-            nullPointerException.getMessage();
-            nullPointerException.getStackTrace();
-        }
-        System.out.println("Student Account Found: " + newMeal);
-    }
-
-
-    @Test
-    public void testDelete(){
-        String url = baseURL + "delete/" + this.newMeal.getOrderId();
-        this.restTemplate.delete(url);
-        System.out.println("Student Account deleted: " + this.newMeal.getOrderId()+"\n"+url);
-    }
-
-    @Test
-    public void testUpdate(){
-        String url = baseURL + "update/" + this.newMeal.getOrderId();
-        System.out.println(url);
-        this.restTemplate.put(url, newMeal);
-        System.out.println("Student Account updated: " + this.newMeal.getOrderId()+"\n"+url);
-
-
-    }
-
+//
+//    @BeforeEach
+//    void setUp() {
+//        assertNotNull(mealController);
+//        this.newMeal = MealFactory.createMeal(1000L, "Cheeseburger", "Coke", "Peanuts");
+//        this.baseURL = "http://localhost:"+this.baseport+"/meal/";
+//        System.out.println(newMeal);
+//    }
+//
+//
+//    @Test
+//    public void addMeal(){
+//        String url = baseURL + "save/";
+//        System.out.println(url);
+//        try {
+//            Assertions.assertNotNull(mealController.addMeal(newMeal));
+//        }catch(NullPointerException npe) {
+//            npe.getMessage();
+//            npe.getStackTrace();
+//        }
+//        System.out.println(this.newMeal.getOrderId()+ ": Has been saved");}
+//
+//    @Test
+//    public void testRead(){
+//
+//        try {
+//            Assertions.assertNotNull(mealController.getMeal(newMeal));
+//        }catch(NullPointerException nullPointerException){
+//            nullPointerException.getMessage();
+//            nullPointerException.getStackTrace();
+//        }
+//        System.out.println("Student Account Found: " + newMeal);
+//    }
+//
+//
+//    @Test
+//    public void testDelete(){
+//        String url = baseURL + "delete/" + this.newMeal.getOrderId();
+//        this.restTemplate.delete(url);
+//        System.out.println("Student Account deleted: " + this.newMeal.getOrderId()+"\n"+url);
+//    }
+//
+//    @Test
+//    public void testUpdate(){
+//        String url = baseURL + "update/" + this.newMeal.getOrderId();
+//        System.out.println(url);
+//        this.restTemplate.put(url, newMeal);
+//        System.out.println("Student Account updated: " + this.newMeal.getOrderId()+"\n"+url);
+//
+//
+//    }
+//
 
 
 }
