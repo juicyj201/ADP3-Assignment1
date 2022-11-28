@@ -12,12 +12,12 @@ import org.springframework.boot.SpringApplication;
  */
 public class RestaurantManagementTest
 {
-    @Test
-    public void testMain() {
-        try {
-            Assertions.assertDoesNotThrow((Executable) SpringApplication.run(RestaurantManagementApp.class));
-        }catch(Exception e){
-            e.getMessage();
-        }
-    }
+//    @Test
+//    public void testMain() {
+//        try {
+//            Assertions.assertDoesNotThrow((Executable) SpringApplication.run(RestaurantManagementApp.class));
+//        }catch(Exception e){
+//            e.getMessage();
+//        }
+//    }
 }

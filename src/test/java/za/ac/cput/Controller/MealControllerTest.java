@@ -17,16 +17,15 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class MealControllerTest {
-
-    private MealController mealController;
-    private Meal newMeal = MealFactory.createMeal(1000L, "Cheeseburger", "Coke", "Peanuts");
-
-    @LocalServerPort
-    private int baseport;
-    private String baseURL;
-    @Autowired
-    private TestRestTemplate restTemplate;
-
+//
+//    private MealController mealController;
+//    private Meal newMeal = MealFactory.createMeal(1000L, "Cheeseburger", "Coke", "Peanuts");
+//
+//    @LocalServerPort
+//    private int baseport;
+//    private String baseURL;
+//    @Autowired
+//    private TestRestTemplate restTemplate;
 //
 //    @BeforeEach
 //    void setUp() {
@@ -78,7 +77,4 @@ class MealControllerTest {
 //
 //
 //    }
-//
-
-
 }
