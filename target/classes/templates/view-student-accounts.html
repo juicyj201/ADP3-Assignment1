@@ -42,16 +42,17 @@
                     </div>
                 </div>
                 <div class="list">
-                    <div class="list-item">
+                    <div class="list-item" th:each="stud: ${students}">
                         <!--This div class section will allow multiple students who placed orders to appear.
                             There is a dynamic list of students that are called once this page loads,
                             however we only use the div tag for the student information.
 
-                            Side note: for thymeleaf there is options for string literal substitution. I used it.
+                            Side note 1: for thymeleaf there is options for string literal substitution. I used it.
+                            Side Note 2: We use the onclick here as well as javascript to populate the data for the related div
 
-                            TODO make sure each student is shown on a different list
+                            TODO make sure that the onPress function works as intended
                             -->
-                        <div th:each="stud: ${students}" class="student-list-info" >
+                        <div class="student-list-info" th:onclick="'javascript:onPress(\''+${stud.studAccountNumber} +'\');'">
                             <div class="student-account-number" th:text="|Student Account Number: ${stud.studAccountNumber}|"></div>
                             <div class="student-id" th:text="|Student ID: ${stud.studentID}|"></div>
                             <div class="student-amount" style="display:inline-flex; align-content: space-between;">
@@ -63,11 +64,11 @@
                 </div>
             </form>
         </div>
-        <!--TODO make sure this conditional thymeleaf block works and displays information for the selected student-->
+        <!--TODO make sure this conditional works with the javascript function and displays information for the selected student-->
         <div class="student-information-block">
             <div class="student-information-display">
-                <div th:each="student: ${students2}" class="student-information" >
-                    <div class="student-personal-information" th:if="${stud.studentID} == ${student.studentID}">
+                <div class="student-information" th:each="student: ${students2}" >
+                    <div class="student-personal-information" th:onload="'javascript:pressed(\''+${student.studAccountNumber}+'\');'">
                         <div class="inline-info">
                             <div class="student-account-number" th:text="|Student Account Number: ${stud.studAccountNumber}|"></div>
                             <div class="student-id" th:text="|Student ID: ${student.studentID}|"></div>
@@ -137,5 +138,15 @@
         </div>
     </article>
 </main>
+<script>
+    function onPress(accNum){
+        window.num = accNum;
+    }
+
+    function pressed(studAccNum){
+        if(accNum == studAccNum)
+            return true;
+    }
+</script>
 </body>
 </html>

@@ -6,7 +6,7 @@ Student Accounts, Meals, Orders and Restaurant information (if needed).
 Thank you for viewing this web application 🙂
 
 # How to run 
-To install, simply unpack the zip file and locate the `RestaurantManagementApp.java` file under `src` directory:
+1. To install, simply unpack the zip file and locate the `RestaurantManagementApp.java` file under `src` directory:
 ```
 +---src
 |   +---main
@@ -16,6 +16,13 @@ To install, simply unpack the zip file and locate the `RestaurantManagementApp.j
 |   |   |           \---cput
 |   |   |               |   RestaurantManagementApp.java
 ```
+
+2. To login you need to have the username and password, for example:
+   
+    Username: Johan
+
+    Password: bababoi
+
 
 # How to find files
 Our project uses convention based folder names and structures:
