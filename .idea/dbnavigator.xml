@@ -29,11 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="90a506da-e606-4169-9121-e1404438f60c">
-      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[INSERT INTO ADMIN VALUES (1, 'Johan', 'Liebert', 'Manager', 'bababoi');
-INSERT INTO EMPLOYEE VALUES (1, 'Mad', 'Max', 'bababoi', '2');
-INSERT INTO STUDENT VALUES ('16', 'Peanut Allergy', 'Male', 'bababoi', 2, 'Micheal', 'Jackson');
-INSERT INTO STUDENT_ACCOUNT VALUES (2, '50', '50', '2');
-INSERT INTO ORDERS VALUES (6, 'Sandwiches with tuna-mayo and egg-mayo varities', '6', '59', '2', 'Lunch Sandwiches');]]></console>
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -50,7 +46,7 @@ INSERT INTO ORDERS VALUES (6, 'Sandwiches with tuna-mayo and egg-mayo varities',
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
     <mapping file-url="file://$PROJECT_DIR$" connection-id="01e5d352-30b4-459d-807d-8ab44a761689" session-id="MAIN" current-schema="" />
-    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/premade script.sql" connection-id="" session-id="" current-schema="" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/premade script.sql" connection-id="" session-id="MAIN" current-schema="" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
